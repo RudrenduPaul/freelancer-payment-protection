@@ -1,18 +1,50 @@
-# Reference docs (local context only)
-reference-docs-context/
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
 
-# macOS
-.DS_Store
+# Build outputs
+.next/
+.turbo/
+dist/
+build/
+out/
 
-# Environment variables
+# Environment files — NEVER commit real secrets
 .env
 .env.local
-.env*.local
-
-# Node
-node_modules/
+.env.*.local
+*.env
 
 # Python
 __pycache__/
 *.pyc
+*.pyo
 .venv/
+venv/
+*.egg-info/
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# Local dev databases — no credentials in these
+*.db
+*.sqlite
+*.sqlite3
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/settings.json
+*.swp
+
+# Reference docs (local strategy docs — not for public repo)
+reference-docs-context/
+
+# Generated PDFs / docs (created at runtime)
+generated-docs/
+tmp/
