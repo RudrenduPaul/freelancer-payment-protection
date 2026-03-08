@@ -1,0 +1,42 @@
+import type { EscalationEvent } from '../../types/escalation.types';
+
+export const mockEscalationEvents: EscalationEvent[] = [
+  {
+    id: 'esc_001',
+    invoiceId: 'inv_001',
+    clientId: 'client_001',
+    stage: 'polite_reminder',
+    emailSubject: 'Following up on INV-2026-0041 ($8,500)',
+    emailBody: 'Hi Marcus, I wanted to follow up on invoice INV-2026-0041 for $8,500, which was due on January 15th...',
+    generatedByAI: true,
+    aiConfidenceScore: 91,
+    sentAt: new Date('2026-01-22'),
+    openedAt: new Date('2026-01-23'),
+    outcome: 'no_response',
+  },
+  {
+    id: 'esc_002',
+    invoiceId: 'inv_001',
+    clientId: 'client_001',
+    stage: 'firm_notice',
+    emailSubject: 'URGENT: Invoice INV-2026-0041 — 14 Days Overdue',
+    emailBody: 'Marcus, as per our agreement dated December 15th, payment of $8,500 was due January 15th...',
+    generatedByAI: true,
+    aiConfidenceScore: 87,
+    sentAt: new Date('2026-02-05'),
+    openedAt: new Date('2026-02-06'),
+    outcome: 'no_response',
+  },
+  {
+    id: 'esc_003',
+    invoiceId: 'inv_001',
+    clientId: 'client_001',
+    stage: 'final_warning',
+    emailSubject: 'Final Notice — INV-2026-0041 — Formal Process Pending',
+    emailBody: 'This is a formal final notice. Payment of $8,500 for invoice INV-2026-0041 is 45 days overdue...',
+    generatedByAI: true,
+    aiConfidenceScore: 94,
+    sentAt: new Date('2026-02-28'),
+    outcome: 'no_response',
+  },
+];
