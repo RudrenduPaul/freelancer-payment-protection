@@ -9,6 +9,7 @@ from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 from apps.api.app.config import settings
+from apps.api.app.middleware.rate_limit import limiter
 from apps.api.app.routers import (
     clients,
     invoices,
@@ -23,18 +24,17 @@ from apps.api.app.routers import (
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup: could validate DB connection here
+    # Auto-create tables in development (production uses Alembic migrations)
+    if settings.environment == "development" or settings.environment == "test":
+        from apps.api.app.database import create_all_tables
+        create_all_tables()
     yield
-    # Shutdown: cleanup if needed
 
-
-limiter = Limiter(key_func=get_remote_address)
 
 app = FastAPI(
     title="Bad Cop CRM API",
     description="Freelancer payment protection — automated escalation and legal document generation",
     version="1.0.0",
-    # Disable docs in production
     docs_url="/docs" if settings.environment != "production" else None,
     redoc_url="/redoc" if settings.environment != "production" else None,
     lifespan=lifespan,

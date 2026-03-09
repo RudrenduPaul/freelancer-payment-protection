@@ -8,10 +8,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
 from typing import Generator
 
-# Default to SQLite for local dev — no credentials needed
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./dev.db")
 
-# SQLite needs check_same_thread=False for async use
 connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
 
 engine = create_engine(
@@ -30,3 +28,13 @@ def get_db() -> Generator[Session, None, None]:
         yield db
     finally:
         db.close()
+
+
+def create_all_tables() -> None:
+    """
+    Create all tables in the database.
+    Used for local dev and tests. In production, use Alembic migrations.
+    """
+    import apps.api.app.models  # noqa: F401 — registers all models
+    from apps.api.app.models.base import Base
+    Base.metadata.create_all(bind=engine)
