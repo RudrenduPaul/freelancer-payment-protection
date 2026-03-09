@@ -2,9 +2,16 @@
 
 > Stop chasing clients. Let the product do it.
 
-[![CI](https://github.com/RudrenduPaul/freelancer-payment-protection/actions/workflows/ci.yml/badge.svg)](https://github.com/RudrenduPaul/freelancer-payment-protection/actions/workflows/ci.yml)
-[![Security Audit](https://github.com/RudrenduPaul/freelancer-payment-protection/actions/workflows/security.yml/badge.svg)](https://github.com/RudrenduPaul/freelancer-payment-protection/actions/workflows/security.yml)
-[![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](./LICENSE)
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?style=flat&logo=fastapi&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=flat&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.4-3178C6?style=flat&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=flat&logo=supabase&logoColor=white)
+![Claude AI](https://img.shields.io/badge/Claude-Sonnet_4.6-D4A017?style=flat&logo=anthropic&logoColor=white)
+![Celery](https://img.shields.io/badge/Celery-Redis_Queue-37814A?style=flat&logo=celery&logoColor=white)
+![Turborepo](https://img.shields.io/badge/Turborepo-Monorepo-EF4444?style=flat&logo=turborepo&logoColor=white)
+![License: Proprietary](https://img.shields.io/badge/License-Proprietary-1a1a2e?style=flat)
 
 **Built by [Rudrendu Paul](https://github.com/RudrenduPaul) & Sourav Nandy**
 
