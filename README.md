@@ -62,7 +62,6 @@ We built the bad cop so freelancers don't have to be.
 <td align="center"><a href="#ai-under-the-hood"><b>AI Engine</b></a></td>
 <td align="center"><a href="#architecture"><b>Architecture</b></a></td>
 <td align="center"><a href="#quick-start"><b>Quick Start</b></a></td>
-<td align="center"><a href="#for-investors"><b>For Investors</b></a></td>
 </tr>
 </table>
 
@@ -81,7 +80,7 @@ We built the bad cop so freelancers don't have to be.
      → 5-column kanban with amount-at-stake per column, flame icon on critical cards
 
   3. /docs/screenshots/03-demand-letter.gif
-     → Streaming typewriter effect as Claude generates the demand letter in real time
+     → Streaming typewriter effect as our AI engine generates the demand letter in real time
 
   4. /docs/screenshots/04-client-risk.png
      → Client detail page: risk score counting 0→82, factor breakdown with progress bars, AI reasoning
@@ -101,8 +100,8 @@ FreshBooks handles invoicing. HoneyBook handles proposals. HubSpot handles CRM. 
 When a client goes silent after delivery, freelancers are left with a choice: be "difficult" and chase — or be professional and absorb the loss. That double bind is the entire product.
 
 ```
-What exists today:                    What Bad Cop fills:
-──────────────────                    ────────────────────
+What exists today:                    Freelancer Payment Protection Solution:
+──────────────────                    ───────────────────────────────────────
 Invoice sent ✓                        Invoice sent ✓
 Payment expected...                   Payment expected...
 [silence]                             → Day 7:  AI Polite Reminder (tone-calibrated)
@@ -125,7 +124,7 @@ An AI-native payment protection SaaS with a five-stage escalation engine, jurisd
 | Capability | How It Works |
 |------------|--------------|
 | **AI Escalation Engine** | Five-stage pipeline. Stage-calibrated tone. Minimum wait times enforced at engine level — not bypassable via direct API call. |
-| **Legal Demand Letters** | Claude Sonnet 4.6 drafts jurisdiction-aware demand letters (CA, NY, TX, UK, Ontario). Streams to the UI in real time with a typewriter effect. |
+| **Legal Demand Letters** | Our AI engine drafts jurisdiction-aware demand letters (CA, NY, TX, UK, Ontario). Streams to the UI in real time with a typewriter effect. |
 | **Client Risk Scoring** | 0–100 score across 7 weighted factors. Structured JSON output with full factor breakdown and AI reasoning — not just a number. |
 | **Evidence Locker** | Drag-and-drop upload. Supabase Storage with signed URLs. One-click court-ready ZIP export. |
 | **Invoice Sync** | FreshBooks, QuickBooks, and Wave OAuth integrations. Background workers sync on webhook + schedule. |
@@ -143,11 +142,11 @@ This is not a tool people use once. It earns a place in the daily workflow:
 | **Payment celebration** | Confetti on payment received. Recovery rate updates live. Positive reinforcement loop. |
 | **AI confidence visible** | Every email draft shows its confidence score + visual bar. Builds trust, creates engagement. |
 | **Pipeline clarity** | Kanban board makes collection feel manageable. 5 columns. Total amount at stake per stage. |
-| **Activity feed** | *"Bad Cop sent Final Warning to Acme Corp — $12,500."* Keeps users informed without checking manually. |
+| **Activity feed** | *"Freelancer Payment Protection sent Final Warning to Acme Corp — $12,500."* Keeps users informed without checking manually. |
 | **Risk reveal** | Risk score counts from 0 → final number with color shift on client detail. Creates a moment. |
 | **Escalation learning** | Each stage sounds noticeably different. Users learn the system, trust it, rely on it. |
 
-**Retention prediction:** Any freelancer who recovers one invoice through Bad Cop becomes a retained user. The first win is the conversion event.
+**Retention prediction:** Any freelancer who recovers one invoice through Freelancer Payment Protection becomes a retained user. The first win is the conversion event.
 
 ---
 
@@ -170,7 +169,7 @@ At $59/month (Pro plan), 1% penetration of the 2M segment = **$14M ARR**. At 0.1
 
 Three forces converged in 2025–2026:
 
-1. **Claude Sonnet 4.6 + structured output** — AI can now reliably generate legally coherent, jurisdiction-specific documents. Six months ago this wasn't viable at the quality bar required.
+1. **AI structured output maturity** — Our AI solution can now reliably generate legally coherent, jurisdiction-specific documents. Six months ago this wasn't viable at the quality bar required.
 2. **Freelance workforce acceleration** — post-2024, the freelance share of the US workforce has grown every quarter. More freelancers = more payment disputes.
 3. **MCP ecosystem maturity** — Model Context Protocol made it possible to wire Gmail, QuickBooks, and DocuSign directly into the development environment, cutting integration time from weeks to days.
 
@@ -213,17 +212,17 @@ Invoice Overdue
  └─────────────────┘
 ```
 
-Every email is generated by Claude with a confidence score. The freelancer sees the score before approving. Nothing sends without human review.
+Every email is generated by our AI engine with a confidence score. The freelancer sees the score before approving. Nothing sends without human review.
 
 ---
 
 ## AI Under the Hood
 
-Claude isn't a feature here. The product doesn't function without it.
+Our AI engine isn't a feature here. The product doesn't function without it.
 
 ### 1. Legal Demand Letter Generation
 
-Claude drafts jurisdiction-specific demand letters for California, New York, Texas, England & Wales, and Ontario. Each letter:
+Our AI engine drafts jurisdiction-specific demand letters for California, New York, Texas, England & Wales, and Ontario. Each letter:
 
 - References the exact invoice number, amount, and due date
 - Lists previous contact attempts chronologically
@@ -290,8 +289,8 @@ MCP servers were used throughout development — not as a demo, as the actual de
 
 | MCP Server | What It Did |
 |------------|-------------|
-| **Supabase MCP** | Claude Code queried the live schema before writing a single query. Migrations were validated against real data. RLS policies were checked in plain English. |
-| **GitHub MCP** | PR creation, diff review, CI status — without leaving the terminal. Every merge went through Claude's security checklist first. |
+| **Supabase MCP** | Our development environment queried the live schema before writing a single query. Migrations were validated against real data. RLS policies were checked in plain English. |
+| **GitHub MCP** | PR creation, diff review, CI status — without leaving the terminal. Every merge went through our AI security checklist first. |
 | **Gmail MCP** | Escalation email flows tested against real threads. The evidence scraper validated against actual email structures, not fabricated fixtures. |
 | **DocuSign MCP** | Digital signature integration for demand letters wired with live API validation. |
 | **QuickBooks MCP** | Real invoice data during integration development. No mocked responses that diverge from production behavior. |
@@ -743,61 +742,10 @@ pnpm turbo test
 
 ---
 
-## Roadmap
-
-**V1 — Current**
-Invoice tracking · 5-stage AI escalation · Streaming demand letter generation · Evidence locker · Client risk scoring · FreshBooks / QuickBooks / Wave sync · Kanban pipeline · Activity feed · Today's Focus urgency dashboard
-
-**V2 — Q2 2026**
-Stripe billing · Zapier connector · Mobile PWA · Attorney review marketplace (match letters with licensed attorneys by jurisdiction, 15% referral rev) · Freelancer Collective Defense registry (anonymized shared database of known non-payers — opt-in, every user contributes + benefits)
-
-**V3 — Q4 2026**
-2% success fee on recovered invoices >$10K · White-label reseller · Contract analysis at signing time (flag risk terms before work begins, not after it's done) · Predictive churn scoring (which clients will be late, 30 days before the due date)
-
----
-
-## For Investors
-
-> *If you're evaluating this for YC, Sequoia, a16z, Antler, or any accelerator — this section is written for you.*
-
-### Why This Team
-
-We are **Rudrendu Paul** and **Sourav Nandy** — engineers who have shipped multiple AI-native products across similar technology stacks (Next.js 14 · FastAPI · Supabase · Claude API · Turborepo monorepo · Celery workers). Bad Cop CRM is the latest, but not the only, evidence of what we build.
-
-We have a documented pattern: identify a specific, painful, underserved workflow; pick the minimal stack needed to own it; build at AI-accelerated velocity; ship before the market catches up.
-
-**What the build itself demonstrates:**
-
-| Signal | Evidence |
-|--------|----------|
-| **Velocity** | Full-stack product in 15 days: Python backend, Next.js frontend, 6 API integrations, 3 background workers, streaming AI, 50-item seed dataset, test coverage |
-| **AI methodology** | 6 parallel sub-agents with strict domain boundaries — not prompting for code, building an AI development environment |
-| **System design** | Escalation wait times enforced at service layer. All AI calls through one auditable module. RLS at database layer. Fail-fast secrets validation. |
-| **Operator mindset** | CLAUDE.md carries architecture spec across AI sessions. Custom slash commands encode team process. Sub-agent file boundaries prevent context collisions. |
-| **Production thinking** | CodeQL on every PR. Rate limiting on AI routes. Signed URL evidence storage. Pydantic `SecretStr` for all secrets. |
-
-### Why This Problem
-
-Late payment is emotionally charged, recurring, and universal. Every freelancer experiences it. The existing tools ignore it entirely. The first competitor to own this workflow with a great product wins — and switching costs are high once a freelancer has built their evidence locker and escalation history here.
-
-The wedge is demand letters. No SaaS product generates jurisdiction-aware legal documents for freelancers. Once a freelancer uses Bad Cop to recover one invoice, they become retained. That first recovery event is the conversion moment.
-
-### Why Now
-
-Claude Sonnet 4.6 with structured output is the enabling technology. Six months ago, AI-generated legal documents weren't reliable enough at the quality bar required. Today they are — and we are first to market with a complete workflow around them.
-
-### Contact
-
-If you're interested in discussing this further:
-
-- **GitHub:** [github.com/RudrenduPaul](https://github.com/RudrenduPaul)
-- **Repository:** This repo is the pitch. The code is the demo. Run it.
-
----
 
 ## What No Competitor Does
 
-| Capability | Spreadsheets | FreshBooks | HoneyBook | HubSpot | **Bad Cop CRM** |
+| Capability | Spreadsheets | FreshBooks | HoneyBook | HubSpot | **Freelancer Payment Protection** |
 |------------|:-----------:|:----------:|:---------:|:-------:|:-----------:|
 | AI escalation (tone-calibrated) | ✗ | Reminders only | Basic | Manual | Stage-aware + confidence-scored |
 | Jurisdiction-aware demand letters | ✗ | ✗ | ✗ | ✗ | CA / NY / TX / UK / Ontario — PDF |
@@ -806,22 +754,6 @@ If you're interested in discussing this further:
 | Streaming AI generation | ✗ | ✗ | ✗ | ✗ | SSE typewriter, real-time |
 | Invoice sync integrations | ✗ | Native | Native | ✗ | FreshBooks / QuickBooks / Wave |
 | Min wait times at engine level | N/A | N/A | N/A | N/A | Service layer — API-call-proof |
-
----
-
-## Built in 15 Days — The Build Methodology
-
-We treated Claude Code as infrastructure, not a co-pilot.
-
-**Six sub-agents with file-system boundaries** ran like engineers on a real team — the legal AI layer and the frontend pipeline evolved in parallel with no merge conflicts. **MCP servers read our live Supabase schema**, so every query was written against our actual data. **`CLAUDE.md` carried our architecture spec** from session to session — each new conversation picked up exactly where the last one ended. **Custom slash commands** encoded our team process as executable artifacts.
-
-The result: full-stack monorepo, Python backend, Next.js frontend, six API integrations, background worker fleet, streaming AI layer, and a 50-item seed dataset — in two weeks, two people.
-
-If you're an engineering lead evaluating what a disciplined AI-native team can ship in 2026: the commit history is the proof of work.
-
-> *"The CLAUDE.md file is the architecture document. The sub-agents are the team. The MCP servers are the live integrations. We didn't guess at behavior — we validated against real systems throughout. That's why the production code doesn't have the drift you see in most AI-generated projects."*
->
-> — **Rudrendu Paul**, co-founder
 
 ---
 
