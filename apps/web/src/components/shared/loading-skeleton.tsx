@@ -8,7 +8,7 @@ function Skeleton({ className }: SkeletonProps) {
   return (
     <div
       className={cn(
-        'animate-pulse rounded-md bg-slate-200',
+        'shimmer-bg rounded-md',
         className,
       )}
     />
@@ -17,10 +17,10 @@ function Skeleton({ className }: SkeletonProps) {
 
 export function SkeletonMetric() {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-5">
+    <div className="rounded-xl border border-t-4 border-slate-200 border-t-slate-200 bg-white p-5">
       <div className="flex items-center justify-between mb-4">
         <Skeleton className="h-4 w-28" />
-        <Skeleton className="h-8 w-8 rounded-lg" />
+        <Skeleton className="h-9 w-9 rounded-lg" />
       </div>
       <Skeleton className="h-8 w-32 mb-2" />
       <Skeleton className="h-3 w-20" />
@@ -69,6 +69,7 @@ export function SkeletonTable({ rows = 5 }: { rows?: number }) {
         <div
           key={i}
           className="flex items-center gap-4 border-b border-slate-100 px-6 py-4 last:border-0"
+          style={{ animationDelay: `${i * 0.08}s` }}
         >
           <div className="flex items-center gap-3 flex-1">
             <Skeleton className="h-8 w-8 rounded-full flex-shrink-0" />

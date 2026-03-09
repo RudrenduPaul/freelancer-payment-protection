@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { toast } from 'sonner'
-import { RefreshCw, Send, Mail, AlertCircle } from 'lucide-react'
+import { RefreshCw, Send, Mail, AlertCircle, Flame } from 'lucide-react'
 import { escalationsApi } from '@/lib/api'
 import type { ActiveEscalation, EscalationEvent } from '@/lib/types'
 import { formatCurrency, cn } from '@/lib/utils'
@@ -42,14 +42,13 @@ function EscalationEmailPreview({
     try {
       const result = await escalationsApi.draftEmail(invoiceId)
       setDraft(result)
-    } catch (err) {
+    } catch {
       toast.error('Failed to generate email draft. Please try again.')
     } finally {
       setLoading(false)
     }
   }
 
-  // Fetch on open
   const handleOpenChange = (next: boolean) => {
     if (next && !draft && !loading) {
       fetchDraft()
@@ -67,16 +66,15 @@ function EscalationEmailPreview({
       toast.success('Email sent — Bad Cop is on it 🚔')
       onOpenChange(false)
       onSent()
-    } catch (err) {
+    } catch {
       toast.error('Failed to send email. Please try again.')
     } finally {
       setSending(false)
     }
   }
 
-  const confidencePct = draft?.aiConfidenceScore != null
-    ? Math.round(draft.aiConfidenceScore * 100)
-    : null
+  const confidencePct =
+    draft?.aiConfidenceScore != null ? Math.round(draft.aiConfidenceScore * 100) : null
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
@@ -88,9 +86,24 @@ function EscalationEmailPreview({
               Email Preview
             </DialogTitle>
             {confidencePct != null && (
-              <span className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-xs font-medium text-slate-600">
-                AI confidence: {confidencePct}%
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-xs font-medium text-slate-600">
+                  AI confidence: {confidencePct}%
+                </span>
+                <div className="h-1.5 w-20 rounded-full bg-slate-100 overflow-hidden">
+                  <div
+                    className={cn(
+                      'h-1.5 rounded-full',
+                      confidencePct >= 80
+                        ? 'bg-emerald-500'
+                        : confidencePct >= 60
+                          ? 'bg-amber-500'
+                          : 'bg-red-500',
+                    )}
+                    style={{ width: `${confidencePct}%` }}
+                  />
+                </div>
+              </div>
             )}
           </div>
         </DialogHeader>
@@ -105,7 +118,7 @@ function EscalationEmailPreview({
               >
                 <RefreshCw className="h-6 w-6" />
               </motion.div>
-              <p className="text-sm">Generating email draft…</p>
+              <p className="text-sm">Drafting with Bad Cop tone calibration…</p>
             </div>
           )}
 
@@ -116,7 +129,6 @@ function EscalationEmailPreview({
               transition={{ duration: 0.2 }}
               className="space-y-4"
             >
-              {/* Subject */}
               <div className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
                 <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-slate-400">
                   Subject
@@ -126,7 +138,6 @@ function EscalationEmailPreview({
                 </p>
               </div>
 
-              {/* Body */}
               <div className="rounded-lg border border-slate-200 bg-white px-4 py-4">
                 <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
                   Body
@@ -136,7 +147,6 @@ function EscalationEmailPreview({
                 </pre>
               </div>
 
-              {/* Legal disclaimer */}
               <p className="text-center text-xs text-slate-400">
                 All communications are logged for evidentiary purposes.
               </p>
@@ -173,6 +183,7 @@ function EscalationEmailPreview({
 export function EscalationCard({ escalation, index, onRefresh }: EscalationCardProps) {
   const [dialogOpen, setDialogOpen] = useState(false)
   const isUrgent = escalation.daysPastDue > 30
+  const isCritical = escalation.daysPastDue > 45
 
   return (
     <>
@@ -180,15 +191,31 @@ export function EscalationCard({ escalation, index, onRefresh }: EscalationCardP
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25, delay: index * 0.05, ease: 'easeOut' }}
-        whileHover={{ scale: 1.01, boxShadow: '0 4px 20px rgba(0,0,0,0.08)' }}
+        whileHover={{ scale: 1.015, boxShadow: '0 6px 24px rgba(0,0,0,0.1)' }}
         className={cn(
-          'rounded-xl border bg-white p-4 shadow-sm cursor-default',
-          isUrgent ? 'border-red-200 bg-red-50/30' : 'border-slate-200',
+          'rounded-xl border bg-white p-4 shadow-sm cursor-default relative overflow-hidden',
+          isCritical
+            ? 'border-red-300 bg-gradient-to-br from-red-50/60 to-white urgency-ring'
+            : isUrgent
+              ? 'border-red-200 bg-red-50/30'
+              : 'border-slate-200',
         )}
       >
+        {/* Critical flame badge */}
+        {isCritical && (
+          <div className="absolute top-2 right-2">
+            <motion.div
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+            >
+              <Flame className="h-3.5 w-3.5 text-red-500" />
+            </motion.div>
+          </div>
+        )}
+
         {/* Client info */}
         <div className="mb-3">
-          <p className="font-semibold text-slate-900 text-sm leading-tight">
+          <p className="font-bold text-slate-900 text-sm leading-tight pr-5">
             {escalation.clientName}
           </p>
           {escalation.clientCompany && (
@@ -196,30 +223,32 @@ export function EscalationCard({ escalation, index, onRefresh }: EscalationCardP
           )}
         </div>
 
+        {/* Amount — prominent */}
+        <p className={cn(
+          'text-xl font-extrabold tabular-nums mb-3',
+          isCritical ? 'text-red-700' : isUrgent ? 'text-red-600' : 'text-slate-900',
+        )}>
+          {formatCurrency(escalation.amount, escalation.currency)}
+        </p>
+
         {/* Invoice details */}
-        <div className="mb-3 space-y-1.5">
+        <div className="mb-4 space-y-1 rounded-lg bg-slate-50 px-3 py-2">
           <div className="flex items-center justify-between">
-            <span className="text-xs text-slate-400">Invoice</span>
-            <span className="text-xs font-mono font-medium text-slate-700">
+            <span className="text-[10px] text-slate-400 font-medium">INVOICE</span>
+            <span className="text-[10px] font-mono font-semibold text-slate-600">
               {escalation.invoiceNumber}
             </span>
           </div>
           <div className="flex items-center justify-between">
-            <span className="text-xs text-slate-400">Amount</span>
-            <span className="text-sm font-bold text-slate-900">
-              {formatCurrency(escalation.amount, escalation.currency)}
-            </span>
-          </div>
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-slate-400">Days past due</span>
+            <span className="text-[10px] text-slate-400 font-medium">OVERDUE</span>
             <span
               className={cn(
-                'text-xs font-semibold tabular-nums',
-                isUrgent ? 'text-red-600' : 'text-slate-700',
+                'text-xs font-bold tabular-nums',
+                isCritical ? 'text-red-700' : isUrgent ? 'text-red-600' : 'text-slate-700',
               )}
             >
               {isUrgent && <AlertCircle className="inline h-3 w-3 mr-0.5 -mt-0.5" />}
-              {escalation.daysPastDue}d
+              {escalation.daysPastDue} days
             </span>
           </div>
         </div>
@@ -227,10 +256,14 @@ export function EscalationCard({ escalation, index, onRefresh }: EscalationCardP
         {/* Action */}
         <Button
           size="sm"
-          className="w-full text-xs"
+          className={cn(
+            'w-full text-xs font-semibold',
+            isCritical && 'bg-red-600 hover:bg-red-700',
+          )}
           onClick={() => setDialogOpen(true)}
         >
-          Next Action
+          <Send className="h-3.5 w-3.5" />
+          Take Next Action
         </Button>
       </motion.div>
 
