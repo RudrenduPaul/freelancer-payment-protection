@@ -4,10 +4,13 @@ from logging.config import fileConfig
 from sqlalchemy import engine_from_config, pool
 from alembic import context
 
+# Add project root to sys.path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
 
-from packages.db.models.base import Base
-import packages.db.schema  # noqa: F401 — registers all models
+# Import all models to register with Base (order matters for FK resolution)
+import apps.api.app.models  # noqa: F401 — side effect: registers all models
+
+from apps.api.app.models.base import Base
 
 config = context.config
 if config.config_file_name is not None:

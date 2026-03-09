@@ -3,7 +3,6 @@ Escalation service — determines next stage and drafts escalation emails via Cl
 """
 from typing import Any
 
-
 STAGE_ORDER = [
     "polite_reminder",
     "firm_notice",
@@ -12,16 +11,22 @@ STAGE_ORDER = [
     "legal_action",
 ]
 
+STAGE_LABELS = {
+    "polite_reminder": "Polite Reminder",
+    "firm_notice": "Firm Notice",
+    "final_warning": "Final Warning",
+    "legal_demand": "Legal Demand",
+    "legal_action": "Legal Action",
+}
+
 
 def get_next_stage(current_stage: str | None) -> str | None:
     """Returns the next escalation stage, or None if already at legal_action."""
     if current_stage is None:
         return "polite_reminder"
     try:
-        current_index = STAGE_ORDER.index(current_stage)
-        if current_index < len(STAGE_ORDER) - 1:
-            return STAGE_ORDER[current_index + 1]
-        return None
+        idx = STAGE_ORDER.index(current_stage)
+        return STAGE_ORDER[idx + 1] if idx < len(STAGE_ORDER) - 1 else None
     except ValueError:
         return "polite_reminder"
 
@@ -29,20 +34,21 @@ def get_next_stage(current_stage: str | None) -> str | None:
 async def draft_escalation_email(invoice: Any, client: Any) -> dict:
     """
     AI-draft the next escalation email for an invoice.
-    Returns structured {subject, body, tone, confidence_score, key_phrases}.
+    Returns structured {stage, subject, body, tone, confidence_score, key_phrases}.
     """
+    import json
     from apps.api.app.services.ai_service import call_claude
     from packages.legal_ai.prompts.escalation_sequence import (
         ESCALATION_SYSTEM,
         build_escalation_prompt,
     )
-    import json
 
     next_stage = get_next_stage(invoice.escalation_stage)
     if not next_stage:
-        return {"error": "Invoice is already at the final escalation stage"}
-
-    previous_attempts = 0  # Count from escalation_events in production
+        return {
+            "error": "This invoice is already at the final escalation stage (legal_action).",
+            "message": "No further escalation is possible. Consider direct legal action.",
+        }
 
     prompt = build_escalation_prompt(
         stage=next_stage,
@@ -52,7 +58,7 @@ async def draft_escalation_email(invoice: Any, client: Any) -> dict:
         currency=invoice.currency,
         days_past_due=invoice.days_past_due,
         freelancer_name="[your name]",
-        previous_attempts=previous_attempts,
+        previous_attempts=0,
     )
 
     response_text = await call_claude(
@@ -65,7 +71,7 @@ async def draft_escalation_email(invoice: Any, client: Any) -> dict:
         result = json.loads(response_text)
     except json.JSONDecodeError:
         result = {
-            "subject": "Follow up on unpaid invoice",
+            "subject": f"Follow up on {invoice.invoice_number}",
             "body": response_text,
             "tone": next_stage,
             "confidence_score": 70,
@@ -73,4 +79,5 @@ async def draft_escalation_email(invoice: Any, client: Any) -> dict:
         }
 
     result["stage"] = next_stage
+    result["stage_label"] = STAGE_LABELS.get(next_stage, next_stage)
     return result

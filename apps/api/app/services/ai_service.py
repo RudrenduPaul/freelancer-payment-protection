@@ -1,8 +1,9 @@
 """
 AI service — all Claude API calls route through here.
 Never call the Anthropic SDK directly from routers or workers.
-Streaming support for real-time typewriter effect in the UI.
+Uses run_in_executor for streaming to avoid blocking the event loop.
 """
+import asyncio
 import logging
 from typing import AsyncGenerator
 from apps.api.app.config import settings
@@ -17,21 +18,27 @@ async def call_claude(
 ) -> str:
     """
     Central wrapper for all Claude API calls.
-    All AI features route through this function.
+    Runs synchronous Anthropic SDK in a thread pool to avoid blocking the event loop.
     """
     import anthropic
 
-    client = anthropic.Anthropic(api_key=settings.anthropic_api_key.get_secret_value())
+    def _sync_call() -> str:
+        client = anthropic.Anthropic(api_key=settings.anthropic_api_key.get_secret_value())
+        try:
+            response = client.messages.create(
+                model="claude-sonnet-4-6",
+                max_tokens=max_tokens,
+                system=system_prompt,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            return response.content[0].text if response.content and response.content[0].type == "text" else ""
+        except anthropic.APIError as e:
+            logger.error("Claude API error: %s", str(e))
+            raise
+
     logger.info("Claude API call initiated", extra={"prompt_length": len(prompt)})
-
-    response = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=max_tokens,
-        system=system_prompt,
-        messages=[{"role": "user", "content": prompt}],
-    )
-
-    return response.content[0].text if response.content and response.content[0].type == "text" else ""
+    loop = asyncio.get_event_loop()
+    return await loop.run_in_executor(None, _sync_call)
 
 
 async def stream_demand_letter_content(
@@ -48,14 +55,15 @@ async def stream_demand_letter_content(
     """
     Stream demand letter generation from Claude.
     Powers the typewriter effect in DemandLetterPreview component.
+    Runs the synchronous Anthropic streaming SDK in a thread pool via a queue.
     """
     import anthropic
+    import queue
+    import threading
     from packages.legal_ai.prompts.demand_letter import (
         DEMAND_LETTER_SYSTEM,
         build_demand_letter_prompt,
     )
-
-    client = anthropic.Anthropic(api_key=settings.anthropic_api_key.get_secret_value())
 
     prompt = build_demand_letter_prompt(
         client_name=client_name,
@@ -71,11 +79,31 @@ async def stream_demand_letter_content(
         previous_contact_dates=previous_contact_dates,
     )
 
-    with client.messages.stream(
-        model="claude-sonnet-4-6",
-        max_tokens=2048,
-        system=DEMAND_LETTER_SYSTEM,
-        messages=[{"role": "user", "content": prompt}],
-    ) as stream:
-        for text in stream.text_stream:
-            yield text
+    text_queue: queue.Queue = queue.Queue()
+    SENTINEL = object()
+
+    def _stream_worker():
+        try:
+            claude = anthropic.Anthropic(api_key=settings.anthropic_api_key.get_secret_value())
+            with claude.messages.stream(
+                model="claude-sonnet-4-6",
+                max_tokens=2048,
+                system=DEMAND_LETTER_SYSTEM,
+                messages=[{"role": "user", "content": prompt}],
+            ) as stream:
+                for text in stream.text_stream:
+                    text_queue.put(text)
+        except Exception as e:
+            logger.error("Streaming error: %s", str(e))
+        finally:
+            text_queue.put(SENTINEL)
+
+    thread = threading.Thread(target=_stream_worker, daemon=True)
+    thread.start()
+
+    loop = asyncio.get_event_loop()
+    while True:
+        chunk = await loop.run_in_executor(None, text_queue.get)
+        if chunk is SENTINEL:
+            break
+        yield chunk

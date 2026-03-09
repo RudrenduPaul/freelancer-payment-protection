@@ -1,21 +1,8 @@
 import uuid
-import enum
 from datetime import datetime
-from sqlalchemy import Column, String, Float, Integer, DateTime, Enum
+from sqlalchemy import Column, String, Float, Integer, DateTime
 from sqlalchemy.orm import relationship
-from apps.api.app.database import engine
-from sqlalchemy.orm import DeclarativeBase
-
-
-class Base(DeclarativeBase):
-    pass
-
-
-class RiskLevel(str, enum.Enum):
-    low = "low"
-    medium = "medium"
-    high = "high"
-    critical = "critical"
+from apps.api.app.models.base import Base
 
 
 class Client(Base):

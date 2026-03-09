@@ -17,18 +17,19 @@ def upgrade() -> None:
     op.create_table(
         'workspaces',
         sa.Column('id', sa.String(36), primary_key=True),
-        sa.Column('owner_id', sa.String(36), nullable=False, index=True),
+        sa.Column('owner_id', sa.String(36), nullable=False),
         sa.Column('name', sa.String(255), nullable=False),
         sa.Column('slug', sa.String(100), nullable=False, unique=True),
         sa.Column('plan', sa.String(20), default='solo'),
         sa.Column('created_at', sa.DateTime, nullable=False),
         sa.Column('updated_at', sa.DateTime, nullable=False),
     )
+    op.create_index('ix_workspaces_owner', 'workspaces', ['owner_id'])
 
     op.create_table(
         'clients',
         sa.Column('id', sa.String(36), primary_key=True),
-        sa.Column('workspace_id', sa.String(36), nullable=False, index=True),
+        sa.Column('workspace_id', sa.String(36), sa.ForeignKey('workspaces.id'), nullable=False),
         sa.Column('name', sa.String(255), nullable=False),
         sa.Column('email', sa.String(255), nullable=False),
         sa.Column('company', sa.String(255)),
@@ -46,12 +47,14 @@ def upgrade() -> None:
         sa.Column('created_at', sa.DateTime, nullable=False),
         sa.Column('updated_at', sa.DateTime, nullable=False),
     )
+    op.create_index('ix_clients_workspace_id', 'clients', ['workspace_id'])
+    op.create_index('ix_clients_workspace_risk', 'clients', ['workspace_id', 'risk_level'])
 
     op.create_table(
         'invoices',
         sa.Column('id', sa.String(36), primary_key=True),
         sa.Column('client_id', sa.String(36), sa.ForeignKey('clients.id'), nullable=False),
-        sa.Column('workspace_id', sa.String(36), nullable=False, index=True),
+        sa.Column('workspace_id', sa.String(36), sa.ForeignKey('workspaces.id'), nullable=False),
         sa.Column('invoice_number', sa.String(100), nullable=False),
         sa.Column('amount', sa.Float, nullable=False),
         sa.Column('currency', sa.String(3), default='USD'),
@@ -67,11 +70,15 @@ def upgrade() -> None:
         sa.Column('created_at', sa.DateTime, nullable=False),
         sa.Column('updated_at', sa.DateTime, nullable=False),
     )
+    op.create_index('ix_invoices_workspace_id', 'invoices', ['workspace_id'])
+    op.create_index('ix_invoices_workspace_status', 'invoices', ['workspace_id', 'status'])
+    op.create_index('ix_invoices_client_status', 'invoices', ['client_id', 'status'])
 
     op.create_table(
         'escalation_events',
         sa.Column('id', sa.String(36), primary_key=True),
         sa.Column('invoice_id', sa.String(36), sa.ForeignKey('invoices.id'), nullable=False),
+        sa.Column('workspace_id', sa.String(36), sa.ForeignKey('workspaces.id'), nullable=False),
         sa.Column('client_id', sa.String(36), nullable=False),
         sa.Column('stage', sa.String(50), nullable=False),
         sa.Column('email_subject', sa.String(500)),
@@ -85,12 +92,14 @@ def upgrade() -> None:
         sa.Column('document_url', sa.String(500)),
         sa.Column('created_at', sa.DateTime, nullable=False),
     )
+    op.create_index('ix_escalation_workspace', 'escalation_events', ['workspace_id'])
+    op.create_index('ix_escalation_invoice', 'escalation_events', ['invoice_id'])
 
     op.create_table(
         'evidence_items',
         sa.Column('id', sa.String(36), primary_key=True),
         sa.Column('invoice_id', sa.String(36), sa.ForeignKey('invoices.id'), nullable=False),
-        sa.Column('workspace_id', sa.String(36), nullable=False, index=True),
+        sa.Column('workspace_id', sa.String(36), sa.ForeignKey('workspaces.id'), nullable=False),
         sa.Column('type', sa.String(50), nullable=False),
         sa.Column('source', sa.String(50), nullable=False),
         sa.Column('filename', sa.String(500), nullable=False),
@@ -100,21 +109,23 @@ def upgrade() -> None:
         sa.Column('captured_at', sa.DateTime, nullable=False),
         sa.Column('metadata', sa.JSON, default=dict),
     )
-
-    # Indexes for common query patterns
-    op.create_index('ix_clients_workspace_risk', 'clients', ['workspace_id', 'risk_level'])
-    op.create_index('ix_invoices_workspace_status', 'invoices', ['workspace_id', 'status'])
-    op.create_index('ix_invoices_client_status', 'invoices', ['client_id', 'status'])
+    op.create_index('ix_evidence_workspace', 'evidence_items', ['workspace_id'])
     op.create_index('ix_evidence_invoice', 'evidence_items', ['invoice_id'])
 
 
 def downgrade() -> None:
     op.drop_index('ix_evidence_invoice')
+    op.drop_index('ix_evidence_workspace')
+    op.drop_table('evidence_items')
+    op.drop_index('ix_escalation_invoice')
+    op.drop_index('ix_escalation_workspace')
+    op.drop_table('escalation_events')
     op.drop_index('ix_invoices_client_status')
     op.drop_index('ix_invoices_workspace_status')
-    op.drop_index('ix_clients_workspace_risk')
-    op.drop_table('evidence_items')
-    op.drop_table('escalation_events')
+    op.drop_index('ix_invoices_workspace_id')
     op.drop_table('invoices')
+    op.drop_index('ix_clients_workspace_risk')
+    op.drop_index('ix_clients_workspace_id')
     op.drop_table('clients')
+    op.drop_index('ix_workspaces_owner')
     op.drop_table('workspaces')

@@ -2,7 +2,7 @@ import uuid
 from datetime import datetime
 from sqlalchemy import Column, String, DateTime, ForeignKey, JSON
 from sqlalchemy.orm import relationship
-from apps.api.app.models.client import Base
+from apps.api.app.models.base import Base
 
 
 class EvidenceItem(Base):
