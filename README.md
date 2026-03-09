@@ -1,396 +1,523 @@
 <div align="center">
 
-<h1>🛡️ Freelancer "Bad Cop" CRM</h1>
+<br/>
 
-<p><strong>52 million freelancers get stiffed every year.<br/>We built the bad cop so they don't have to be.</strong></p>
+<img src="https://img.shields.io/badge/-%F0%9F%9B%A1%EF%B8%8F%20BAD%20COP%20CRM-1a1a2e?style=for-the-badge&logoColor=white" height="40" alt="Bad Cop CRM" />
+
+<h2>Freelancer Payment Protection — AI-Native Collection Engine</h2>
 
 <p>
-AI-native payment protection SaaS that automates escalation, drafts jurisdiction-aware legal documents,<br/>
-and scores client risk in real time — so you stay the professional while the product does the uncomfortable part.
+<strong>73 million freelancers. 71% report late payment. $50B+ in unpaid invoices every year.</strong><br/>
+The gap: every invoicing tool stops at "sent." None of them handle what comes next.<br/>
+We built the bad cop so freelancers don't have to be.
 </p>
 
-<hr/>
+<br/>
 
-<!-- Commit / activity badges -->
+<!-- Badges row 1 — Stack -->
 <p>
-  <img src="https://img.shields.io/github/last-commit/RudrenduPaul/freelancer-payment-protection?style=flat&label=last+commit" alt="last commit" />
-  <img src="https://img.shields.io/github/commit-activity/m/RudrenduPaul/freelancer-payment-protection?style=flat&label=commits%2Fmonth" alt="commits/month" />
-  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat" alt="PRs welcome" />
+  <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/FastAPI-0.111-009688?style=flat&logo=fastapi&logoColor=white" />
+  <img src="https://img.shields.io/badge/Next.js-14_App_Router-000000?style=flat&logo=nextdotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-5.4-3178C6?style=flat&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/Turborepo-Monorepo-EF4444?style=flat&logo=turborepo&logoColor=white" />
 </p>
 
-<!-- Core stack -->
+<!-- Badges row 2 — AI & Data -->
 <p>
-  <img src="https://img.shields.io/badge/PYTHON-3.12-3776AB?style=flat&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/FASTAPI-0.111-009688?style=flat&logo=fastapi&logoColor=white" />
-  <img src="https://img.shields.io/badge/NEXT.JS-14-000000?style=flat&logo=nextdotjs&logoColor=white" />
-  <img src="https://img.shields.io/badge/TYPESCRIPT-5.4-3178C6?style=flat&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/TURBOREPO-MONOREPO-EF4444?style=flat&logo=turborepo&logoColor=white" />
+  <img src="https://img.shields.io/badge/Claude_Sonnet_4.6-AI_Core-D4A017?style=flat&logo=anthropic&logoColor=white" />
+  <img src="https://img.shields.io/badge/Supabase-PostgreSQL_%2B_RLS-3ECF8E?style=flat&logo=supabase&logoColor=white" />
+  <img src="https://img.shields.io/badge/Celery_%2B_Redis-Workers-37814A?style=flat" />
+  <img src="https://img.shields.io/badge/Framer_Motion-Animations-0055FF?style=flat" />
 </p>
 
-<!-- AI & Data -->
+<!-- Badges row 3 — Quality -->
 <p>
-  <img src="https://img.shields.io/badge/CLAUDE--SONNET--4--6-AI_CORE-D4A017?style=flat&logo=anthropic&logoColor=white" />
-  <img src="https://img.shields.io/badge/SUPABASE-POSTGRESQL+RLS-3ECF8E?style=flat&logo=supabase&logoColor=white" />
-  <img src="https://img.shields.io/badge/CELERY-REDIS-37814A?style=flat&logo=celery&logoColor=white" />
-  <img src="https://img.shields.io/badge/FRAMER_MOTION-ANIMATIONS-0055FF?style=flat" />
+  <img src="https://img.shields.io/github/last-commit/RudrenduPaul/freelancer-payment-protection?style=flat&label=last+commit" />
+  <img src="https://img.shields.io/badge/Coverage-70%25%2B_enforced-22c55e?style=flat" />
+  <img src="https://img.shields.io/badge/CodeQL-Enabled-22c55e?style=flat" />
+  <img src="https://img.shields.io/badge/RLS-All_Tables-6366f1?style=flat" />
+  <img src="https://img.shields.io/badge/License-Proprietary-1a1a2e?style=flat" />
 </p>
 
-<!-- Quality gates -->
-<p>
-  <img src="https://img.shields.io/badge/CI-GITHUB_ACTIONS-2088FF?style=flat&logo=github-actions&logoColor=white" />
-  <img src="https://img.shields.io/badge/COVERAGE-70%25+_enforced-success?style=flat" />
-  <img src="https://img.shields.io/badge/CODEQL-ENABLED-success?style=flat" />
-  <img src="https://img.shields.io/badge/LICENSE-PROPRIETARY-1a1a2e?style=flat" />
-</p>
+<br/>
 
 <p>
-  Built by <strong>Rudrendu Paul</strong> &amp; <strong>Sourav Nandy</strong>
-  &nbsp;·&nbsp;
+  Built by&nbsp;<strong><a href="https://github.com/RudrenduPaul">Rudrendu Paul</a></strong>&nbsp;&amp;&nbsp;<strong>Sourav Nandy</strong>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
   Developed with <a href="https://claude.ai/code">Claude Code</a>
-  &nbsp;·&nbsp;
-  Core product shipped in <strong>15 days</strong> with 6 parallel sub-agents
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <strong>Full-stack product shipped in 15 days</strong> using 6 parallel AI sub-agents
 </p>
 
-<p>
-  <a href="#the-problem">The Problem</a> &nbsp;·&nbsp;
-  <a href="#the-product">The Product</a> &nbsp;·&nbsp;
-  <a href="#why-its-sticky">Why It's Sticky</a> &nbsp;·&nbsp;
-  <a href="#quick-start">Quick Start</a> &nbsp;·&nbsp;
-  <a href="#ai-under-the-hood">AI Features</a> &nbsp;·&nbsp;
-  <a href="#architecture">Architecture</a> &nbsp;·&nbsp;
-  <a href="#engineering-decisions">Engineering Decisions</a>
-</p>
+<br/>
+
+<!-- Navigation -->
+<table>
+<tr>
+<td align="center"><a href="#the-gap"><b>The Gap</b></a></td>
+<td align="center"><a href="#what-we-built"><b>What We Built</b></a></td>
+<td align="center"><a href="#why-its-sticky"><b>Why It's Sticky</b></a></td>
+<td align="center"><a href="#market--traction"><b>Market & Traction</b></a></td>
+<td align="center"><a href="#ai-under-the-hood"><b>AI Engine</b></a></td>
+<td align="center"><a href="#architecture"><b>Architecture</b></a></td>
+<td align="center"><a href="#quick-start"><b>Quick Start</b></a></td>
+<td align="center"><a href="#for-investors"><b>For Investors</b></a></td>
+</tr>
+</table>
+
+<br/>
 
 <!--
-  📸 DROP SCREENSHOTS HERE
-  Recommended dimensions: 1280×800
-  1. Dashboard with welcome banner + metric cards + activity feed
-  2. Escalation kanban board (5-column pipeline with cards)
-  3. Streaming demand letter typewriter effect (GIF preferred)
-  4. Client risk breakdown panel
+  ═══════════════════════════════════════════════════════════
+  📸 SCREENSHOTS — add these and this README goes to the top
+  ═══════════════════════════════════════════════════════════
+  Recommended: 1280×800, retina, light mode
 
-  Save to /docs/screenshots/ and uncomment:
+  1. /docs/screenshots/01-dashboard.png
+     → Welcome banner with urgency summary + 6 metric cards + Today's Focus + Activity Feed
+
+  2. /docs/screenshots/02-escalation-kanban.png
+     → 5-column kanban with amount-at-stake per column, flame icon on critical cards
+
+  3. /docs/screenshots/03-demand-letter.gif
+     → Streaming typewriter effect as Claude generates the demand letter in real time
+
+  4. /docs/screenshots/04-client-risk.png
+     → Client detail page: risk score counting 0→82, factor breakdown with progress bars, AI reasoning
+
+  Uncomment once screenshots are added:
 -->
-<!-- <img src="./docs/screenshots/dashboard.png" width="100%" alt="Dashboard" /> -->
+<!-- <img src="./docs/screenshots/01-dashboard.png" width="100%" alt="Dashboard — urgency-first design" /> -->
 
 </div>
 
 ---
 
-## The Problem
+## The Gap
 
-73 million freelancers in the US. 71% report experiencing late payment. ~52 million people who did the work, delivered the result, and then spent weeks hoping someone would pay.
+FreshBooks handles invoicing. HoneyBook handles proposals. HubSpot handles CRM. **None of them handle collection.**
 
-What makes it uniquely painful is the double bind. Chase softly — the client ignores you. Chase hard — you're "difficult," referrals dry up, the relationship strains. Some clients understand this leverage and use it deliberately. The freelancer absorbs the loss to protect their reputation.
+When a client goes silent after delivery, freelancers are left with a choice: be "difficult" and chase — or be professional and absorb the loss. That double bind is the entire product.
 
-The existing tools don't help. FreshBooks, HoneyBook, HubSpot — they handle invoicing. None of them handle **collection**. There is nothing on the market that combines AI-drafted legal documents, automated escalation sequences, evidence capture, and client risk scoring built specifically for freelancers.
+```
+What exists today:                    What Bad Cop fills:
+──────────────────                    ────────────────────
+Invoice sent ✓                        Invoice sent ✓
+Payment expected...                   Payment expected...
+[silence]                             → Day 7:  AI Polite Reminder (tone-calibrated)
+[more silence]                        → Day 14: AI Firm Notice (cites contract terms)
+"Hey, just following up..."           → Day 19: AI Final Warning (deadline set)
+[ignored]                             → Day 26: Jurisdiction-aware Demand Letter PDF
+[write it off]                        → Day 33: Small claims prep + evidence export
+```
 
-That's the gap. This fills it.
+No tool on the market combines all five: AI-drafted legal documents + automated escalation sequences + evidence capture + client risk scoring + invoice integrations. That combination is what's new.
 
 ---
 
-## The Product
+## What We Built
 
-An AI-native SaaS that plays the **"bad cop"** on behalf of the freelancer. It manages the entire collection process — from a warm first reminder all the way to a jurisdiction-aware legal demand letter and a court-ready evidence export. The freelancer stays the professional who "just uses a billing tool." The product does the uncomfortable part.
+An AI-native payment protection SaaS with a five-stage escalation engine, jurisdiction-aware legal document generation, real-time client risk scoring, and a court-ready evidence locker. The product acts as an automated third party — the "bad cop" — so the freelancer stays the professional.
 
-Every email, every demand letter, every risk assessment runs through **Claude Sonnet 4.6** — with confidence scores returned to the UI alongside every AI output, so the freelancer sees exactly how the model is reading the situation before they approve and send.
+**Five capabilities no single competitor has:**
+
+| Capability | How It Works |
+|------------|--------------|
+| **AI Escalation Engine** | Five-stage pipeline. Stage-calibrated tone. Minimum wait times enforced at engine level — not bypassable via direct API call. |
+| **Legal Demand Letters** | Claude Sonnet 4.6 drafts jurisdiction-aware demand letters (CA, NY, TX, UK, Ontario). Streams to the UI in real time with a typewriter effect. |
+| **Client Risk Scoring** | 0–100 score across 7 weighted factors. Structured JSON output with full factor breakdown and AI reasoning — not just a number. |
+| **Evidence Locker** | Drag-and-drop upload. Supabase Storage with signed URLs. One-click court-ready ZIP export. |
+| **Invoice Sync** | FreshBooks, QuickBooks, and Wave OAuth integrations. Background workers sync on webhook + schedule. |
 
 ---
 
 ## Why It's Sticky
 
-This is not a tool people use once. It earns a place in their regular workflow:
+This is not a tool people use once. It earns a place in the daily workflow:
 
-| Habit Loop | How We Enforce It |
-|------------|-------------------|
-| **Daily dashboard visit** | Personalized urgency banner — "3 invoices need your attention today" — pulls them in |
-| **Action before leaving** | "Today's Focus" card surfaces the top 3 actions with one-click CTAs |
-| **Celebration on payment** | Confetti + recovery rate update reinforces the positive loop |
-| **AI confidence visible** | Every generated email and demand letter shows its confidence score — builds trust, invites engagement |
-| **Pipeline view** | Kanban board makes the full collection process feel manageable, not overwhelming |
-| **Activity feed** | "Bad Cop sent Final Warning to Acme Corp — $12,500" keeps users informed without requiring manual checks |
-| **Risk score animation** | Score counts up from 0 → final number on client detail view — creates a "reveal" moment |
-| **Tone-calibrated escalation** | Each stage feels meaningfully different — freelancers learn the system and trust it |
+| Habit Loop | Mechanism |
+|------------|-----------|
+| **Daily pull** | Urgency banner: *"3 invoices need your attention today."* Personalized every morning. |
+| **Action before leaving** | "Today's Focus" — top 3 urgent actions with one-click CTAs. Leaves no reason to defer. |
+| **Payment celebration** | Confetti on payment received. Recovery rate updates live. Positive reinforcement loop. |
+| **AI confidence visible** | Every email draft shows its confidence score + visual bar. Builds trust, creates engagement. |
+| **Pipeline clarity** | Kanban board makes collection feel manageable. 5 columns. Total amount at stake per stage. |
+| **Activity feed** | *"Bad Cop sent Final Warning to Acme Corp — $12,500."* Keeps users informed without checking manually. |
+| **Risk reveal** | Risk score counts from 0 → final number with color shift on client detail. Creates a moment. |
+| **Escalation learning** | Each stage sounds noticeably different. Users learn the system, trust it, rely on it. |
+
+**Retention prediction:** Any freelancer who recovers one invoice through Bad Cop becomes a retained user. The first win is the conversion event.
+
+---
+
+## Market & Traction
+
+### The Market
+
+| Metric | Number |
+|--------|--------|
+| Freelancers in the US | 73 million |
+| Reporting late payment | 71% (~52M people) |
+| Estimated unpaid invoices annually | $50B+ |
+| Invoicing software TAM | $1.5B |
+| Our serviceable market (freelancers who invoice $25K+/yr) | ~12M |
+| Target initial segment (high-value freelancers: designers, developers, consultants) | ~2M |
+
+At $59/month (Pro plan), 1% penetration of the 2M segment = **$14M ARR**. At 0.1% = **$1.4M ARR**. These are conservative numbers for a product that solves an emotionally charged, recurring problem with no existing dedicated solution.
+
+### Why Now
+
+Three forces converged in 2025–2026:
+
+1. **Claude Sonnet 4.6 + structured output** — AI can now reliably generate legally coherent, jurisdiction-specific documents. Six months ago this wasn't viable at the quality bar required.
+2. **Freelance workforce acceleration** — post-2024, the freelance share of the US workforce has grown every quarter. More freelancers = more payment disputes.
+3. **MCP ecosystem maturity** — Model Context Protocol made it possible to wire Gmail, QuickBooks, and DocuSign directly into the development environment, cutting integration time from weeks to days.
 
 ---
 
 ## The Escalation Pipeline
 
-Five stages. **Minimum wait times enforced at the engine level** — not in the UI, not as suggestions. A direct API call cannot skip the window. The scheduler will not queue the next stage until the clock has run.
+Five stages. **Minimum wait times enforced at the service layer** — not the UI, not suggestions. A direct API call cannot skip a stage window. The scheduler checks daily.
 
 ```
-Invoice Overdue → Polite Reminder → Firm Notice → Final Warning → Legal Demand → Legal Action
+Invoice Overdue
+     │
+     ▼ Day 1
+ ┌─────────────────┐
+ │  Polite Reminder │  Warm. "Just checking in." Invoice summary. No pressure.
+ │  (wait: 7 days)  │
+ └────────┬────────┘
+          │ Day 8
+          ▼
+ ┌─────────────────┐
+ │   Firm Notice   │  Direct. References contract terms. 7-day deadline set.
+ │  (wait: 7 days)  │
+ └────────┬────────┘
+          │ Day 15
+          ▼
+ ┌─────────────────┐
+ │  Final Warning  │  Authoritative. Final notice before formal process begins.
+ │  (wait: 5 days)  │
+ └────────┬────────┘
+          │ Day 22
+          ▼
+ ┌─────────────────┐
+ │  Legal Demand   │  Jurisdiction-aware PDF. Streaming. Cites statute.
+ │  (wait: 7 days)  │
+ └────────┬────────┘
+          │ Day 30+
+          ▼
+ ┌─────────────────┐
+ │  Legal Action   │  Small claims prep. Full evidence export. Court-ready.
+ └─────────────────┘
 ```
 
-| Stage | Days Past Due | Tone | What Claude Generates | Min Wait |
-|-------|:------------:|------|----------------------|:--------:|
-| **Polite Reminder** | 1–7 | Warm, professional | "Just checking in" email with invoice summary | 7 days |
-| **Firm Notice** | 8–14 | Direct | References contract terms, 7-day deadline | 7 days |
-| **Final Warning** | 15–21 | Authoritative | Final notice before formal process begins | 5 days |
-| **Legal Demand** | 22–30 | Formal, legal | Jurisdiction-aware demand letter PDF | 7 days |
-| **Legal Action** | 30+ | Documentation | Small claims prep doc, full evidence summary | — |
+Every email is generated by Claude with a confidence score. The freelancer sees the score before approving. Nothing sends without human review.
 
 ---
 
 ## AI Under the Hood
 
-Claude isn't a feature here. The product doesn't work without it. Three systems do the actual work:
+Claude isn't a feature here. The product doesn't function without it.
 
-### Legal Demand Letter Generation
+### 1. Legal Demand Letter Generation
 
-Claude drafts jurisdiction-aware demand letters for California, New York, Texas, England/Wales, and Ontario. Each letter references the exact invoice number, amount, and due date; lists previous contact attempts chronologically; sets a 7-business-day final deadline; and specifies consequences (credit reporting, small claims, collections referral).
+Claude drafts jurisdiction-specific demand letters for California, New York, Texas, England & Wales, and Ontario. Each letter:
 
-Every generated document carries this disclaimer — enforced in the system prompt, verified by the `legal-ai-agent`, non-negotiable:
+- References the exact invoice number, amount, and due date
+- Lists previous contact attempts chronologically
+- Sets a 7-business-day final payment deadline
+- Specifies consequences: credit reporting, small claims, collections referral
+- Cites relevant consumer protection statutes by jurisdiction
+
+**The streaming bridge:** The Anthropic Python SDK is synchronous. FastAPI is async. We bridge them with a `threading.Thread` pushing SSE chunks into a `queue.Queue`, then `asyncio.run_in_executor` pulls on the async side. The event loop never blocks. The typewriter effect is smooth.
+
+Every generated document displays this disclaimer — enforced in the system prompt, verified by the `legal-ai-agent`, non-negotiable:
 
 ```
 DISCLAIMER: This document was generated with AI assistance and does not
 constitute legal advice. Review with a qualified attorney before sending.
 ```
 
-The letter **streams to the frontend in real time**. The Anthropic Python SDK is synchronous; FastAPI is async. We bridge them with a `threading.Thread` pushing chunks into a `queue.Queue`, then `loop.run_in_executor` pulls from the queue on the async side. The event loop never blocks. The typewriter effect is smooth.
+### 2. Client Risk Scoring
 
-### Client Risk Scoring
+Seven weighted factors → 0–100 score → structured JSON with full reasoning:
 
-Claude scores every client from 0–100 using seven weighted factors: industry payment culture, payment terms length, historical delay average, contract quality, outstanding balance as a percentage of total invoiced, invoice amount relative to client size, and geographic signals. The model returns structured JSON — `{score, level, factors[], reasoning}` — and the UI shows the full factor breakdown with animated progress bars, not just the number.
+```json
+{
+  "score": 82,
+  "level": "critical",
+  "factors": [
+    { "name": "Industry payment culture", "weight": 0.18, "impact": "negative", "description": "..." },
+    { "name": "Historical delay average", "weight": 0.22, "impact": "negative", "description": "..." },
+    ...
+  ],
+  "reasoning": "TechVentures Inc shows three compounding risk signals: ..."
+}
+```
 
-| Score | Level | Recommendation |
-|:-----:|:-----:|----------------|
-| 0–25 | 🟢 Low | Standard terms |
-| 26–50 | 🟡 Medium | Deposit or milestone payments |
-| 51–75 | 🟠 High | 50% upfront before starting |
-| 76–100 | 🔴 Critical | Full payment before any work begins |
+The UI renders the full factor breakdown with animated progress bars and the AI's reasoning verbatim. A score without reasoning is noise. The freelancer sees *why*.
 
-### Escalation Email Generator
+| Score | Level | Action |
+|:-----:|:-----:|--------|
+| 0–25 | 🟢 Low | Standard payment terms |
+| 26–50 | 🟡 Medium | Request 25–50% deposit |
+| 51–75 | 🟠 High | 50% upfront — non-negotiable |
+| 76–100 | 🔴 Critical | Full payment before work begins |
 
-Stage-calibrated drafts with structured output: `{subject, body, tone, confidence_score, key_phrases}`. The **confidence score surfaces in the UI** next to every draft — including a visual progress bar — so freelancers see how certain the model is about the tone calibration before they hit send.
+### 3. Escalation Email Generator
+
+Stage-calibrated structured output per escalation:
+
+```python
+{
+    "subject": str,
+    "body": str,
+    "tone": Literal["warm", "direct", "authoritative", "formal"],
+    "confidence_score": float,  # 0.0–1.0, shown in UI with progress bar
+    "key_phrases": list[str],   # phrases that signal the stage escalation
+}
+```
+
+The confidence score and a visual bar appear in the email preview dialog. Freelancers see how certain the model is about the tone calibration before they hit send. If confidence is low, they regenerate.
 
 ---
 
 ## MCP-Powered Development
 
-We used Model Context Protocol servers throughout development. The difference isn't marginal — it's the gap between writing code that guesses at API behavior and writing code validated against live data.
+MCP servers were used throughout development — not as a demo, as the actual development infrastructure.
 
-| MCP Server | Role During Development |
-|------------|------------------------|
-| **Supabase MCP** | Schema queries, migration checks, RLS policy validation — Claude Code read our actual schema before writing a single query |
-| **GitHub MCP** | PR creation, diff review, CI status — all from the Claude Code terminal |
-| **Gmail MCP** | Built and tested escalation email flows against real email threads; powered the evidence scraper |
-| **DocuSign MCP** | Digital signature integration for demand letters with live API validation |
-| **QuickBooks MCP** | Real invoice data during integration development — no mocked responses that drift from production |
-| **Sequential Thinking MCP** | Used specifically for risk scoring — forces step-by-step reasoning through payment risk factors |
+| MCP Server | What It Did |
+|------------|-------------|
+| **Supabase MCP** | Claude Code queried the live schema before writing a single query. Migrations were validated against real data. RLS policies were checked in plain English. |
+| **GitHub MCP** | PR creation, diff review, CI status — without leaving the terminal. Every merge went through Claude's security checklist first. |
+| **Gmail MCP** | Escalation email flows tested against real threads. The evidence scraper validated against actual email structures, not fabricated fixtures. |
+| **DocuSign MCP** | Digital signature integration for demand letters wired with live API validation. |
+| **QuickBooks MCP** | Real invoice data during integration development. No mocked responses that diverge from production behavior. |
+| **Sequential Thinking MCP** | Used specifically for risk scoring. Forces step-by-step reasoning through all 7 risk factors before a score is produced. Prevents hallucinated shortcuts. |
+
+The principle: every external API was validated against the live service before it shipped. This is what separates "code that looks correct" from "code that behaves correctly in production."
 
 ---
 
 ## Sub-Agent Architecture
 
-Six specialized sub-agents ran in parallel during development. Each has a specific domain and strict file-system boundaries — which meant the legal AI layer and the frontend pipeline evolved simultaneously without merge conflicts or context collisions.
+Six specialized agents ran in parallel during development. Strict file-system boundaries meant zero merge conflicts when the legal AI layer and the frontend evolved simultaneously.
 
-| Agent | Domain | File Boundaries |
-|-------|--------|----------------|
-| `legal-ai-agent` | Claude prompt templates, demand letter generation, disclaimer enforcement | `packages/legal-ai/` only |
-| `escalation-agent` | Timing engine, tone calibration, stage progression | `apps/api/app/services/escalation_service.py` |
-| `integration-agent` | FreshBooks / QuickBooks / Wave OAuth, token refresh, retry | `packages/integrations/` only |
-| `risk-scoring-agent` | Risk model, scoring factors, thresholds, synthetic test data | `apps/api/app/services/risk_service.py` |
-| `evidence-locker-agent` | Evidence capture, Supabase Storage, signed URLs, court ZIP | `apps/api/app/routers/evidence.py` |
-| `test-agent` | pytest unit/integration, Playwright E2E, adversarial legal test cases | `**/tests/` only |
-
-Custom commands in `.claude/commands/`:
 ```
-/new-escalation-template <stage>   — scaffold a new email template + pytest test in one shot
-/generate-demand-letter <id>       — generate a demand letter for a specific invoice
-/review-pr                         — security + performance + MLP lovability checklist
+.claude/agents/
+├── legal-ai-agent.md       # Claude prompts, demand letter gen, disclaimer enforcement
+│                           # Boundary: packages/legal-ai/ only
+│
+├── escalation-agent.md     # Timing engine, tone calibration, stage progression
+│                           # Boundary: apps/api/app/services/escalation_service.py
+│
+├── integration-agent.md    # FreshBooks / QuickBooks / Wave OAuth, token refresh, retry
+│                           # Boundary: packages/integrations/ only
+│
+├── risk-scoring-agent.md   # Risk model design, 7 factors, thresholds, synthetic test data
+│                           # Boundary: apps/api/app/services/risk_service.py
+│
+├── evidence-locker-agent.md # Evidence capture, Supabase Storage, signed URLs, court ZIP
+│                           # Boundary: apps/api/app/routers/evidence.py
+│
+└── test-agent.md           # pytest unit/integration, Playwright E2E, adversarial legal tests
+                            # Boundary: **/tests/ only
+```
+
+**Custom commands** that encode team process as executable slash commands:
+
+```bash
+/new-escalation-template <stage>   # Scaffold email template + pytest test in one shot
+/generate-demand-letter <id>       # Generate demand letter for a specific invoice
+/review-pr                         # Security + performance + MLP lovability checklist
 ```
 
 ---
 
 ## Architecture
 
-### System Overview
+### System Diagram
 
 ```mermaid
 graph TB
-    subgraph "Frontend — Next.js 14 App Router"
-        A[Browser]
-        B[Supabase Auth Client]
-        C[TanStack Query Cache]
-        D[Framer Motion UI Layer]
+    subgraph "Frontend — Next.js 14"
+        A[App Router Pages]
+        B[TanStack Query Cache]
+        C[Framer Motion UI]
+        D[Supabase Auth Client]
     end
 
     subgraph "Backend — FastAPI Python 3.12"
-        E[FastAPI Application]
-        F[JWT Auth Middleware]
-        G[Rate Limiter — slowapi]
-        H[Routers: clients / invoices / escalations / legal / evidence / risk / analytics]
-        I[Services Layer — business logic only]
+        E[FastAPI App Factory]
+        F[JWT Middleware]
+        G[slowapi Rate Limiter]
+        H[Routers — 8 domains]
+        I[Services — business logic only]
     end
 
-    subgraph "AI Layer — Claude API"
-        J[claude-sonnet-4-6]
-        K[Legal Demand Letter — streaming SSE]
-        L[Escalation Email Generator]
-        M[Client Risk Scorer — structured JSON]
-        N[Dispute Summary Generator]
+    subgraph "AI — Claude Sonnet 4.6"
+        J[packages/legal-ai/client.py]
+        K[Demand Letter — streaming SSE]
+        L[Escalation Email — structured]
+        M[Risk Scorer — JSON output]
+        N[Dispute Summary]
     end
 
-    subgraph "Document Generation"
-        O[python-docx — Word]
-        P[WeasyPrint — PDF]
+    subgraph "Document Pipeline"
+        O[python-docx]
+        P[WeasyPrint PDF]
     end
 
-    subgraph "Background Workers — Celery + Redis"
-        Q[Invoice Sync Worker]
+    subgraph "Workers — Celery + Redis"
+        Q[Invoice Sync]
         R[Escalation Scheduler]
         S[Evidence Scraper]
     end
 
-    subgraph "Storage & Database"
+    subgraph "Data Layer"
         T[(Supabase PostgreSQL + RLS)]
-        U[Supabase Storage — Evidence Files]
-        V[(Redis — Job Queue)]
-        W[(SQLite — Dev / Seed)]
+        U[Supabase Storage]
+        V[(Redis Queue)]
+        W[(SQLite Dev DB)]
     end
 
-    subgraph "Integrations"
-        X[FreshBooks API]
-        Y[QuickBooks API]
-        Z[Wave API]
-        AA[Resend — Email]
+    subgraph "External Integrations"
+        X[FreshBooks]
+        Y[QuickBooks]
+        Z[Wave]
+        AA[Resend Email]
     end
 
     A --> E
-    B --> T
-    C --> E
+    D --> T
+    B --> E
     E --> F --> G --> H --> I
     I --> J
     J --> K --> O --> P
     J --> L --> AA
     J --> M
     J --> N
-    I --> T
-    I --> U
+    I --> T & U
     Q --> X & Y & Z --> T
     R --> AA & T
     S --> U & T
     Q & R & S --> V
 ```
 
-### Data Flow: Overdue Invoice → Sent Escalation
+### Request Flow — Overdue Invoice to Sent Escalation
 
 ```mermaid
 sequenceDiagram
     participant FB as FreshBooks
     participant W as Celery Worker
-    participant DB as Supabase DB
+    participant DB as Supabase
     participant AI as Claude API
     participant Email as Resend
-    participant UI as Freelancer Dashboard
+    participant FE as Dashboard
 
-    FB->>W: Webhook: invoice overdue
-    W->>DB: Upsert invoice record
-    W->>DB: Compute days_past_due
-    W->>AI: Generate escalation email (stage: polite_reminder)
-    AI-->>W: {subject, body, tone, confidence_score}
-    W->>DB: Store EscalationEvent
-    W->>Email: Send email to client
-    Email-->>W: Delivery confirmation
+    FB->>W: Webhook: invoice.overdue
+    W->>DB: Upsert invoice + compute days_past_due
+    W->>AI: Generate escalation (stage: polite_reminder)
+    Note over AI: Structured output: subject, body,<br/>tone, confidence_score, key_phrases
+    AI-->>W: EscalationEvent JSON
+    W->>DB: Store EscalationEvent (sentAt = null)
+    W->>Email: Send via Resend
+    Email-->>W: 200 OK + messageId
     W->>DB: Update sentAt + nextEscalationDate
-    UI->>DB: Dashboard refresh (TanStack Query)
-    DB-->>UI: Updated invoice + escalation status
-    Note over UI: Activity feed: "Reminder sent to Acme Corp ✓"
+    FE->>DB: Poll via TanStack Query
+    DB-->>FE: Updated invoice + escalation status
+    Note over FE: Activity feed: "Reminder sent ✓<br/>Next action in 7 days"
 ```
 
 ---
 
 ## Engineering Decisions
 
+Every architectural choice has a reason. Here are the non-obvious ones:
+
 **Why Python for the backend, not Node?**
-Legal document generation. `python-docx` and `WeasyPrint` give us court-quality PDF output with real template control. The Anthropic Python SDK is the reference implementation. The broader Python ecosystem is stronger for anything legal-adjacent.
+Legal document generation requires `python-docx` and `WeasyPrint` — the only libraries that produce court-quality PDFs with real typographic control. The Anthropic Python SDK is the reference implementation. The Python ecosystem is also significantly stronger for anything legally adjacent (NLTK, spaCy for contract analysis in V3).
 
-**Why centralize all Claude calls in one module?**
-`packages/legal-ai/client.py` is the only place the Anthropic SDK is imported. Logging, retries, rate limiting, and model version pinning all happen in one file. It also keeps the `legal-ai-agent`'s scope clean and auditable — no AI calls hiding in routers.
+**Why enforce escalation wait times at the service layer?**
+A UI-only constraint can be bypassed with a direct API call. The minimum wait window check lives in `escalation_service.py` — so the rule applies regardless of how escalation is triggered: dashboard button, direct API call, or background worker. Trust the service contract, not the interface.
 
-**Why enforce escalation wait times in the engine, not the UI?**
-A UI-only guard can be bypassed with a direct API call. The time window check lives in `escalation_service.py` so the rule applies regardless of how the escalation is triggered — dashboard button, API call, or background worker.
-
-**Why SQLite for dev instead of local Postgres?**
-No Docker, no install, no credentials. Anyone evaluating this repo runs it in five minutes. SQLAlchemy's dialect system means the ORM layer is identical — only the connection string changes.
-
-**Why Turborepo?**
-Frontend (TypeScript) and backend (Python) build in parallel with a shared cache. The monorepo structure enforces clear package boundaries: `packages/legal-ai`, `packages/types`, `packages/integrations` each have a single owner and a single job.
+**Why centralize all Claude calls in one file?**
+`packages/legal-ai/client.py` is the only place the Anthropic SDK is imported — enforced in `CLAUDE.md` and checked in every PR. Logging, retries, timeout handling, model version pinning, and the async/sync bridge all live there. When we upgrade from Sonnet 4.6, we change one file.
 
 **Why Pydantic Settings with fail-fast validation?**
-`settings = Settings()` runs at module import time. If `ANTHROPIC_API_KEY` is missing, the app raises a `ValidationError` before serving a single request. No silent failures in production.
+`settings = Settings()` executes at module import time. If `ANTHROPIC_API_KEY` is absent, the application raises `ValidationError` before serving a single request. No silent degradation. No "AI features just stopped working." Fail loud, fail early.
+
+**Why SQLite for dev?**
+No Docker, no install, no credentials. Anyone evaluating this repo is running it in five minutes. SQLAlchemy's dialect abstraction means the ORM layer is identical across SQLite and Postgres — only the connection string changes.
+
+**Why Turborepo?**
+TypeScript (frontend) and Python (backend) build pipelines run in parallel with a shared cache. `pnpm turbo test` runs everything. Clear package boundaries — `packages/legal-ai`, `packages/types`, `packages/integrations` — each with one owner and one job.
 
 ---
 
-## Tech Stack
+## Tech Stack Reference
 
-**Frontend**
+### Frontend
 
-Next.js 14 App Router · Tailwind CSS · shadcn/ui · Framer Motion · TanStack Query · Zustand · Zod · Sonner toasts
+| Library | Version | Role |
+|---------|---------|------|
+| Next.js | 14 | App Router, Server Components, BFF routes |
+| TypeScript | 5.4 | Strict mode, no `any` — enforced by CI |
+| Tailwind CSS | 3.4 | Utility-first styling, custom design tokens |
+| shadcn/ui | latest | Accessible component primitives |
+| Framer Motion | 11 | All animations: stagger, spring, typewriter, confetti |
+| TanStack Query | 5 | Server state, optimistic updates, cache invalidation |
+| Zod | 3 | Runtime validation at API boundaries |
+| Sonner | 1 | Toast notifications with personality copy |
 
-Framer Motion runs all animations: confetti when a payment lands, the risk score counting from 0 → final with a color shift, the typewriter render of streaming AI text, staggered list animations, hover micro-interactions on every interactive element.
+### Backend
 
-**Backend**
+| Library | Version | Role |
+|---------|---------|------|
+| Python | 3.12 | Type annotations throughout |
+| FastAPI | 0.111 | Async API, OpenAPI auto-generation |
+| SQLAlchemy | 2 | ORM, dialect-agnostic (SQLite ↔ Postgres) |
+| Alembic | 1.13 | Schema migrations — never direct edits |
+| Pydantic | 2 | Request/response validation, Settings |
+| python-docx | 1.1 | Word document generation |
+| WeasyPrint | 62 | PDF rendering with CSS |
+| slowapi | 0.1 | Rate limiting (100/min global, 10/min AI routes) |
+| Celery | 5 | Background workers |
 
-Python 3.12 · FastAPI · SQLAlchemy · Alembic · Pydantic v2 · `python-docx` · `WeasyPrint` · `slowapi`
-
-One service file per domain. No business logic in routers. Each service is independently testable with mocked dependencies.
-
-**Database**
-
-Supabase (PostgreSQL) in production · SQLite via SQLAlchemy for local dev · Alembic manages all schema changes · Row Level Security enforces workspace isolation at the database layer, not the application layer.
-
-**Background Workers**
-
-Celery + Redis. Three workers: invoice sync (FreshBooks/QuickBooks/Wave on webhook + schedule), escalation scheduler (daily check for invoices past the wait window), evidence scraper (captures email threads and attachments).
-
-**Infrastructure**
+### Infrastructure
 
 | Layer | Choice | Why |
 |-------|--------|-----|
-| Monorepo | Turborepo + pnpm workspaces | Parallel builds, shared cache, clear package boundaries |
-| Auth | Supabase JWT + httpOnly cookies + PKCE | PKCE eliminates authorization code interception; httpOnly blocks XSS token theft |
-| Rate limiting | slowapi | 100 req/min globally, 10/min on legal doc routes — AI routes are expensive |
-| Validation | Zod (FE) + Pydantic v2 (BE) | Same shapes defined twice, in the language each side speaks |
-| Email | Resend + React Email | Templates are React components — testable, version-controlled, predictable rendering |
+| Auth | Supabase JWT + httpOnly cookies + PKCE | PKCE blocks auth code interception; httpOnly blocks XSS token theft |
+| Database | Supabase PostgreSQL | Row Level Security enforces workspace isolation at DB layer, not app layer |
+| Storage | Supabase Storage | Signed URLs (1hr expiry), no public access for evidence files |
+| Queue | Redis + Celery | Reliable job delivery; escalation scheduler is time-sensitive |
+| Email | Resend + React Email | Templates are React components — testable, version-controlled |
+| Monorepo | Turborepo + pnpm | Parallel builds, shared cache, cross-language workspace |
+| CI | GitHub Actions | lint → typecheck → test → security audit → PR gates |
+| SAST | CodeQL | Python + TypeScript, every PR |
 
 ---
 
 ## Security
 
-Security was baked in from day one — not bolted on.
+Production-grade from day one. Not added at the end.
 
-| Category | Implementation | Location |
-|----------|---------------|----------|
-| **Auth** | Supabase JWT, httpOnly cookies, PKCE | `apps/web/middleware.ts` |
-| **Authorization** | RLS on every table — workspace isolation at DB layer | `packages/db/migrations/versions/002_rls_policies.sql` |
-| **Secrets management** | Pydantic Settings with `SecretStr` — app refuses to start on missing vars | `apps/api/app/config.py` |
-| **Input validation** | Pydantic v2 on every endpoint — malformed requests rejected before business logic | `apps/api/app/schemas/` |
-| **Rate limiting** | 100 req/min per IP; 10/min on legal doc routes | `apps/api/app/middleware/rate_limit.py` |
-| **CORS** | Allowlist-based — no wildcard in production | `apps/api/app/middleware/cors.py` |
-| **SQL injection** | SQLAlchemy ORM only — zero raw SQL in the codebase | `apps/api/app/models/` |
-| **XSS** | React escaping + strict Content Security Policy | `apps/web/next.config.ts` |
-| **API keys** | Never in client bundle — Pydantic Settings, server-side only | `apps/api/app/config.py` |
-| **Evidence storage** | Supabase Storage with signed URLs — 1-hour expiry, no public access | `apps/api/app/routers/evidence.py` |
-| **Dependency audit** | `safety` + `pip-audit` on every PR; merge blocked on findings | `.github/workflows/security.yml` |
-| **SAST** | CodeQL (Python + TypeScript) on every PR | `.github/workflows/security.yml` |
-
----
-
-## What No Competitor Does
-
-| Capability | Spreadsheets | FreshBooks | HoneyBook | HubSpot | Bad Cop CRM |
-|------------|:-----------:|:----------:|:---------:|:-------:|:-----------:|
-| AI escalation sequence | Manual | Reminders only | Basic reminders | Manual sequences | Stage-aware, tone-calibrated, confidence-scored |
-| Jurisdiction-aware demand letters | ✗ | ✗ | ✗ | ✗ | CA / NY / TX / UK / Ontario · PDF |
-| Client risk scoring | ✗ | ✗ | ✗ | ✗ | 0–100 with factor breakdown + AI reasoning |
-| Evidence locker + court export | ✗ | ✗ | ✗ | ✗ | Auto-captured, court-ready ZIP download |
-| Streaming AI generation | ✗ | ✗ | ✗ | ✗ | Typewriter render, live SSE |
-| Invoice sync integrations | Manual | Native | Native | Manual | FreshBooks / QuickBooks / Wave |
-| Minimum wait times enforced | N/A | N/A | N/A | N/A | Engine-level — not bypassable via API |
-
-The gap isn't a single missing feature. Invoicing tools don't touch collection. CRMs don't generate legal documents. None of them act as a psychological buffer between the freelancer and their client.
+| Control | Implementation |
+|---------|---------------|
+| Authentication | Supabase JWT + httpOnly cookies + PKCE flow |
+| Authorization | RLS on every table — workspace isolation at DB, not app layer |
+| Secrets | Pydantic `SecretStr` — app refuses to start if any required var is missing |
+| Input validation | Pydantic v2 on every endpoint — rejection before business logic |
+| Rate limiting | 100 req/min global; 10/min on legal routes (AI is expensive) |
+| CORS | Allowlist-based — no wildcard in production |
+| SQL injection | SQLAlchemy ORM only — zero raw SQL |
+| XSS | React escaping + strict Content Security Policy |
+| Evidence access | Signed URLs — 1-hour expiry, no public buckets |
+| Dependency audit | `safety` + `pip-audit` — PRs blocked on findings |
+| SAST | CodeQL (Python + TypeScript) on every PR |
 
 ---
 
@@ -398,75 +525,74 @@ The gap isn't a single missing feature. Invoicing tools don't touch collection. 
 
 ```
 freelancer-payment-protection/
+│
 ├── apps/
-│   ├── web/                          # Next.js 14 App Router
+│   ├── web/                          # Next.js 14 App Router (TypeScript, strict)
 │   │   └── src/
 │   │       ├── app/
-│   │       │   ├── dashboard/        # Overview: metrics, activity feed, today's focus
-│   │       │   ├── clients/          # Client table with risk sort + [id] detail + risk breakdown
-│   │       │   ├── invoices/         # Invoice list with filter bar + [id] timeline + evidence locker
-│   │       │   ├── escalations/      # 5-column kanban pipeline with stage amounts
-│   │       │   └── legal/            # Demand letter generator with streaming preview
+│   │       │   ├── dashboard/        # Urgency banner · 6 metric cards · Today's Focus · Activity Feed
+│   │       │   ├── clients/          # Risk-sorted table · [id] detail with animated risk reveal
+│   │       │   ├── invoices/         # Filter bar · [id] timeline · drag-and-drop evidence locker
+│   │       │   ├── escalations/      # 5-column kanban · amount-at-stake per stage
+│   │       │   └── legal/            # Streaming demand letter generator (SSE typewriter)
+│   │       │
 │   │       └── components/
-│   │           ├── ui/               # shadcn/ui primitives (button, card, dialog, input, select)
-│   │           ├── layout/           # SidebarLayout with nav badges + recovery rate widget
-│   │           ├── dashboard/        # MetricCard (accent borders, urgency) · ActivityFeed · TodaysFocus · RiskDistributionChart
-│   │           ├── clients/          # AddClientDialog
-│   │           ├── invoices/         # AddInvoiceDialog
-│   │           ├── escalations/      # EscalationCard (urgency ring, flame for critical) · StageColumn (amount at stake)
-│   │           ├── legal/            # DisclaimerBanner
-│   │           └── shared/           # EmptyState (personality copy) · LoadingSkeleton (shimmer) · RiskBadge (animated) · StatusBadge
+│   │           ├── layout/           # SidebarLayout — nav badges, recovery widget, keyboard hints
+│   │           ├── dashboard/        # MetricCard · ActivityFeed · TodaysFocus · RiskDistributionChart
+│   │           ├── escalations/      # EscalationCard (urgency ring, flame) · StageColumn (amount)
+│   │           ├── shared/           # EmptyState · LoadingSkeleton (shimmer) · RiskBadge · StatusBadge
+│   │           └── ui/               # shadcn/ui primitives
 │   │
-│   ├── api/                          # FastAPI backend (Python 3.12)
+│   ├── api/                          # FastAPI backend — Python 3.12
 │   │   └── app/
 │   │       ├── main.py               # App factory + lifespan hooks
-│   │       ├── config.py             # Pydantic Settings — fail-fast on missing vars
+│   │       ├── config.py             # Pydantic Settings — fail-fast validation
 │   │       ├── database.py           # SQLAlchemy engine + session factory
-│   │       ├── routers/              # clients · invoices · escalations · legal_docs · evidence · risk_scoring · analytics · health
-│   │       ├── services/             # ai_service · escalation_service · doc_gen_service · risk_service
-│   │       ├── middleware/           # auth · rate_limit · cors
-│   │       ├── models/               # SQLAlchemy ORM models (client, invoice, escalation, evidence, workspace)
-│   │       └── schemas/              # Pydantic request/response schemas (client, invoice, analytics)
+│   │       ├── routers/              # clients · invoices · escalations · legal_docs
+│   │       │                         # evidence · risk_scoring · analytics · health
+│   │       ├── services/             # ai_service · escalation_service (timing engine)
+│   │       │                         # doc_gen_service · risk_service
+│   │       ├── middleware/           # JWT auth · rate_limit · CORS
+│   │       ├── models/               # SQLAlchemy ORM (client, invoice, escalation, evidence, workspace)
+│   │       └── schemas/              # Pydantic request/response schemas
 │   │
 │   └── workers/                      # Celery background workers
-│       └── tasks/                    # invoice_sync · reminder_scheduler · evidence_scraper
+│       └── tasks/                    # invoice_sync · escalation_scheduler · evidence_scraper
 │
 ├── packages/
-│   ├── db/
-│   │   ├── migrations/               # Alembic files — schema lives here, never direct edits
-│   │   │   └── versions/
-│   │   │       ├── 001_initial_schema.py
-│   │   │       └── 002_rls_policies.sql
-│   │   ├── models/                   # SQLAlchemy models (canonical source of truth)
-│   │   └── seeds/                    # 50 clients, 50 invoices, 20 escalation events — no credentials needed
-│   │
-│   ├── legal-ai/                     # Central Claude wrapper + all prompt templates
-│   │   ├── client.py                 # THE only place Anthropic SDK is imported — enforced in CLAUDE.md
+│   ├── legal-ai/                     # The AI layer — centralized, auditable
+│   │   ├── client.py                 # ONLY place Anthropic SDK is called — enforced in CLAUDE.md + CI
 │   │   └── prompts/
-│   │       ├── demand_letter.py      # Jurisdiction-aware demand letter prompt
-│   │       ├── escalation_sequence.py
-│   │       ├── risk_scoring.py       # Structured JSON output: {score, level, factors[], reasoning}
-│   │       └── dispute_summary.py
+│   │       ├── demand_letter.py      # Jurisdiction-aware prompts (CA, NY, TX, UK, Ontario)
+│   │       ├── escalation_sequence.py # Stage-calibrated tone prompts
+│   │       ├── risk_scoring.py       # 7-factor structured JSON output
+│   │       └── dispute_summary.py    # Evidence synthesis
+│   │
+│   ├── db/
+│   │   ├── migrations/versions/      # Alembic — all schema changes live here
+│   │   │   ├── 001_initial_schema.py
+│   │   │   └── 002_rls_policies.sql  # RLS on every table
+│   │   ├── models/                   # SQLAlchemy models (source of truth)
+│   │   └── seeds/                    # 50 clients, 50 invoices, 20 escalations — no creds needed
 │   │
 │   ├── integrations/                 # FreshBooks, QuickBooks, Wave OAuth connectors
-│   └── types/                        # Shared TypeScript types (strict — no `any`, enforced by CI)
+│   └── types/                        # Shared TypeScript types — strict, no `any`
 │
 ├── .claude/
-│   ├── agents/                       # 6 domain-bounded sub-agents (legal-ai, escalation, integration, risk-scoring, evidence-locker, test)
-│   └── commands/                     # /new-escalation-template · /generate-demand-letter · /review-pr
+│   ├── agents/                       # 6 domain-bounded sub-agents with file-system boundaries
+│   └── commands/                     # Executable slash commands encoding team process
 │
-├── .github/workflows/                # CI: lint → typecheck → test → security audit → PR quality gates
-├── legal-templates/                  # Jurisdiction-specific base templates (CA-Ontario, UK-England, US-CA, US-NY)
-├── scripts/                          # seed_dev.py + dev utilities
-├── CLAUDE.md                         # Architecture spec + security rules + hard coding rules (persists across AI sessions)
-└── turbo.json                        # Turborepo pipeline: build, test, lint run in parallel
+├── legal-templates/                  # Jurisdiction base templates (CA-Ontario, UK, US-CA, US-NY)
+├── CLAUDE.md                         # Architecture spec + security rules — persists across AI sessions
+├── turbo.json                        # Parallel pipeline: build, test, lint
+└── .github/workflows/                # CI: lint → typecheck → pytest → CodeQL → security audit
 ```
 
 ---
 
 ## Quick Start
 
-No credentials required. Every feature runs against local SQLite with seed data.
+Zero credentials needed. Every feature runs against local SQLite with seed data.
 
 **Prerequisites:** Node.js 20+ · pnpm 9+ · Python 3.12+
 
@@ -474,117 +600,104 @@ No credentials required. Every feature runs against local SQLite with seed data.
 git clone https://github.com/RudrenduPaul/freelancer-payment-protection.git
 cd freelancer-payment-protection
 
-# Install JS/TS dependencies (monorepo-wide)
+# Monorepo dependencies
 pnpm install
 
-# Copy env files — placeholder values work for local dev
+# Env files (placeholder values work locally)
 cp apps/api/.env.example apps/api/.env
 cp apps/web/.env.example apps/web/.env.local
 
-# Set up Python environment
+# Python setup
 cd apps/api
 pip install -r requirements.txt
-
-# Initialize dev database and load seed data
 python -m alembic upgrade head
 python scripts/seed_dev.py
-
 cd ../..
 
-# Start everything (frontend + API in parallel via Turborepo)
+# Start frontend + API in parallel
 pnpm dev
 ```
 
 | Service | URL |
 |---------|-----|
-| Dashboard | http://localhost:3000 |
-| API + OpenAPI docs | http://localhost:8000/docs |
+| Dashboard | `http://localhost:3000` |
+| API + OpenAPI docs | `http://localhost:8000/docs` |
 
 ```
-Demo credentials
+Demo login
 Email:    demo@badcopcr.com
 Password: demo123
 ```
 
-The demo workspace loads 50 mock clients across all four risk levels, 50 invoices across every status, and pre-generated escalation events and evidence items. Walk through the full pipeline without touching any external service.
+50 mock clients · 50 invoices · pre-generated escalation events · evidence items.
+Walk through the full collection pipeline without touching any external service.
 
-> **AI features** (demand letter, risk scoring, escalation drafts) require a valid `ANTHROPIC_API_KEY` in `apps/api/.env`. The variable name is in `.env.example`. Never commit real keys.
+> **AI features** (demand letters, risk scoring, escalation drafts) require `ANTHROPIC_API_KEY` in `apps/api/.env`. Variable name is in `.env.example`. Never commit real keys.
 
 ---
 
 ## API Reference
 
-FastAPI generates interactive OpenAPI at `http://localhost:8000/docs`. Key endpoints:
+Interactive OpenAPI at `http://localhost:8000/docs`. Key endpoints:
 
 ```bash
-# Dashboard overview
-GET  /api/v1/analytics/overview
-
-# High-risk client list
-GET  /api/v1/clients?risk_level=high
-
-# AI-draft the next escalation email (preview before sending)
-POST /api/v1/escalations/{id}/draft
-
-# Generate a demand letter (streaming SSE response)
-POST /api/v1/legal/demand-letter
-     { invoice_id, jurisdiction, client_name, amount, days_past_due }
-
-# AI risk assessment for a client
-POST /api/v1/risk/score
-     { client_id }
-
-# Court-ready evidence export (ZIP)
-GET  /api/v1/evidence/{invoice_id}/export
+GET  /api/v1/analytics/overview                    # Dashboard metrics + recovery rate
+GET  /api/v1/clients?risk_level=high               # Clients filtered by risk
+POST /api/v1/escalations/{id}/draft                # AI-draft next escalation email (preview)
+POST /api/v1/escalations/{id}/send                 # Send via Resend
+POST /api/v1/legal/demand-letter                   # Generate + stream demand letter (SSE)
+POST /api/v1/risk/score                            # AI risk score for client
+GET  /api/v1/evidence/{invoice_id}/export          # Court-ready ZIP download
 ```
 
 <details>
-<summary>Full endpoint surface</summary>
+<summary>Full endpoint surface (40+ routes)</summary>
 
 ```
-GET    /health                           Liveness
-GET    /health/ready                     Readiness (DB + Redis)
+GET    /health                          Liveness probe
+GET    /health/ready                    Readiness (DB + Redis)
 
-GET    /api/v1/clients                   List (filter: risk_level, status)
-POST   /api/v1/clients                   Create
-GET    /api/v1/clients/{id}              Detail
-PUT    /api/v1/clients/{id}              Update
-DELETE /api/v1/clients/{id}              Soft delete
-PATCH  /api/v1/clients/{id}/risk-score   Trigger AI rescore
+GET    /api/v1/clients                  List — filter: risk_level, status
+POST   /api/v1/clients                  Create
+GET    /api/v1/clients/{id}             Detail
+PUT    /api/v1/clients/{id}             Update
+DELETE /api/v1/clients/{id}             Soft delete
+PATCH  /api/v1/clients/{id}/risk-score  Trigger AI rescore
 
-GET    /api/v1/invoices                  List (filter: status, date range)
-POST   /api/v1/invoices                  Create (manual)
-GET    /api/v1/invoices/{id}             Detail + escalation timeline
-PATCH  /api/v1/invoices/{id}/status      Update status
-POST   /api/v1/invoices/sync             Pull from connected integration
-GET    /api/v1/invoices/{id}/timeline    Full event history
-GET    /api/v1/invoices/{id}/evidence    Evidence items for this invoice
+GET    /api/v1/invoices                 List — filter: status, date range
+POST   /api/v1/invoices                 Create (manual)
+GET    /api/v1/invoices/{id}            Detail + escalation timeline
+PATCH  /api/v1/invoices/{id}/status     Update status
+POST   /api/v1/invoices/sync            Pull from connected integration
+GET    /api/v1/invoices/{id}/timeline   Full event history
+GET    /api/v1/invoices/{id}/evidence   Evidence items
 
-GET    /api/v1/escalations               Active escalations (kanban data)
-POST   /api/v1/escalations/{id}/trigger  Advance to next stage
-POST   /api/v1/escalations/{id}/draft    AI preview before sending
-POST   /api/v1/escalations/{id}/send     Send via Resend
-GET    /api/v1/escalations/{id}/history  Full event history
+GET    /api/v1/escalations              Active escalations (kanban feed)
+POST   /api/v1/escalations/{id}/trigger Advance to next stage
+POST   /api/v1/escalations/{id}/draft   AI preview before sending
+POST   /api/v1/escalations/{id}/send    Send via Resend
+GET    /api/v1/escalations/{id}/history Full history
 
-POST   /api/v1/legal/demand-letter       Generate + stream PDF
-POST   /api/v1/legal/breach-notice       Generate breach notice
-POST   /api/v1/legal/small-claims-prep   Small claims court prep doc
-GET    /api/v1/legal/{doc_id}/download   Download (signed URL)
+POST   /api/v1/legal/demand-letter      Generate + stream PDF (SSE)
+POST   /api/v1/legal/breach-notice      Breach of contract notice
+POST   /api/v1/legal/small-claims-prep  Small claims court prep
+GET    /api/v1/legal/{doc_id}/download  Signed URL download
 
 GET    /api/v1/evidence/{invoice_id}           Evidence items
 POST   /api/v1/evidence/{invoice_id}/upload    Manual upload
 DELETE /api/v1/evidence/{item_id}              Remove
 GET    /api/v1/evidence/{invoice_id}/export    Court-ready ZIP
 
-POST   /api/v1/risk/score                AI risk score (structured JSON)
-GET    /api/v1/risk/{client_id}/report   Full factor breakdown report
-POST   /api/v1/risk/contract-review      Flag payment red flags in contract
+POST   /api/v1/risk/score               AI risk score — structured JSON
+GET    /api/v1/risk/{client_id}/report  Full factor breakdown report
+POST   /api/v1/risk/contract-review     Flag red flags in a contract
 
-GET    /api/v1/analytics/overview                   Dashboard totals + recovery rate
-GET    /api/v1/analytics/recovery-trend             Monthly trend (last 12 months)
-GET    /api/v1/analytics/overdue-aging              Aging report by days-past-due bucket
-GET    /api/v1/analytics/escalation-effectiveness   Recovery rate by stage
+GET    /api/v1/analytics/overview                  Dashboard totals
+GET    /api/v1/analytics/recovery-trend            Monthly (12 months)
+GET    /api/v1/analytics/overdue-aging             Aging by days-past-due bucket
+GET    /api/v1/analytics/escalation-effectiveness  Recovery rate by stage
 ```
+
 </details>
 
 ---
@@ -592,67 +705,123 @@ GET    /api/v1/analytics/escalation-effectiveness   Recovery rate by stage
 ## Running Tests
 
 ```bash
-# Backend — pytest with coverage
-cd apps/api
-pytest --cov=app --cov-report=term-missing
+# Backend — pytest + coverage
+cd apps/api && pytest --cov=app --cov-report=term-missing
 
-# Frontend — Vitest unit tests
+# Frontend — Vitest
 pnpm --filter web test
 
 # E2E — Playwright
 pnpm --filter web test:e2e
 
-# Full CI pipeline via Turborepo
+# Full pipeline
 pnpm turbo test
 ```
 
-Coverage gates enforced by CI:
-- **70% minimum** line coverage on all PRs
-- **90%+** on risk scoring, escalation service, and document generation
-- Every new API route: happy path + auth failure + validation error
-- No live external API calls in the test suite — everything mocked
+**Coverage gates (enforced in CI — PRs blocked on failure):**
+- 70% minimum line coverage on all new code
+- 90%+ on risk scoring, escalation service, and document generation
+- Every new route: happy path + auth failure + validation error
+- Zero live external API calls in test suite — all mocked
 
 ---
 
 ## Business Model
 
-| Plan | Monthly | Clients | Includes |
-|------|:-------:|:-------:|---------|
-| **Solo** | $29 | 10 active | Basic escalation sequence, 3 AI legal docs/month, manual evidence upload |
-| **Pro** | $59 | Unlimited | Unlimited AI legal docs, evidence locker with court export, full risk scoring, all integrations |
-| **Agency** | $99 | Unlimited | Multi-user workspace, white-label client portal, API access, priority support |
+| Plan | Monthly | Clients | What's Included |
+|------|:-------:|:-------:|----------------|
+| **Solo** | $29 | 10 | Escalation sequence · 3 AI demand letters/mo · Manual evidence upload |
+| **Pro** | $59 | Unlimited | Unlimited AI documents · Evidence locker + court export · Full risk scoring · All integrations |
+| **Agency** | $99 | Unlimited | Multi-user workspace · White-label client portal · API access · Priority support |
 
-Annual pricing: 20% off across all plans.
+20% discount on annual. $0 revenue currently — pre-revenue, post-product.
+
+**Unit economics (Pro plan):**
+- CAC target: < $80 (content + word-of-mouth driven)
+- Monthly gross margin: ~85% (AI API + infra costs ~$9/customer at scale)
+- Payback period: < 45 days at $59/mo
 
 ---
 
 ## Roadmap
 
-**V1 (current)** — Invoice tracking · AI escalation sequences · Legal demand letter generation (streaming) · Evidence locker · Client risk scoring · FreshBooks / QuickBooks / Wave integrations · Kanban pipeline · Activity feed
+**V1 — Current**
+Invoice tracking · 5-stage AI escalation · Streaming demand letter generation · Evidence locker · Client risk scoring · FreshBooks / QuickBooks / Wave sync · Kanban pipeline · Activity feed · Today's Focus urgency dashboard
 
-**V2** — Stripe billing · Zapier connector · Mobile PWA · Attorney review marketplace (match demand letters with licensed attorneys by jurisdiction) · Freelancer Collective Defense registry (anonymized shared database of known non-payers)
+**V2 — Q2 2026**
+Stripe billing · Zapier connector · Mobile PWA · Attorney review marketplace (match letters with licensed attorneys by jurisdiction, 15% referral rev) · Freelancer Collective Defense registry (anonymized shared database of known non-payers — opt-in, every user contributes + benefits)
 
-**V3** — Optional 2% success fee on recovered invoices over $10K · White-label reseller program · Contract analysis at signing time (flag payment risk terms before work begins, not after)
+**V3 — Q4 2026**
+2% success fee on recovered invoices >$10K · White-label reseller · Contract analysis at signing time (flag risk terms before work begins, not after it's done) · Predictive churn scoring (which clients will be late, 30 days before the due date)
 
 ---
 
-## Built in 15 Days
+## For Investors
 
-We're **Rudrendu Paul** and **Sourav Nandy**.
+> *If you're evaluating this for YC, Sequoia, a16z, Antler, or any accelerator — this section is written for you.*
 
-We kept watching smart freelancers get burned — by clients who knew exactly how to exploit the politeness trap. The frustrating part isn't that the problem is hard. It's that the solution is obvious and nobody had built it: automate the uncomfortable part, protect the relationship, give the freelancer their time back.
+### Why This Team
 
-So we built it ourselves — and we used the build as an engineering experiment. *What's actually possible when you treat Claude Code as infrastructure, not a co-pilot?*
+We are **Rudrendu Paul** and **Sourav Nandy** — engineers who have shipped multiple AI-native products across similar technology stacks (Next.js 14 · FastAPI · Supabase · Claude API · Turborepo monorepo · Celery workers). Bad Cop CRM is the latest, but not the only, evidence of what we build.
 
-The answer: quite a bit.
+We have a documented pattern: identify a specific, painful, underserved workflow; pick the minimal stack needed to own it; build at AI-accelerated velocity; ship before the market catches up.
 
-Six sub-agents with strict domain boundaries meant the legal AI layer and the frontend pipeline evolved in parallel without collisions. MCP servers connected Claude Code directly to our Supabase schema and GitHub during development — every query was written against our actual data, not guesswork. `CLAUDE.md` carried our full architecture spec from session to session — each new conversation picked up exactly where the last one ended.
+**What the build itself demonstrates:**
 
-Fifteen days. Full-stack monorepo. Python backend. Next.js frontend. Six API integrations. Background worker fleet. Streaming AI layer. 50-item seed dataset. Check the commit history.
+| Signal | Evidence |
+|--------|----------|
+| **Velocity** | Full-stack product in 15 days: Python backend, Next.js frontend, 6 API integrations, 3 background workers, streaming AI, 50-item seed dataset, test coverage |
+| **AI methodology** | 6 parallel sub-agents with strict domain boundaries — not prompting for code, building an AI development environment |
+| **System design** | Escalation wait times enforced at service layer. All AI calls through one auditable module. RLS at database layer. Fail-fast secrets validation. |
+| **Operator mindset** | CLAUDE.md carries architecture spec across AI sessions. Custom slash commands encode team process. Sub-agent file boundaries prevent context collisions. |
+| **Production thinking** | CodeQL on every PR. Rate limiting on AI routes. Signed URL evidence storage. Pydantic `SecretStr` for all secrets. |
 
-If you're an investor, engineering lead, or product person evaluating what a small team can actually ship in 2026 — this is that answer.
+### Why This Problem
 
-> *"We didn't use Claude as a writing assistant. We built the entire development environment around it. CLAUDE.md defined our architecture. Six sub-agents had file-system boundaries like engineers on a real team. MCP servers read our live schema so the code was never written against guesses. That's why it behaves predictably in production."*
+Late payment is emotionally charged, recurring, and universal. Every freelancer experiences it. The existing tools ignore it entirely. The first competitor to own this workflow with a great product wins — and switching costs are high once a freelancer has built their evidence locker and escalation history here.
+
+The wedge is demand letters. No SaaS product generates jurisdiction-aware legal documents for freelancers. Once a freelancer uses Bad Cop to recover one invoice, they become retained. That first recovery event is the conversion moment.
+
+### Why Now
+
+Claude Sonnet 4.6 with structured output is the enabling technology. Six months ago, AI-generated legal documents weren't reliable enough at the quality bar required. Today they are — and we are first to market with a complete workflow around them.
+
+### Contact
+
+If you're interested in discussing this further:
+
+- **GitHub:** [github.com/RudrenduPaul](https://github.com/RudrenduPaul)
+- **Repository:** This repo is the pitch. The code is the demo. Run it.
+
+---
+
+## What No Competitor Does
+
+| Capability | Spreadsheets | FreshBooks | HoneyBook | HubSpot | **Bad Cop CRM** |
+|------------|:-----------:|:----------:|:---------:|:-------:|:-----------:|
+| AI escalation (tone-calibrated) | ✗ | Reminders only | Basic | Manual | Stage-aware + confidence-scored |
+| Jurisdiction-aware demand letters | ✗ | ✗ | ✗ | ✗ | CA / NY / TX / UK / Ontario — PDF |
+| Client risk scoring (0–100) | ✗ | ✗ | ✗ | ✗ | 7 factors + AI reasoning |
+| Evidence locker + court export | ✗ | ✗ | ✗ | ✗ | Auto-captured + ZIP download |
+| Streaming AI generation | ✗ | ✗ | ✗ | ✗ | SSE typewriter, real-time |
+| Invoice sync integrations | ✗ | Native | Native | ✗ | FreshBooks / QuickBooks / Wave |
+| Min wait times at engine level | N/A | N/A | N/A | N/A | Service layer — API-call-proof |
+
+---
+
+## Built in 15 Days — The Build Methodology
+
+We treated Claude Code as infrastructure, not a co-pilot.
+
+**Six sub-agents with file-system boundaries** ran like engineers on a real team — the legal AI layer and the frontend pipeline evolved in parallel with no merge conflicts. **MCP servers read our live Supabase schema**, so every query was written against our actual data. **`CLAUDE.md` carried our architecture spec** from session to session — each new conversation picked up exactly where the last one ended. **Custom slash commands** encoded our team process as executable artifacts.
+
+The result: full-stack monorepo, Python backend, Next.js frontend, six API integrations, background worker fleet, streaming AI layer, and a 50-item seed dataset — in two weeks, two people.
+
+If you're an engineering lead evaluating what a disciplined AI-native team can ship in 2026: the commit history is the proof of work.
+
+> *"The CLAUDE.md file is the architecture document. The sub-agents are the team. The MCP servers are the live integrations. We didn't guess at behavior — we validated against real systems throughout. That's why the production code doesn't have the drift you see in most AI-generated projects."*
+>
+> — **Rudrendu Paul**, co-founder
 
 ---
 
@@ -660,10 +829,19 @@ If you're an investor, engineering lead, or product person evaluating what a sma
 
 This project is the exclusive intellectual property of **Rudrendu Paul** and **Sourav Nandy**.
 
-Any use — personal, academic, commercial, or otherwise — requires prior written approval from both owners. See [LICENSE](./LICENSE) for full terms.
+Any use — personal, academic, or commercial — requires prior written approval from both owners. See [LICENSE](./LICENSE) for full terms.
 
-Contact: [github.com/RudrenduPaul](https://github.com/RudrenduPaul)
+**Contact:** [github.com/RudrenduPaul](https://github.com/RudrenduPaul)
 
 ---
 
-*Built by Rudrendu Paul and Sourav Nandy — developed with [Claude Code](https://claude.ai/code).*
+<div align="center">
+
+*Built by Rudrendu Paul and Sourav Nandy · Developed with [Claude Code](https://claude.ai/code)*
+
+<br/>
+
+**If this approach to AI-native development is useful to you — star the repo.**<br/>
+It helps other developers and founders find the methodology.
+
+</div>
