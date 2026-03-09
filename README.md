@@ -1,30 +1,66 @@
-# Freelancer "Bad Cop" CRM
+<div align="center">
 
-> You did the work. You sent the invoice. Now they're not paying — and you can't chase too hard without torching the relationship.
-> **This is what does the chasing for you.**
+<h1>🛡️ Freelancer "Bad Cop" CRM</h1>
 
-![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?style=flat&logo=fastapi&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=flat&logo=nextdotjs&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.4-3178C6?style=flat&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=flat&logo=supabase&logoColor=white)
-![Claude AI](https://img.shields.io/badge/Claude-Sonnet_4.6-D4A017?style=flat&logo=anthropic&logoColor=white)
-![Celery](https://img.shields.io/badge/Celery-Redis_Queue-37814A?style=flat&logo=celery&logoColor=white)
-![Turborepo](https://img.shields.io/badge/Turborepo-Monorepo-EF4444?style=flat&logo=turborepo&logoColor=white)
-![License: Proprietary](https://img.shields.io/badge/License-Proprietary-1a1a2e?style=flat)
+<p><strong>52 million freelancers get stiffed every year. We built the bad cop so they don't have to be.</strong><br/>
+AI-native payment protection that automates escalation, drafts jurisdiction-aware legal documents,<br/>and scores client risk — so you stay the professional while the product does the uncomfortable part.</p>
 
-**Built by [Rudrendu Paul](https://github.com/RudrenduPaul) & Sourav Nandy** · Core product shipped in 15 days using Claude Code + 6 parallel sub-agents
+<hr/>
 
----
+<!-- Activity badges -->
+<p>
+  <img src="https://img.shields.io/github/last-commit/RudrenduPaul/freelancer-payment-protection?style=flat&label=last+commit" alt="last commit" />
+  <img src="https://img.shields.io/github/commit-activity/m/RudrenduPaul/freelancer-payment-protection?style=flat&label=commits%2Fmonth" alt="commits/month" />
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat" alt="PRs welcome" />
+</p>
+
+<!-- Core stack -->
+<p>
+  <img src="https://img.shields.io/badge/PYTHON-3.12-3776AB?style=flat&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/FASTAPI-0.111-009688?style=flat&logo=fastapi&logoColor=white" />
+  <img src="https://img.shields.io/badge/NEXT.JS-14-000000?style=flat&logo=nextdotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/TYPESCRIPT-5.4-3178C6?style=flat&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/PNPM-MONOREPO-F69220?style=flat&logo=pnpm&logoColor=white" />
+</p>
+
+<!-- AI & Data -->
+<p>
+  <img src="https://img.shields.io/badge/CLAUDE-AI-D4A017?style=flat&logo=anthropic&logoColor=white" />
+  <img src="https://img.shields.io/badge/CLAUDE--SONNET--4--6-E8820C?style=flat" />
+  <img src="https://img.shields.io/badge/SUPABASE-POSTGRESQL-3ECF8E?style=flat&logo=supabase&logoColor=white" />
+  <img src="https://img.shields.io/badge/CELERY-REDIS-37814A?style=flat&logo=celery&logoColor=white" />
+  <img src="https://img.shields.io/badge/ZOD-VALIDATION-3068B7?style=flat" />
+</p>
+
+<!-- CI & License -->
+<p>
+  <img src="https://img.shields.io/badge/CI-GITHUB_ACTIONS-2088FF?style=flat&logo=github-actions&logoColor=white" />
+  <img src="https://img.shields.io/badge/CODEQL-ENABLED-success?style=flat" />
+  <img src="https://img.shields.io/badge/LICENSE-PROPRIETARY-1a1a2e?style=flat" />
+</p>
+
+<p>
+  Built by <strong>Rudrendu Paul</strong> &amp; <strong>Sourav Nandy</strong> &nbsp;·&nbsp; Developed with <a href="https://claude.ai/code">Claude Code</a> &nbsp;·&nbsp; Core product shipped in <strong>15 days</strong> with 6 parallel sub-agents
+</p>
+
+<p>
+  <a href="#the-problem">The Problem</a> &nbsp;·&nbsp;
+  <a href="#the-product">The Product</a> &nbsp;·&nbsp;
+  <a href="#quick-start">Quick Start</a> &nbsp;·&nbsp;
+  <a href="#ai-under-the-hood">AI Features</a> &nbsp;·&nbsp;
+  <a href="#sub-agent-architecture">Sub-Agents</a> &nbsp;·&nbsp;
+  <a href="#system-architecture">Architecture</a>
+</p>
 
 <!--
-  📸 SCREENSHOT GOES HERE
-  Recommended: 1280×800 dashboard screenshot showing the escalation kanban + risk score badges
-  Drop it in /docs/screenshots/ and uncomment the line below.
-  A GIF of the streaming demand letter generation would also be 🔥
+  📸 DROP A SCREENSHOT HERE
+  Recommended: 1280×800 dashboard showing the escalation kanban + risk score badges
+  Save to /docs/screenshots/dashboard.png and uncomment the line below.
+  A GIF of the streaming demand letter typewriter effect would be 🔥
 -->
-<!-- ![Dashboard Preview](./docs/screenshots/dashboard.png) -->
+<!-- <img src="./docs/screenshots/dashboard.png" width="100%" alt="Dashboard Preview" /> -->
+
+</div>
 
 ---
 
