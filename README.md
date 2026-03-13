@@ -234,11 +234,6 @@ Our AI engine drafts jurisdiction-specific demand letters for California, New Yo
 
 Every generated document displays this disclaimer — enforced in the system prompt, verified by the `legal-ai-agent`, non-negotiable:
 
-```
-DISCLAIMER: This document was generated with AI assistance and does not
-constitute legal advice. Review with a qualified attorney before sending.
-```
-
 ### 2. Client Risk Scoring
 
 Seven weighted factors → 0–100 score → structured JSON with full reasoning:
