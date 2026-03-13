@@ -117,7 +117,7 @@ No tool on the market combines all five: AI-drafted legal documents + automated 
 
 ## What We Built
 
-An AI-native payment protection SaaS with a five-stage escalation engine, jurisdiction-aware legal document generation, real-time client risk scoring, and a court-ready evidence locker. The product acts as an automated third party — the "bad cop" — so the freelancer stays the professional.
+An AI-native payment protection SaaS with a five-stage escalation engine, jurisdiction-aware legal document generation, real-time client risk scoring, and a court-ready evidence locker. The product acts as an automated third party — so the freelancer stays the professional.
 
 **Five capabilities no single competitor has:**
 
