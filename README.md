@@ -617,12 +617,6 @@ pnpm dev
 | Dashboard | `http://localhost:3000` |
 | API + OpenAPI docs | `http://localhost:8000/docs` |
 
-```
-Demo login
-Email:    demo@badcopcr.com
-Password: demo123
-```
-
 50 mock clients · 50 invoices · pre-generated escalation events · evidence items.
 Walk through the full collection pipeline without touching any external service.
 
