@@ -43,7 +43,7 @@ We built the bad cop so freelancers don't have to be.
 <br/>
 
 <p>
-  Built by&nbsp;<strong><a href="https://github.com/RudrenduPaul">Rudrendu Paul</a></strong>&nbsp;&amp;&nbsp;<strong>Sourav Nandy</strong>
+  Built by&nbsp;<strong><a href="https://github.com/RudrenduPaul">Rudrendu Paul</a></strong>&nbsp;&amp;&nbsp;<strong><a href="https://github.com/essen-code">Sourav Nandy</strong>
   &nbsp;&nbsp;·&nbsp;&nbsp;
   Developed with <a href="https://claude.ai/code">Claude Code</a>
   &nbsp;&nbsp;·&nbsp;&nbsp;
