@@ -1,0 +1,33 @@
+{
+  "name": "freelancer-payment-protection-cli",
+  "version": "0.1.0",
+  "description": "npx-installable wrapper around the freelancer-payment-protection-cli Python CLI (automated invoice escalation, legal document generation, and client risk scoring), for agent and Node-first environments.",
+  "bin": {
+    "fpp": "bin/fpp.js",
+    "freelancer-payment-protection": "bin/fpp.js"
+  },
+  "files": [
+    "bin"
+  ],
+  "keywords": [
+    "invoicing",
+    "freelance",
+    "invoice-escalation",
+    "risk-scoring",
+    "cli",
+    "agent-native"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Rudrendu Paul",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RudrenduPaul/freelancer-payment-protection.git"
+  },
+  "homepage": "https://github.com/RudrenduPaul/freelancer-payment-protection",
+  "bugs": {
+    "url": "https://github.com/RudrenduPaul/freelancer-payment-protection/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

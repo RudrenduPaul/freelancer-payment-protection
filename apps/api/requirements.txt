@@ -5,6 +5,11 @@ pydantic-settings==2.2.1
 sqlalchemy==2.0.29
 alembic==1.13.1
 anthropic==0.25.0
+httpx<0.28  # anthropic==0.25.0's internal client construction passes a `proxies`
+            # kwarg that httpx removed in 0.28; without this pin, resolvers that
+            # pick the newest httpx satisfying anthropic's unpinned range install
+            # 0.28.x and every Claude call raises TypeError: unexpected keyword
+            # argument 'proxies' at request time.
 python-multipart==0.0.9
 slowapi==0.1.9
 PyJWT==2.8.0

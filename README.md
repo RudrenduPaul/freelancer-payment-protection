@@ -302,7 +302,7 @@ Six specialized agents ran in parallel during development. Strict file-system bo
 ```
 .claude/agents/
 ├── legal-ai-agent.md       # Claude prompts, demand letter gen, disclaimer enforcement
-│                           # Boundary: packages/legal-ai/ only
+│                           # Boundary: packages/legal_ai/ only
 │
 ├── escalation-agent.md     # Timing engine, tone calibration, stage progression
 │                           # Boundary: apps/api/app/services/escalation_service.py
@@ -352,7 +352,7 @@ graph TB
     end
 
     subgraph "AI — Claude Sonnet 4.6"
-        J[packages/legal-ai/client.py]
+        J[packages/legal_ai/client.py]
         K[Demand Letter — streaming SSE]
         L[Escalation Email — structured]
         M[Risk Scorer — JSON output]
@@ -438,7 +438,7 @@ Legal document generation requires `python-docx` and `WeasyPrint` — the only l
 A UI-only constraint can be bypassed with a direct API call. The minimum wait window check lives in `escalation_service.py` — so the rule applies regardless of how escalation is triggered: dashboard button, direct API call, or background worker. Trust the service contract, not the interface.
 
 **Why centralize all Claude calls in one file?**
-`packages/legal-ai/client.py` is the only place the Anthropic SDK is imported — enforced in `CLAUDE.md` and checked in every PR. Logging, retries, timeout handling, model version pinning, and the async/sync bridge all live there. When we upgrade from Sonnet 4.6, we change one file.
+`packages/legal_ai/client.py` is the only place the Anthropic SDK is imported — a rule checked in every PR. Logging, retries, timeout handling, model version pinning, and the async/sync bridge all live there. When we upgrade from Sonnet 4.6, we change one file.
 
 **Why Pydantic Settings with fail-fast validation?**
 `settings = Settings()` executes at module import time. If `ANTHROPIC_API_KEY` is absent, the application raises `ValidationError` before serving a single request. No silent degradation. No "AI features just stopped working." Fail loud, fail early.
@@ -447,7 +447,7 @@ A UI-only constraint can be bypassed with a direct API call. The minimum wait wi
 No Docker, no install, no credentials. Anyone evaluating this repo is running it in five minutes. SQLAlchemy's dialect abstraction means the ORM layer is identical across SQLite and Postgres — only the connection string changes.
 
 **Why Turborepo?**
-TypeScript (frontend) and Python (backend) build pipelines run in parallel with a shared cache. `pnpm turbo test` runs everything. Clear package boundaries — `packages/legal-ai`, `packages/types`, `packages/integrations` — each with one owner and one job.
+TypeScript (frontend) and Python (backend) build pipelines run in parallel with a shared cache. `pnpm turbo test` runs everything. Clear package boundaries — `packages/legal_ai`, `packages/types`, `packages/integrations` — each with one owner and one job.
 
 ---
 
@@ -554,8 +554,8 @@ freelancer-payment-protection/
 │       └── tasks/                    # invoice_sync · escalation_scheduler · evidence_scraper
 │
 ├── packages/
-│   ├── legal-ai/                     # The AI layer — centralized, auditable
-│   │   ├── client.py                 # ONLY place Anthropic SDK is called — enforced in CLAUDE.md + CI
+│   ├── legal_ai/                     # The AI layer — centralized, auditable
+│   │   ├── client.py                 # ONLY place Anthropic SDK is called — enforced in CI
 │   │   └── prompts/
 │   │       ├── demand_letter.py      # Jurisdiction-aware prompts (CA, NY, TX, UK, Ontario)
 │   │       ├── escalation_sequence.py # Stage-calibrated tone prompts
@@ -577,7 +577,6 @@ freelancer-payment-protection/
 │   └── commands/                     # Executable slash commands encoding team process
 │
 ├── legal-templates/                  # Jurisdiction base templates (CA-Ontario, UK, US-CA, US-NY)
-├── CLAUDE.md                         # Architecture spec + security rules — persists across AI sessions
 ├── turbo.json                        # Parallel pipeline: build, test, lint
 └── .github/workflows/                # CI: lint → typecheck → pytest → CodeQL → security audit
 ```
@@ -687,6 +686,23 @@ GET    /api/v1/analytics/escalation-effectiveness  Recovery rate by stage
 ```
 
 </details>
+
+---
+
+## Command-Line Interface
+
+A standalone `freelancer-payment-protection-cli` package (`packages/cli/`) wraps
+the clients, invoices, escalations, and risk-scoring endpoints above for
+terminal and agent/scripting use, with a `--json` flag on every data-returning
+command. See `packages/cli/README.md` for installation, the full command
+reference, and a login/auth walkthrough.
+
+```bash
+pip install freelancer-payment-protection-cli
+fpp login
+fpp invoice list --status overdue
+fpp client risk <client-id>
+```
 
 ---
 

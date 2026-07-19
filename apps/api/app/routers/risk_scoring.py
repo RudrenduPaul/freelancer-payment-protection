@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 from pydantic import BaseModel
 from apps.api.app.middleware.auth import get_current_workspace
 from apps.api.app.middleware.rate_limit import limiter
@@ -15,7 +15,8 @@ class RiskScoreRequest(BaseModel):
 @router.post("/score")
 @limiter.limit("30/minute")
 async def compute_risk_score(
-    request: RiskScoreRequest,
+    request: Request,
+    body: RiskScoreRequest,
     db: Session = Depends(get_db),
     workspace_id: str = Depends(get_current_workspace),
 ):
@@ -24,7 +25,7 @@ async def compute_risk_score(
     from apps.api.app.services.risk_service import compute_client_risk_score
 
     client = db.query(Client).filter(
-        Client.id == request.client_id,
+        Client.id == body.client_id,
         Client.workspace_id == workspace_id,
         Client.deleted_at.is_(None),
     ).first()
