@@ -150,28 +150,11 @@ This is not a tool people use once. It earns a place in the daily workflow:
 
 ---
 
-## Market & Traction
+## Why This Exists
 
-### The Market
+Late payment is a widespread problem for freelancers, and most invoicing tools (FreshBooks, HoneyBook) stop at sending the invoice — they don't help once a client goes quiet. This project automates the escalation conversation that would otherwise fall on the freelancer.
 
-| Metric | Number |
-|--------|--------|
-| Freelancers in the US | 73 million |
-| Reporting late payment | 71% (~52M people) |
-| Estimated unpaid invoices annually | $50B+ |
-| Invoicing software TAM | $1.5B |
-| Our serviceable market (freelancers who invoice $25K+/yr) | ~12M |
-| Target initial segment (high-value freelancers: designers, developers, consultants) | ~2M |
-
-At $59/month (Pro plan), 1% penetration of the 2M segment = **$14M ARR**. At 0.1% = **$1.4M ARR**. These are conservative numbers for a product that solves an emotionally charged, recurring problem with no existing dedicated solution.
-
-### Why Now
-
-Three forces converged in 2025–2026:
-
-1. **AI structured output maturity** — Our AI solution can now reliably generate legally coherent, jurisdiction-specific documents. Six months ago this wasn't viable at the quality bar required.
-2. **Freelance workforce acceleration** — post-2024, the freelance share of the US workforce has grown every quarter. More freelancers = more payment disputes.
-3. **MCP ecosystem maturity** — Model Context Protocol made it possible to wire Gmail, QuickBooks, and DocuSign directly into the development environment, cutting integration time from weeks to days.
+The AI generation quality needed for jurisdiction-aware legal documents (not just template filling) is a recent capability — reliable structured output at this consistency level wasn't practical much before 2025.
 
 ---
 
@@ -628,61 +611,45 @@ Walk through the full collection pipeline without touching any external service.
 Interactive OpenAPI at `http://localhost:8000/docs`. Key endpoints:
 
 ```bash
-GET  /api/v1/analytics/overview                    # Dashboard metrics + recovery rate
-GET  /api/v1/clients?risk_level=high               # Clients filtered by risk
-POST /api/v1/escalations/{id}/draft                # AI-draft next escalation email (preview)
-POST /api/v1/escalations/{id}/send                 # Send via Resend
-POST /api/v1/legal/demand-letter                   # Generate + stream demand letter (SSE)
-POST /api/v1/risk/score                            # AI risk score for client
-GET  /api/v1/evidence/{invoice_id}/export          # Court-ready ZIP download
+GET  /api/v1/analytics/overview          # Dashboard totals
+GET  /api/v1/clients                     # List clients
+POST /api/v1/escalations/{id}/draft      # AI-draft next escalation email (preview)
+POST /api/v1/legal/demand-letter/stream  # Generate + stream demand letter (SSE)
+POST /api/v1/risk/score                  # AI risk score for a client
 ```
 
 <details>
-<summary>Full endpoint surface (40+ routes)</summary>
+<summary>Full endpoint surface (verified against the router source directly)</summary>
 
 ```
-GET    /health                          Liveness probe
-GET    /health/ready                    Readiness (DB + Redis)
+GET    /health                                Liveness probe
+GET    /health/ready                          Readiness (DB + Redis)
 
-GET    /api/v1/clients                  List — filter: risk_level, status
-POST   /api/v1/clients                  Create
-GET    /api/v1/clients/{id}             Detail
-PUT    /api/v1/clients/{id}             Update
-DELETE /api/v1/clients/{id}             Soft delete
-PATCH  /api/v1/clients/{id}/risk-score  Trigger AI rescore
+GET    /api/v1/clients                        List
+POST   /api/v1/clients                        Create
+GET    /api/v1/clients/{client_id}            Detail
+PUT    /api/v1/clients/{client_id}            Update
+DELETE /api/v1/clients/{client_id}            Delete
 
-GET    /api/v1/invoices                 List — filter: status, date range
-POST   /api/v1/invoices                 Create (manual)
-GET    /api/v1/invoices/{id}            Detail + escalation timeline
-PATCH  /api/v1/invoices/{id}/status     Update status
-POST   /api/v1/invoices/sync            Pull from connected integration
-GET    /api/v1/invoices/{id}/timeline   Full event history
-GET    /api/v1/invoices/{id}/evidence   Evidence items
+GET    /api/v1/invoices                       List
+POST   /api/v1/invoices                       Create (manual)
+GET    /api/v1/invoices/{invoice_id}          Detail
+PATCH  /api/v1/invoices/{invoice_id}/status   Update status
 
-GET    /api/v1/escalations              Active escalations (kanban feed)
-POST   /api/v1/escalations/{id}/trigger Advance to next stage
-POST   /api/v1/escalations/{id}/draft   AI preview before sending
-POST   /api/v1/escalations/{id}/send    Send via Resend
-GET    /api/v1/escalations/{id}/history Full history
+GET    /api/v1/escalations                    Active escalations
+POST   /api/v1/escalations/{invoice_id}/draft    AI-draft next escalation email
+GET    /api/v1/escalations/{invoice_id}/history  Full history
 
-POST   /api/v1/legal/demand-letter      Generate + stream PDF (SSE)
-POST   /api/v1/legal/breach-notice      Breach of contract notice
-POST   /api/v1/legal/small-claims-prep  Small claims court prep
-GET    /api/v1/legal/{doc_id}/download  Signed URL download
+POST   /api/v1/legal/demand-letter            Generate demand letter
+POST   /api/v1/legal/demand-letter/stream     Generate + stream (SSE)
 
-GET    /api/v1/evidence/{invoice_id}           Evidence items
-POST   /api/v1/evidence/{invoice_id}/upload    Manual upload
-DELETE /api/v1/evidence/{item_id}              Remove
-GET    /api/v1/evidence/{invoice_id}/export    Court-ready ZIP
+GET    /api/v1/evidence/{invoice_id}          Evidence items
+POST   /api/v1/evidence/{invoice_id}/upload   Manual upload
+DELETE /api/v1/evidence/{item_id}             Remove
 
-POST   /api/v1/risk/score               AI risk score — structured JSON
-GET    /api/v1/risk/{client_id}/report  Full factor breakdown report
-POST   /api/v1/risk/contract-review     Flag red flags in a contract
+POST   /api/v1/risk/score                     AI risk score, structured JSON
 
-GET    /api/v1/analytics/overview                  Dashboard totals
-GET    /api/v1/analytics/recovery-trend            Monthly (12 months)
-GET    /api/v1/analytics/overdue-aging             Aging by days-past-due bucket
-GET    /api/v1/analytics/escalation-effectiveness  Recovery rate by stage
+GET    /api/v1/analytics/overview             Dashboard totals
 ```
 
 </details>
@@ -730,7 +697,7 @@ pnpm turbo test
 
 ---
 
-## Business Model
+## Pricing
 
 | Plan | Monthly | Clients | What's Included |
 |------|:-------:|:-------:|----------------|
@@ -738,12 +705,7 @@ pnpm turbo test
 | **Pro** | $59 | Unlimited | Unlimited AI documents · Evidence locker + court export · Full risk scoring · All integrations |
 | **Agency** | $99 | Unlimited | Multi-user workspace · White-label client portal · API access · Priority support |
 
-20% discount on annual. $0 revenue currently — pre-revenue, post-product.
-
-**Unit economics (Pro plan):**
-- CAC target: < $80 (content + word-of-mouth driven)
-- Monthly gross margin: ~85% (AI API + infra costs ~$9/customer at scale)
-- Payback period: < 45 days at $59/mo
+20% discount on annual billing.
 
 ---
 
