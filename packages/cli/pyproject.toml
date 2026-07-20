@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "freelancer-payment-protection-cli"
-version = "0.1.0"
+version = "0.1.1"
 description = "Command-line client for freelancer-payment-protection: automated invoice escalation, legal document generation, and client risk scoring for freelancers."
 readme = "README.md"
 requires-python = ">=3.10"

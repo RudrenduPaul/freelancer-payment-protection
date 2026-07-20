@@ -1,6 +1,6 @@
 {
   "name": "freelancer-payment-protection-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "npx-installable wrapper around the freelancer-payment-protection-cli Python CLI (automated invoice escalation, legal document generation, and client risk scoring), for agent and Node-first environments.",
   "bin": {
     "fpp": "bin/fpp.js",
