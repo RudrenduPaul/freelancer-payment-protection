@@ -23,8 +23,8 @@ pipx install freelancer-payment-protection-cli
 ```
 
 Requires Python 3.10+. The console command is installed as both `fpp`
-(short form) and `freelancer-payment-protection` (full form) — they are the
-same entry point.
+(short form) and `freelancer-payment-protection` (full form), the same
+entry point either way.
 
 ## Configuration
 
@@ -37,8 +37,8 @@ Supabase project issues your login tokens.
 | `FPP_SUPABASE_URL` (or `SUPABASE_URL`) | Your Supabase project URL | none, required for `login` |
 | `FPP_SUPABASE_ANON_KEY` (or `SUPABASE_ANON_KEY`) | Your Supabase project's anon key | none, required for `login` |
 
-The anon key is the same public key the web app's Supabase client uses —
-it is not a secret, and it's the key already in `apps/web/.env.example` as
+The anon key is the same public key the web app's Supabase client uses.
+It is not a secret, and it's the key already in `apps/web/.env.example` as
 `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
 
 ## Login and authentication
@@ -58,7 +58,7 @@ Header: apikey: <anon key>
 Body:   {"email": ..., "password": ...}
 ```
 
-This is the same call the web dashboard's Supabase client makes — the CLI
+This is the same call the web dashboard's Supabase client makes. The CLI
 never talks to a login endpoint of its own, because the backend
 (`apps/api/app/middleware/auth.py`) doesn't mint tokens; it only validates
 Supabase-issued JWTs. On success, the returned `access_token` and
@@ -102,7 +102,7 @@ Run `fpp --help` or `fpp <command> --help` for full flag references.
 The backend's escalation router (`apps/api/app/routers/escalations.py`)
 exposes exactly three routes: list active escalations, draft the next
 stage's email, and read history. There is no route that persists a stage
-change — `draft_escalation_email` in `escalation_service.py` computes and
+change. `draft_escalation_email` in `escalation_service.py` computes and
 returns what the next stage's email would say, but never writes
 `escalation_stage` back to the database. `fpp escalation advance` calls
 that draft endpoint and shows you the preview; it does not claim to move
@@ -125,7 +125,7 @@ through rather than remapping it.
 
 **What is this, and how is it different from just calling the API with curl?**
 It's a typed command-line wrapper around the same backend the web
-dashboard uses — invoices, escalations, and client risk scoring — with
+dashboard uses (invoices, escalations, and client risk scoring), with
 persistent login (so you're not re-attaching a bearer token to every
 request), human-readable tables by default, and a `--json` flag on every
 data command for piping into `jq`, scripts, or an agent's tool-calling
@@ -135,7 +135,7 @@ instead of hand-rolled request construction.
 
 **What platforms and Python versions does it support?**
 Python 3.10 through 3.13, on any OS `pip`/`uvx`/`pipx` runs on (Linux,
-macOS, Windows). It has no compiled dependencies — the only runtime
+macOS, Windows). It has no compiled dependencies; the only runtime
 dependencies are `click` and `httpx`, both pure-Python-installable wheels.
 
 **How do I log in, and where are my credentials stored?**
@@ -147,27 +147,27 @@ file mode 600 (owner read/write only). Nothing is sent anywhere except
 Supabase's own auth endpoint and the backend API you configure via
 `FPP_API_URL`.
 
-**I ran a command and got `Error: Internal Server Error` — is that a CLI bug?**
+**I ran a command and got `Error: Internal Server Error`. Is that a CLI bug?**
 Usually not. The CLI's error handling surfaces whatever the backend
 returned; a 500 means the backend itself failed. Two real, backend-side
 causes to check first: (1) `fpp client risk` and `fpp escalation advance`
-both trigger AI calls through `packages/legal_ai/client.py` — if
+both trigger AI calls through `packages/legal_ai/client.py`. If
 `ANTHROPIC_API_KEY` isn't a real key on the server, `client risk` falls
 back to a heuristic score automatically, but `escalation advance` has no
 such fallback and will 500. (2) Confirm you're running a backend build
 that includes the `packages/legal_ai` module-name fix and the
-`risk_scoring.py` request-parameter fix — both were real bugs in this
+`risk_scoring.py` request-parameter fix, both real bugs in this
 repo (a hyphenated `packages/legal-ai` directory that the code imports as
 `packages.legal_ai`, and a rate-limiter/parameter-name collision on
 `/api/v1/risk/score`) that this CLI's own end-to-end testing surfaced and
 this same change fixed. A plain 401 means your cached token expired and
-couldn't refresh — run `fpp login` again.
+couldn't refresh. Run `fpp login` again.
 
 **Does `fpp escalation advance` actually send the escalation email or move the invoice to the next stage?**
 No. It calls the backend's `/api/v1/escalations/{id}/draft` endpoint,
 which only returns an AI-drafted preview of what the next stage's email
 would say. The backend has no endpoint today that persists a stage change
-or sends the email — see "A note on `escalation advance`" above.
+or sends the email. See "A note on `escalation advance`" above.
 
 **Can I point this at a self-hosted or non-default backend?**
 Yes. Set `FPP_API_URL` to your backend's base URL (default is
@@ -175,12 +175,12 @@ Yes. Set `FPP_API_URL` to your backend's base URL (default is
 Every command reads that variable at call time, so switching environments
 is just re-exporting it.
 
-**What's the licensing situation — can I use or modify this commercially?**
+**What's the licensing situation? Can I use or modify this commercially?**
 This CLI ships from the same repository as, and under the same license
 as, freelancer-payment-protection itself: a proprietary license, copyright
 Rudrendu Paul and Sourav Nandy, all rights reserved. Personal, academic,
 commercial, or scheduled use requires explicit written permission from
-both owners — see the `LICENSE` file. This is not an MIT/Apache-style
+both owners. See the `LICENSE` file. This is not an MIT/Apache-style
 open-source license; publishing it to PyPI makes it installable, not
 freely reusable.
 
@@ -199,7 +199,7 @@ pytest
 ```
 
 All HTTP calls (to Supabase and to the backend API) are mocked in tests
-with `respx` — the test suite makes no live network calls.
+with `respx`; the test suite makes no live network calls.
 
 ## Contributing
 
@@ -208,6 +208,6 @@ the repository root for contribution guidelines.
 
 ## License
 
-Proprietary — see [`LICENSE`](./LICENSE). Contact the owners (see
+Proprietary. See [`LICENSE`](./LICENSE). Contact the owners (see
 `LICENSE`) before any use beyond installing and running the package as
 published.

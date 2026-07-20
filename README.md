@@ -4,7 +4,7 @@
 
 <img src="https://img.shields.io/badge/-%F0%9F%9B%A1%EF%B8%8F%20BAD%20COP%20CRM-1a1a2e?style=for-the-badge&logoColor=white" height="40" alt="Bad Cop CRM" />
 
-<h2>Freelancer Payment Protection — AI-Native Collection Engine</h2>
+<h2>Freelancer Payment Protection: AI-Native Collection Engine</h2>
 
 <p>
 <strong>73 million freelancers. 71% report late payment. $50B+ in unpaid invoices every year.</strong><br/>
@@ -14,7 +14,7 @@ We built the bad cop so freelancers don't have to be.
 
 <br/>
 
-<!-- Badges row 1 — Stack -->
+<!-- Badges row 1. Stack -->
 <p>
   <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/FastAPI-0.111-009688?style=flat&logo=fastapi&logoColor=white" />
@@ -23,7 +23,7 @@ We built the bad cop so freelancers don't have to be.
   <img src="https://img.shields.io/badge/Turborepo-Monorepo-EF4444?style=flat&logo=turborepo&logoColor=white" />
 </p>
 
-<!-- Badges row 2 — AI & Data -->
+<!-- Badges row 2. AI & Data -->
 <p>
   <img src="https://img.shields.io/badge/Claude_Sonnet_4.6-AI_Core-D4A017?style=flat&logo=anthropic&logoColor=white" />
   <img src="https://img.shields.io/badge/Supabase-PostgreSQL_%2B_RLS-3ECF8E?style=flat&logo=supabase&logoColor=white" />
@@ -31,7 +31,7 @@ We built the bad cop so freelancers don't have to be.
   <img src="https://img.shields.io/badge/Framer_Motion-Animations-0055FF?style=flat" />
 </p>
 
-<!-- Badges row 3 — Quality -->
+<!-- Badges row 3. Quality -->
 <p>
   <img src="https://img.shields.io/github/last-commit/RudrenduPaul/freelancer-payment-protection?style=flat&label=last+commit" />
   <img src="https://img.shields.io/badge/Coverage-70%25%2B_enforced-22c55e?style=flat" />
@@ -69,7 +69,7 @@ We built the bad cop so freelancers don't have to be.
 
 <!--
   ═══════════════════════════════════════════════════════════
-  📸 SCREENSHOTS — add these and this README goes to the top
+  📸 SCREENSHOTS. Add these and this README goes to the top
   ═══════════════════════════════════════════════════════════
   Recommended: 1280×800, retina, light mode
 
@@ -87,7 +87,7 @@ We built the bad cop so freelancers don't have to be.
 
   Uncomment once screenshots are added:
 -->
-<!-- <img src="./docs/screenshots/01-dashboard.png" width="100%" alt="Dashboard — urgency-first design" /> -->
+<!-- <img src="./docs/screenshots/01-dashboard.png" width="100%" alt="Dashboard, urgency-first design" /> -->
 
 <img src="https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/demo.gif" width="100%" alt="freelancer-payment-protection-cli: logging in and running the first command against a live workspace" />
 
@@ -99,7 +99,7 @@ We built the bad cop so freelancers don't have to be.
 
 FreshBooks handles invoicing. HoneyBook handles proposals. HubSpot handles CRM. **None of them handle collection.**
 
-When a client goes silent after delivery, freelancers are left with a choice: be "difficult" and chase — or be professional and absorb the loss. That double bind is the entire product.
+When a client goes silent after delivery, freelancers are left with a choice: be "difficult" and chase. Or be professional and absorb the loss. That double bind is the entire product.
 
 ```
 What exists today:                    Freelancer Payment Protection Solution:
@@ -119,15 +119,15 @@ No tool on the market combines all five: AI-drafted legal documents + automated 
 
 ## What We Built
 
-An AI-native payment protection SaaS with a five-stage escalation engine, jurisdiction-aware legal document generation, real-time client risk scoring, and a court-ready evidence locker. The product acts as an automated third party — so the freelancer stays the professional.
+An AI-native payment protection SaaS with a five-stage escalation engine, jurisdiction-aware legal document generation, real-time client risk scoring, and a court-ready evidence locker. The product acts as an automated third party. So the freelancer stays the professional.
 
 **Five capabilities no single competitor has:**
 
 | Capability | How It Works |
 |------------|--------------|
-| **AI Escalation Engine** | Five-stage pipeline. Stage-calibrated tone. Minimum wait times enforced at engine level — not bypassable via direct API call. |
+| **AI Escalation Engine** | Five-stage pipeline. Stage-calibrated tone. Minimum wait times enforced at engine level. Not bypassable via direct API call. |
 | **Legal Demand Letters** | Our AI engine drafts jurisdiction-aware demand letters (CA, NY, TX, UK, Ontario). Streams to the UI in real time with a typewriter effect. |
-| **Client Risk Scoring** | 0–100 score across 7 weighted factors. Structured JSON output with full factor breakdown and AI reasoning — not just a number. |
+| **Client Risk Scoring** | 0–100 score across 7 weighted factors. Structured JSON output with full factor breakdown and AI reasoning. Not just a number. |
 | **Evidence Locker** | Drag-and-drop upload. Supabase Storage with signed URLs. One-click court-ready ZIP export. |
 | **Invoice Sync** | FreshBooks, QuickBooks, and Wave OAuth integrations. Background workers sync on webhook + schedule. |
 
@@ -140,11 +140,11 @@ This is not a tool people use once. It earns a place in the daily workflow:
 | Habit Loop | Mechanism |
 |------------|-----------|
 | **Daily pull** | Urgency banner: *"3 invoices need your attention today."* Personalized every morning. |
-| **Action before leaving** | "Today's Focus" — top 3 urgent actions with one-click CTAs. Leaves no reason to defer. |
+| **Action before leaving** | "Today's Focus," the top 3 urgent actions with one-click CTAs. Leaves no reason to defer. |
 | **Payment celebration** | Confetti on payment received. Recovery rate updates live. Positive reinforcement loop. |
 | **AI confidence visible** | Every email draft shows its confidence score + visual bar. Builds trust, creates engagement. |
 | **Pipeline clarity** | Kanban board makes collection feel manageable. 5 columns. Total amount at stake per stage. |
-| **Activity feed** | *"Freelancer Payment Protection sent Final Warning to Acme Corp — $12,500."* Keeps users informed without checking manually. |
+| **Activity feed** | *"Freelancer Payment Protection sent Final Warning to Acme Corp for $12,500."* Keeps users informed without checking manually. |
 | **Risk reveal** | Risk score counts from 0 → final number with color shift on client detail. Creates a moment. |
 | **Escalation learning** | Each stage sounds noticeably different. Users learn the system, trust it, rely on it. |
 
@@ -154,15 +154,15 @@ This is not a tool people use once. It earns a place in the daily workflow:
 
 ## Why This Exists
 
-Late payment is a widespread problem for freelancers, and most invoicing tools (FreshBooks, HoneyBook) stop at sending the invoice — they don't help once a client goes quiet. This project automates the escalation conversation that would otherwise fall on the freelancer.
+Late payment is a widespread problem for freelancers, and most invoicing tools (FreshBooks, HoneyBook) stop at sending the invoice. They don't help once a client goes quiet. This project automates the escalation conversation that would otherwise fall on the freelancer.
 
-The AI generation quality needed for jurisdiction-aware legal documents (not just template filling) is a recent capability — reliable structured output at this consistency level wasn't practical much before 2025.
+The AI generation quality needed for jurisdiction-aware legal documents (not just template filling) is a recent capability. Reliable structured output at this consistency level wasn't practical much before 2025.
 
 ---
 
 ## The Escalation Pipeline
 
-Five stages. **Minimum wait times enforced at the service layer** — not the UI, not suggestions. A direct API call cannot skip a stage window. The scheduler checks daily.
+Five stages. **Minimum wait times enforced at the service layer**. Not the UI, not suggestions. A direct API call cannot skip a stage window. The scheduler checks daily.
 
 ```
 Invoice Overdue
@@ -217,7 +217,7 @@ Our AI engine drafts jurisdiction-specific demand letters for California, New Yo
 
 **The streaming bridge:** The Anthropic Python SDK is synchronous. FastAPI is async. We bridge them with a `threading.Thread` pushing SSE chunks into a `queue.Queue`, then `asyncio.run_in_executor` pulls on the async side. The event loop never blocks. The typewriter effect is smooth.
 
-Every generated document displays this disclaimer — enforced in the system prompt, verified by the `legal-ai-agent`, non-negotiable:
+Every generated document displays this disclaimer, enforced in the system prompt, verified by the `legal-ai-agent`, non-negotiable:
 
 ### 2. Client Risk Scoring
 
@@ -242,7 +242,7 @@ The UI renders the full factor breakdown with animated progress bars and the AI'
 |:-----:|:-----:|--------|
 | 0–25 | 🟢 Low | Standard payment terms |
 | 26–50 | 🟡 Medium | Request 25–50% deposit |
-| 51–75 | 🟠 High | 50% upfront — non-negotiable |
+| 51–75 | 🟠 High | 50% upfront. Non-negotiable |
 | 76–100 | 🔴 Critical | Full payment before work begins |
 
 ### 3. Escalation Email Generator
@@ -265,12 +265,12 @@ The confidence score and a visual bar appear in the email preview dialog. Freela
 
 ## MCP-Powered Development
 
-MCP servers were used throughout development — not as a demo, as the actual development infrastructure.
+MCP servers were used throughout development, not as a demo but as the actual development infrastructure.
 
 | MCP Server | What It Did |
 |------------|-------------|
 | **Supabase MCP** | Our development environment queried the live schema before writing a single query. Migrations were validated against real data. RLS policies were checked in plain English. |
-| **GitHub MCP** | PR creation, diff review, CI status — without leaving the terminal. Every merge went through our AI security checklist first. |
+| **GitHub MCP** | PR creation, diff review, CI status, all without leaving the terminal. Every merge went through our AI security checklist first. |
 | **Gmail MCP** | Escalation email flows tested against real threads. The evidence scraper validated against actual email structures, not fabricated fixtures. |
 | **DocuSign MCP** | Digital signature integration for demand letters wired with live API validation. |
 | **QuickBooks MCP** | Real invoice data during integration development. No mocked responses that diverge from production behavior. |
@@ -321,26 +321,26 @@ Six specialized agents ran in parallel during development. Strict file-system bo
 
 ```mermaid
 graph TB
-    subgraph "Frontend — Next.js 14"
+    subgraph "Frontend: Next.js 14"
         A[App Router Pages]
         B[TanStack Query Cache]
         C[Framer Motion UI]
         D[Supabase Auth Client]
     end
 
-    subgraph "Backend — FastAPI Python 3.12"
+    subgraph "Backend: FastAPI Python 3.12"
         E[FastAPI App Factory]
         F[JWT Middleware]
         G[slowapi Rate Limiter]
-        H[Routers — 8 domains]
-        I[Services — business logic only]
+        H[Routers: 8 domains]
+        I[Services: business logic only]
     end
 
-    subgraph "AI — Claude Sonnet 4.6"
+    subgraph "AI: Claude Sonnet 4.6"
         J[packages/legal_ai/client.py]
-        K[Demand Letter — streaming SSE]
-        L[Escalation Email — structured]
-        M[Risk Scorer — JSON output]
+        K[Demand Letter: streaming SSE]
+        L[Escalation Email: structured]
+        M[Risk Scorer: JSON output]
         N[Dispute Summary]
     end
 
@@ -349,7 +349,7 @@ graph TB
         P[WeasyPrint PDF]
     end
 
-    subgraph "Workers — Celery + Redis"
+    subgraph "Workers: Celery + Redis"
         Q[Invoice Sync]
         R[Escalation Scheduler]
         S[Evidence Scraper]
@@ -385,7 +385,7 @@ graph TB
     Q & R & S --> V
 ```
 
-### Request Flow — Overdue Invoice to Sent Escalation
+### Request Flow: Overdue Invoice to Sent Escalation
 
 ```mermaid
 sequenceDiagram
@@ -417,22 +417,22 @@ sequenceDiagram
 Every architectural choice has a reason. Here are the non-obvious ones:
 
 **Why Python for the backend, not Node?**
-Legal document generation requires `python-docx` and `WeasyPrint` — the only libraries that produce court-quality PDFs with real typographic control. The Anthropic Python SDK is the reference implementation. The Python ecosystem is also significantly stronger for anything legally adjacent (NLTK, spaCy for contract analysis in V3).
+Legal document generation requires `python-docx` and `WeasyPrint`. The only libraries that produce court-quality PDFs with real typographic control. The Anthropic Python SDK is the reference implementation. The Python ecosystem is also significantly stronger for anything legally adjacent (NLTK, spaCy for contract analysis in V3).
 
 **Why enforce escalation wait times at the service layer?**
-A UI-only constraint can be bypassed with a direct API call. The minimum wait window check lives in `escalation_service.py` — so the rule applies regardless of how escalation is triggered: dashboard button, direct API call, or background worker. Trust the service contract, not the interface.
+A UI-only constraint can be bypassed with a direct API call. The minimum wait window check lives in `escalation_service.py`. So the rule applies regardless of how escalation is triggered: dashboard button, direct API call, or background worker. Trust the service contract, not the interface.
 
 **Why centralize all Claude calls in one file?**
-`packages/legal_ai/client.py` is the only place the Anthropic SDK is imported — a rule checked in every PR. Logging, retries, timeout handling, model version pinning, and the async/sync bridge all live there. When we upgrade from Sonnet 4.6, we change one file.
+`packages/legal_ai/client.py` is the only place the Anthropic SDK is imported. A rule checked in every PR. Logging, retries, timeout handling, model version pinning, and the async/sync bridge all live there. When we upgrade from Sonnet 4.6, we change one file.
 
 **Why Pydantic Settings with fail-fast validation?**
 `settings = Settings()` executes at module import time. If `ANTHROPIC_API_KEY` is absent, the application raises `ValidationError` before serving a single request. No silent degradation. No "AI features just stopped working." Fail loud, fail early.
 
 **Why SQLite for dev?**
-No Docker, no install, no credentials. Anyone evaluating this repo is running it in five minutes. SQLAlchemy's dialect abstraction means the ORM layer is identical across SQLite and Postgres — only the connection string changes.
+No Docker, no install, no credentials. Anyone evaluating this repo is running it in five minutes. SQLAlchemy's dialect abstraction means the ORM layer is identical across SQLite and Postgres. Only the connection string changes.
 
 **Why Turborepo?**
-TypeScript (frontend) and Python (backend) build pipelines run in parallel with a shared cache. `pnpm turbo test` runs everything. Clear package boundaries — `packages/legal_ai`, `packages/types`, `packages/integrations` — each with one owner and one job.
+TypeScript (frontend) and Python (backend) build pipelines run in parallel with a shared cache. `pnpm turbo test` runs everything. Clear package boundaries (`packages/legal_ai`, `packages/types`, `packages/integrations`), each with one owner and one job.
 
 ---
 
@@ -443,7 +443,7 @@ TypeScript (frontend) and Python (backend) build pipelines run in parallel with 
 | Library | Version | Role |
 |---------|---------|------|
 | Next.js | 14 | App Router, Server Components, BFF routes |
-| TypeScript | 5.4 | Strict mode, no `any` — enforced by CI |
+| TypeScript | 5.4 | Strict mode, no `any`. Enforced by CI |
 | Tailwind CSS | 3.4 | Utility-first styling, custom design tokens |
 | shadcn/ui | latest | Accessible component primitives |
 | Framer Motion | 11 | All animations: stagger, spring, typewriter, confetti |
@@ -458,7 +458,7 @@ TypeScript (frontend) and Python (backend) build pipelines run in parallel with 
 | Python | 3.12 | Type annotations throughout |
 | FastAPI | 0.111 | Async API, OpenAPI auto-generation |
 | SQLAlchemy | 2 | ORM, dialect-agnostic (SQLite ↔ Postgres) |
-| Alembic | 1.13 | Schema migrations — never direct edits |
+| Alembic | 1.13 | Schema migrations. Never direct edits |
 | Pydantic | 2 | Request/response validation, Settings |
 | python-docx | 1.1 | Word document generation |
 | WeasyPrint | 62 | PDF rendering with CSS |
@@ -473,7 +473,7 @@ TypeScript (frontend) and Python (backend) build pipelines run in parallel with 
 | Database | Supabase PostgreSQL | Row Level Security enforces workspace isolation at DB layer, not app layer |
 | Storage | Supabase Storage | Signed URLs (1hr expiry), no public access for evidence files |
 | Queue | Redis + Celery | Reliable job delivery; escalation scheduler is time-sensitive |
-| Email | Resend + React Email | Templates are React components — testable, version-controlled |
+| Email | Resend + React Email | Templates are React components. Testable, version-controlled |
 | Monorepo | Turborepo + pnpm | Parallel builds, shared cache, cross-language workspace |
 | CI | GitHub Actions | lint → typecheck → test → security audit → PR gates |
 | SAST | CodeQL | Python + TypeScript, every PR |
@@ -487,15 +487,15 @@ Production-grade from day one. Not added at the end.
 | Control | Implementation |
 |---------|---------------|
 | Authentication | Supabase JWT + httpOnly cookies + PKCE flow |
-| Authorization | RLS on every table — workspace isolation at DB, not app layer |
-| Secrets | Pydantic `SecretStr` — app refuses to start if any required var is missing |
-| Input validation | Pydantic v2 on every endpoint — rejection before business logic |
+| Authorization | RLS on every table. Workspace isolation at DB, not app layer |
+| Secrets | Pydantic `SecretStr`. App refuses to start if any required var is missing |
+| Input validation | Pydantic v2 on every endpoint. Rejection before business logic |
 | Rate limiting | 100 req/min global; 10/min on legal routes (AI is expensive) |
-| CORS | Allowlist-based — no wildcard in production |
-| SQL injection | SQLAlchemy ORM only — zero raw SQL |
+| CORS | Allowlist-based. No wildcard in production |
+| SQL injection | SQLAlchemy ORM only. Zero raw SQL |
 | XSS | React escaping + strict Content Security Policy |
-| Evidence access | Signed URLs — 1-hour expiry, no public buckets |
-| Dependency audit | `safety` + `pip-audit` — PRs blocked on findings |
+| Evidence access | Signed URLs; 1-hour expiry, no public buckets |
+| Dependency audit | `safety` + `pip-audit`. PRs blocked on findings |
 | SAST | CodeQL (Python + TypeScript) on every PR |
 
 ---
@@ -516,16 +516,16 @@ freelancer-payment-protection/
 │   │       │   └── legal/            # Streaming demand letter generator (SSE typewriter)
 │   │       │
 │   │       └── components/
-│   │           ├── layout/           # SidebarLayout — nav badges, recovery widget, keyboard hints
+│   │           ├── layout/           # SidebarLayout. Nav badges, recovery widget, keyboard hints
 │   │           ├── dashboard/        # MetricCard · ActivityFeed · TodaysFocus · RiskDistributionChart
 │   │           ├── escalations/      # EscalationCard (urgency ring, flame) · StageColumn (amount)
 │   │           ├── shared/           # EmptyState · LoadingSkeleton (shimmer) · RiskBadge · StatusBadge
 │   │           └── ui/               # shadcn/ui primitives
 │   │
-│   ├── api/                          # FastAPI backend — Python 3.12
+│   ├── api/                          # FastAPI backend. Python 3.12
 │   │   └── app/
 │   │       ├── main.py               # App factory + lifespan hooks
-│   │       ├── config.py             # Pydantic Settings — fail-fast validation
+│   │       ├── config.py             # Pydantic Settings. Fail-fast validation
 │   │       ├── database.py           # SQLAlchemy engine + session factory
 │   │       ├── routers/              # clients · invoices · escalations · legal_docs
 │   │       │                         # evidence · risk_scoring · analytics · health
@@ -539,8 +539,8 @@ freelancer-payment-protection/
 │       └── tasks/                    # invoice_sync · escalation_scheduler · evidence_scraper
 │
 ├── packages/
-│   ├── legal_ai/                     # The AI layer — centralized, auditable
-│   │   ├── client.py                 # ONLY place Anthropic SDK is called — enforced in CI
+│   ├── legal_ai/                     # The AI layer. Centralized, auditable
+│   │   ├── client.py                 # ONLY place Anthropic SDK is called. Enforced in CI
 │   │   └── prompts/
 │   │       ├── demand_letter.py      # Jurisdiction-aware prompts (CA, NY, TX, UK, Ontario)
 │   │       ├── escalation_sequence.py # Stage-calibrated tone prompts
@@ -548,14 +548,14 @@ freelancer-payment-protection/
 │   │       └── dispute_summary.py    # Evidence synthesis
 │   │
 │   ├── db/
-│   │   ├── migrations/versions/      # Alembic — all schema changes live here
+│   │   ├── migrations/versions/      # Alembic. All schema changes live here
 │   │   │   ├── 001_initial_schema.py
 │   │   │   └── 002_rls_policies.sql  # RLS on every table
 │   │   ├── models/                   # SQLAlchemy models (source of truth)
-│   │   └── seeds/                    # 50 clients, 50 invoices, 20 escalations — no creds needed
+│   │   └── seeds/                    # 50 clients, 50 invoices, 20 escalations. No creds needed
 │   │
 │   ├── integrations/                 # FreshBooks, QuickBooks, Wave OAuth connectors
-│   └── types/                        # Shared TypeScript types — strict, no `any`
+│   └── types/                        # Shared TypeScript types. Strict, no `any`
 │
 ├── .claude/
 │   ├── agents/                       # 6 domain-bounded sub-agents with file-system boundaries
@@ -680,24 +680,24 @@ fpp client risk <client-id>
 ## Running Tests
 
 ```bash
-# Backend — pytest + coverage
+# Backend. Pytest + coverage
 cd apps/api && pytest --cov=app --cov-report=term-missing
 
-# Frontend — Vitest
+# Frontend. Vitest
 pnpm --filter web test
 
-# E2E — Playwright
+# E2E. Playwright
 pnpm --filter web test:e2e
 
 # Full pipeline
 pnpm turbo test
 ```
 
-**Coverage gates (enforced in CI — PRs blocked on failure):**
+**Coverage gates (enforced in CI, PRs blocked on failure):**
 - 70% minimum line coverage on all new code
 - 90%+ on risk scoring, escalation service, and document generation
 - Every new route: happy path + auth failure + validation error
-- Zero live external API calls in test suite — all mocked
+- Zero live external API calls in test suite. All mocked
 
 ---
 
@@ -719,12 +719,12 @@ pnpm turbo test
 | Capability | Spreadsheets | FreshBooks | HoneyBook | HubSpot | **Freelancer Payment Protection** |
 |------------|:-----------:|:----------:|:---------:|:-------:|:-----------:|
 | AI escalation (tone-calibrated) | ✗ | Reminders only | Basic | Manual | Stage-aware + confidence-scored |
-| Jurisdiction-aware demand letters | ✗ | ✗ | ✗ | ✗ | CA / NY / TX / UK / Ontario — PDF |
+| Jurisdiction-aware demand letters | ✗ | ✗ | ✗ | ✗ | CA / NY / TX / UK / Ontario (PDF) |
 | Client risk scoring (0–100) | ✗ | ✗ | ✗ | ✗ | 7 factors + AI reasoning |
 | Evidence locker + court export | ✗ | ✗ | ✗ | ✗ | Auto-captured + ZIP download |
 | Streaming AI generation | ✗ | ✗ | ✗ | ✗ | SSE typewriter, real-time |
 | Invoice sync integrations | ✗ | Native | Native | ✗ | FreshBooks / QuickBooks / Wave |
-| Min wait times at engine level | N/A | N/A | N/A | N/A | Service layer — API-call-proof |
+| Min wait times at engine level | N/A | N/A | N/A | N/A | Service layer. API-call-proof |
 
 ---
 
@@ -732,7 +732,7 @@ pnpm turbo test
 
 This project is the exclusive intellectual property of **Rudrendu Paul** and **Sourav Nandy**.
 
-Any use — personal, academic, or commercial — requires prior written approval from both owners. See [LICENSE](./LICENSE) for full terms.
+Any use (personal, academic, or commercial) requires prior written approval from both owners. See [LICENSE](./LICENSE) for full terms.
 
 **Contact:** [github.com/RudrenduPaul](https://github.com/RudrenduPaul)
 
@@ -744,7 +744,7 @@ Any use — personal, academic, or commercial — requires prior written approva
 
 <br/>
 
-**If this approach to AI-native development is useful to you — star the repo.**<br/>
+**If this approach to AI-native development is useful to you, star the repo.**<br/>
 It helps other developers and founders find the methodology.
 
 </div>
