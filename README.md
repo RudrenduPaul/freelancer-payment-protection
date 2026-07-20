@@ -89,6 +89,8 @@ We built the bad cop so freelancers don't have to be.
 -->
 <!-- <img src="./docs/screenshots/01-dashboard.png" width="100%" alt="Dashboard — urgency-first design" /> -->
 
+<img src="https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/demo.gif" width="100%" alt="freelancer-payment-protection-cli: logging in and running the first command against a live workspace" />
+
 </div>
 
 ---
@@ -670,6 +672,8 @@ fpp login
 fpp invoice list --status overdue
 fpp client risk <client-id>
 ```
+
+<img src="https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/usage.gif" width="100%" alt="freelancer-payment-protection-cli: filtering overdue invoices, scoring a client, and checking escalation status" />
 
 ---
 

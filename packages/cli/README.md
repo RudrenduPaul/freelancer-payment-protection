@@ -7,7 +7,7 @@ scoring for freelancers. This package wraps the project's FastAPI backend
 and risk-scoring data you'd otherwise reach through the dashboard or the
 raw HTTP API is scriptable from a terminal or an agent.
 
-![Login and first command](../../docs/demo.gif)
+![Login and first command](https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/demo.gif)
 
 ## Install
 
@@ -95,7 +95,7 @@ fpp client risk <client-id> [--json]        Compute/refresh the AI risk score
 
 Run `fpp --help` or `fpp <command> --help` for full flag references.
 
-![Filtering invoices, scoring a client, and checking escalation status](../../docs/usage.gif)
+![Filtering invoices, scoring a client, and checking escalation status](https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/usage.gif)
 
 ### A note on `escalation advance`
 
