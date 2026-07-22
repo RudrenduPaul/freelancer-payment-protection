@@ -48,3 +48,6 @@ reference-docs-context/
 # Generated PDFs / docs (created at runtime)
 generated-docs/
 tmp/
+
+# Agent tooling scaffolding — local only, never public
+.claude/
