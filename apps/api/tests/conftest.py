@@ -23,7 +23,12 @@ os.environ.setdefault("ENVIRONMENT", "test")
 @pytest.fixture(scope="session")
 def test_engine():
     from sqlalchemy import create_engine
-    engine = create_engine("sqlite:///:memory:", connect_args={"check_same_thread": False})
+    from sqlalchemy.pool import StaticPool
+    engine = create_engine(
+        "sqlite:///:memory:",
+        connect_args={"check_same_thread": False},
+        poolclass=StaticPool,
+    )
     return engine
 
 
