@@ -36,7 +36,7 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter web test --coverage
+      - run: pnpm --filter web test -- --coverage
 
   test-backend:
     name: Backend Tests (pytest)
