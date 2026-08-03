@@ -28,7 +28,7 @@ const MOCK_FOCUS: FocusItem[] = [
     id: '2',
     label: 'Next escalation ready',
     title: 'Global Retail — $8,750',
-    detail: 'Firm Notice window opens today. Strike while it's hot.',
+    detail: 'Firm Notice window opens today. Strike while it is hot.',
     urgency: 'high',
     cta: 'Draft Email',
     href: '/escalations',
@@ -72,7 +72,7 @@ export function TodaysFocus() {
     <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
       <div className="flex items-center gap-2 px-5 py-4 border-b border-slate-100">
         <Zap className="h-4 w-4 text-amber-500" />
-        <h3 className="text-sm font-semibold text-slate-900">Today's Focus</h3>
+        <h3 className="text-sm font-semibold text-slate-900">Today&apos;s Focus</h3>
         <span className="ml-2 inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-700">
           <AlertTriangle className="h-2.5 w-2.5" />
           3 actions needed

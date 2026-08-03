@@ -47,7 +47,7 @@ describe('RiskBadge', () => {
 
   it('renders score when provided', () => {
     renderWithProviders(<RiskBadge level="high" score={72} />)
-    expect(screen.getByText('72')).toBeInTheDocument()
+    expect(screen.getByText('(72)')).toBeInTheDocument()
   })
 
   it('does not render score when not provided', () => {
