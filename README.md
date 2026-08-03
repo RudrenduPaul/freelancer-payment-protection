@@ -570,27 +570,30 @@ freelancer-payment-protection/
 
 ## Quick Start
 
-Zero credentials needed. Every feature runs against local SQLite with seed data.
+No external services needed to seed and query data through the API/CLI. **Viewing the web
+dashboard itself requires a (free-tier) Supabase project** for login — see the note below.
 
-**Prerequisites:** Node.js 20+ · pnpm 9+ · Python 3.12+
+**Prerequisites:** Node.js 20+ · pnpm 9.0.0 (see corepack note below) · Python 3.12.x (3.13/3.14 not yet supported — see note below)
 
 ```bash
 git clone https://github.com/RudrenduPaul/freelancer-payment-protection.git
 cd freelancer-payment-protection
 
+# If your global pnpm doesn't already resolve to 9.0.0 under corepack, pin it first:
+# corepack prepare pnpm@9.0.0 --activate
+
 # Monorepo dependencies
 pnpm install
 
-# Env files (placeholder values work locally)
+# Env files (placeholder values work for the API/CLI seed-data path;
+# apps/web needs a REAL Supabase URL + anon key to log in, see note below)
 cp apps/api/.env.example apps/api/.env
 cp apps/web/.env.example apps/web/.env.local
 
-# Python setup
-cd apps/api
-pip install -r requirements.txt
-python -m alembic upgrade head
+# Python setup — run from the repo root, not apps/api
+pip install -r apps/api/requirements.txt
+python -m alembic -c packages/db/migrations/alembic.ini upgrade head
 python scripts/seed_dev.py
-cd ../..
 
 # Start frontend + API in parallel
 pnpm dev
@@ -601,8 +604,15 @@ pnpm dev
 | Dashboard | `http://localhost:3000` |
 | API + OpenAPI docs | `http://localhost:8000/docs` |
 
-50 mock clients · 50 invoices · pre-generated escalation events · evidence items.
-Walk through the full collection pipeline without touching any external service.
+8 mock clients · 16 invoices · pre-generated escalation events · evidence items, all queryable
+via the API/CLI without any external service once seeded.
+
+> **Web dashboard login** requires a real (free-tier is fine) [Supabase](https://supabase.com)
+> project: `apps/api/app/middleware/auth.py` validates a Supabase-issued JWT on every protected
+> route with no local bypass, and `apps/web/.env.example`'s placeholder values will not let you
+> log in. Put your project's URL/anon key in `apps/web/.env.local` and `apps/api/.env` to use
+> the dashboard; the seeded data is otherwise fully reachable through the API/CLI with the
+> placeholder env files as-is.
 
 > **AI features** (demand letters, risk scoring, escalation drafts) require `ANTHROPIC_API_KEY` in `apps/api/.env`. Variable name is in `.env.example`. Never commit real keys.
 
