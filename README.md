@@ -79,10 +79,7 @@ We built the bad cop so freelancers don't have to be.
   2. /docs/screenshots/02-escalation-kanban.png
      → 5-column kanban with amount-at-stake per column, flame icon on critical cards
 
-  3. /docs/screenshots/03-demand-letter.gif
-     → Streaming typewriter effect as our AI engine generates the demand letter in real time
-
-  4. /docs/screenshots/04-client-risk.png
+  3. /docs/screenshots/04-client-risk.png
      → Client detail page: risk score counting 0→82, factor breakdown with progress bars, AI reasoning
 
   Uncomment once screenshots are added:
