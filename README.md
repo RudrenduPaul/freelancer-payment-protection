@@ -48,6 +48,10 @@ We built the bad cop so freelancers don't have to be.
 
 <br/>
 
+<img src="https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/demo.gif" width="100%" alt="freelancer-payment-protection-cli: logging in and running the first command against a live workspace" />
+
+<br/>
+
 <p>
   Built by&nbsp;<strong><a href="https://github.com/RudrenduPaul">Rudrendu Paul</a></strong>&nbsp;&amp;&nbsp;<strong><a href="https://github.com/essen-code">Sourav Nandy</strong>
   &nbsp;&nbsp;·&nbsp;&nbsp;
@@ -91,8 +95,6 @@ We built the bad cop so freelancers don't have to be.
   Uncomment once screenshots are added:
 -->
 <!-- <img src="./docs/screenshots/01-dashboard.png" width="100%" alt="Dashboard, urgency-first design" /> -->
-
-<img src="https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/demo.gif" width="100%" alt="freelancer-payment-protection-cli: logging in and running the first command against a live workspace" />
 
 </div>
 
