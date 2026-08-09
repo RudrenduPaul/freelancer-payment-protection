@@ -18,7 +18,7 @@ httpx<0.28  # anthropic==0.25.0's internal client construction passes a `proxies
             # argument 'proxies' at request time.
 python-multipart==0.0.31
 slowapi==0.1.9
-PyJWT==2.8.0
+PyJWT==2.13.0
 python-docx==1.1.0
 weasyprint==69.0
 celery==5.3.6
