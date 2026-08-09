@@ -40,6 +40,12 @@ We built the bad cop so freelancers don't have to be.
   <img src="https://img.shields.io/badge/License-Proprietary-1a1a2e?style=flat" />
 </p>
 
+<!-- Badges row 4. CLI package -->
+<p>
+  <img src="https://img.shields.io/npm/v/freelancer-payment-protection-cli?style=flat&logo=npm&label=npm" />
+  <img src="https://img.shields.io/pypi/v/freelancer-payment-protection-cli?style=flat&logo=pypi&logoColor=white&label=PyPI" />
+</p>
+
 <br/>
 
 <p>
