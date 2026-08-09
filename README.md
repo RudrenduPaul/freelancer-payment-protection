@@ -688,6 +688,10 @@ fpp client risk <client-id>
 
 <img src="https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/usage.gif" width="100%" alt="freelancer-payment-protection-cli: filtering overdue invoices, scoring a client, and checking escalation status" />
 
+Every data-returning command also takes `--json` for structured output an agent or script can parse directly:
+
+<img src="https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/demo-3-json-structured-output.gif" width="100%" alt="freelancer-payment-protection-cli: running fpp commands with --json to get structured, machine-parseable output" />
+
 ---
 
 ## Running Tests
