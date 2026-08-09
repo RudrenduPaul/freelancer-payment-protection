@@ -6,44 +6,41 @@
 
 <h2>Freelancer Payment Protection: AI-Native Collection Engine</h2>
 
+<!-- Badge cluster, capped at 6. Full stack badges live in the details block below. -->
+<p>
+  <img src="https://img.shields.io/npm/v/freelancer-payment-protection-cli?style=flat&logo=npm&label=npm" alt="npm version" />
+  <img src="https://img.shields.io/pypi/v/freelancer-payment-protection-cli?style=flat&logo=pypi&logoColor=white&label=PyPI" alt="PyPI version" />
+  <img src="https://img.shields.io/github/last-commit/RudrenduPaul/freelancer-payment-protection?style=flat&label=last+commit" alt="last commit" />
+  <img src="https://img.shields.io/badge/Coverage-70%25%2B_enforced-22c55e?style=flat" alt="coverage 70%+ enforced" />
+  <img src="https://img.shields.io/badge/CodeQL-Enabled-22c55e?style=flat" alt="CodeQL enabled" />
+  <img src="https://img.shields.io/badge/License-Proprietary-1a1a2e?style=flat" alt="license: proprietary" />
+</p>
+
+<details>
+<summary>Full tech stack badges</summary>
+<br/>
+
+<p>
+  <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white" alt="Python 3.12" />
+  <img src="https://img.shields.io/badge/FastAPI-0.111-009688?style=flat&logo=fastapi&logoColor=white" alt="FastAPI 0.111" />
+  <img src="https://img.shields.io/badge/Next.js-14_App_Router-000000?style=flat&logo=nextdotjs&logoColor=white" alt="Next.js 14 App Router" />
+  <img src="https://img.shields.io/badge/TypeScript-5.4-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript 5.4" />
+  <img src="https://img.shields.io/badge/Turborepo-Monorepo-EF4444?style=flat&logo=turborepo&logoColor=white" alt="Turborepo monorepo" />
+  <img src="https://img.shields.io/badge/Claude_Sonnet_4.6-AI_Core-D4A017?style=flat&logo=anthropic&logoColor=white" alt="Claude Sonnet 4.6 AI core" />
+  <img src="https://img.shields.io/badge/Supabase-PostgreSQL_%2B_RLS-3ECF8E?style=flat&logo=supabase&logoColor=white" alt="Supabase PostgreSQL + RLS" />
+  <img src="https://img.shields.io/badge/Celery_%2B_Redis-Workers-37814A?style=flat" alt="Celery + Redis workers" />
+  <img src="https://img.shields.io/badge/Framer_Motion-Animations-0055FF?style=flat" alt="Framer Motion animations" />
+  <img src="https://img.shields.io/badge/RLS-All_Tables-6366f1?style=flat" alt="Row Level Security on all tables" />
+</p>
+
+</details>
+
+<br/>
+
 <p>
 <strong>73 million freelancers. 71% report late payment. $50B+ in unpaid invoices every year.</strong><br/>
 The gap: every invoicing tool stops at "sent." None of them handle what comes next.<br/>
 We built the bad cop so freelancers don't have to be.
-</p>
-
-<br/>
-
-<!-- Badges row 1. Stack -->
-<p>
-  <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/FastAPI-0.111-009688?style=flat&logo=fastapi&logoColor=white" />
-  <img src="https://img.shields.io/badge/Next.js-14_App_Router-000000?style=flat&logo=nextdotjs&logoColor=white" />
-  <img src="https://img.shields.io/badge/TypeScript-5.4-3178C6?style=flat&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/Turborepo-Monorepo-EF4444?style=flat&logo=turborepo&logoColor=white" />
-</p>
-
-<!-- Badges row 2. AI & Data -->
-<p>
-  <img src="https://img.shields.io/badge/Claude_Sonnet_4.6-AI_Core-D4A017?style=flat&logo=anthropic&logoColor=white" />
-  <img src="https://img.shields.io/badge/Supabase-PostgreSQL_%2B_RLS-3ECF8E?style=flat&logo=supabase&logoColor=white" />
-  <img src="https://img.shields.io/badge/Celery_%2B_Redis-Workers-37814A?style=flat" />
-  <img src="https://img.shields.io/badge/Framer_Motion-Animations-0055FF?style=flat" />
-</p>
-
-<!-- Badges row 3. Quality -->
-<p>
-  <img src="https://img.shields.io/github/last-commit/RudrenduPaul/freelancer-payment-protection?style=flat&label=last+commit" />
-  <img src="https://img.shields.io/badge/Coverage-70%25%2B_enforced-22c55e?style=flat" />
-  <img src="https://img.shields.io/badge/CodeQL-Enabled-22c55e?style=flat" />
-  <img src="https://img.shields.io/badge/RLS-All_Tables-6366f1?style=flat" />
-  <img src="https://img.shields.io/badge/License-Proprietary-1a1a2e?style=flat" />
-</p>
-
-<!-- Badges row 4. CLI package -->
-<p>
-  <img src="https://img.shields.io/npm/v/freelancer-payment-protection-cli?style=flat&logo=npm&label=npm" />
-  <img src="https://img.shields.io/pypi/v/freelancer-payment-protection-cli?style=flat&logo=pypi&logoColor=white&label=PyPI" />
 </p>
 
 <br/>
@@ -65,10 +62,10 @@ We built the bad cop so freelancers don't have to be.
 <!-- Navigation -->
 <table>
 <tr>
+<td align="center"><a href="#install"><b>Install</b></a></td>
 <td align="center"><a href="#the-gap"><b>The Gap</b></a></td>
 <td align="center"><a href="#what-we-built"><b>What We Built</b></a></td>
 <td align="center"><a href="#why-its-sticky"><b>Why It's Sticky</b></a></td>
-<td align="center"><a href="#market--traction"><b>Market & Traction</b></a></td>
 <td align="center"><a href="#ai-under-the-hood"><b>AI Engine</b></a></td>
 <td align="center"><a href="#architecture"><b>Architecture</b></a></td>
 <td align="center"><a href="#quick-start"><b>Quick Start</b></a></td>
@@ -97,6 +94,24 @@ We built the bad cop so freelancers don't have to be.
 <!-- <img src="./docs/screenshots/01-dashboard.png" width="100%" alt="Dashboard, urgency-first design" /> -->
 
 </div>
+
+---
+
+## Install
+
+The `fpp` CLI is the fastest way to try this against your own data:
+
+```bash
+pip install freelancer-payment-protection-cli
+```
+
+```bash
+fpp login
+fpp invoice list --status overdue
+```
+
+Full command reference: [Command-Line Interface](#command-line-interface). To self-host the whole
+product (Next.js dashboard + FastAPI backend), see [Quick Start](#quick-start).
 
 ---
 
@@ -580,6 +595,9 @@ dashboard itself requires a (free-tier) Supabase project** for login — see the
 
 **Prerequisites:** Node.js 20+ · pnpm 9.0.0 (see corepack note below) · Python 3.12.x (3.13/3.14 not yet supported — see note below)
 
+> [!WARNING]
+> Requires Python 3.12.x specifically. 3.13 and 3.14 are not yet supported.
+
 ```bash
 git clone https://github.com/RudrenduPaul/freelancer-payment-protection.git
 cd freelancer-payment-protection
@@ -612,6 +630,7 @@ pnpm dev
 8 mock clients · 16 invoices · pre-generated escalation events · evidence items, all queryable
 via the API/CLI without any external service once seeded.
 
+> [!WARNING]
 > **Web dashboard login** requires a real (free-tier is fine) [Supabase](https://supabase.com)
 > project: `apps/api/app/middleware/auth.py` validates a Supabase-issued JWT on every protected
 > route with no local bypass, and `apps/web/.env.example`'s placeholder values will not let you
@@ -619,6 +638,7 @@ via the API/CLI without any external service once seeded.
 > the dashboard; the seeded data is otherwise fully reachable through the API/CLI with the
 > placeholder env files as-is.
 
+> [!NOTE]
 > **AI features** (demand letters, risk scoring, escalation drafts) require `ANTHROPIC_API_KEY` in `apps/api/.env`. Variable name is in `.env.example`. Never commit real keys.
 
 ---

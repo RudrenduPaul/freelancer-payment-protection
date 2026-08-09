@@ -1,6 +1,19 @@
 {
   "name": "freelancer-payment-protection",
   "private": true,
+  "description": "AI-native payment protection and invoice collection engine for freelancers: automated escalation sequences, jurisdiction-aware legal demand letters, and client risk scoring.",
+  "keywords": [
+    "freelancer",
+    "invoice-collection",
+    "late-payment",
+    "invoicing",
+    "debt-collection",
+    "legal-demand-letter",
+    "client-risk-scoring",
+    "ai-agent",
+    "fastapi",
+    "nextjs"
+  ],
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
