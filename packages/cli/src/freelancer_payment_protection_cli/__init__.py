@@ -3,4 +3,4 @@ freelancer-payment-protection API (invoice escalation, legal document
 generation, and client risk scoring for freelancers).
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.5"
