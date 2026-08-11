@@ -1,3 +1,4 @@
+<!-- mcp-name: io.github.rudrendupaul/freelancer-payment-protection-cli -->
 <div align="center">
 
 <br/>
@@ -713,6 +714,40 @@ fpp client risk <client-id>
 Every data-returning command also takes `--json` for structured output an agent or script can parse directly:
 
 <img src="https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/demo-3-json-structured-output.gif" width="100%" alt="freelancer-payment-protection-cli: running fpp commands with --json to get structured, machine-parseable output" />
+
+---
+
+## MCP Server
+
+`freelancer-payment-protection-cli` ships a Model Context Protocol (MCP) server, so an
+agent (Claude Desktop, Claude Code, or any other MCP client) can call the same commands
+above (`invoice list`, `client risk`, `escalation status`, ...) as tool calls instead of
+shelling out to the CLI directly.
+
+**Install:**
+
+```bash
+pip install "freelancer-payment-protection-cli[mcp]"
+```
+
+**Claude Desktop config** (`claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "freelancer-payment-protection": {
+      "command": "fpp-mcp"
+    }
+  }
+}
+```
+
+The server exposes one tool, `run`, that shells out to the installed `fpp` binary with
+the given argument list and returns its output as structured JSON when possible — every
+`fpp` subcommand is reachable through it, not just a hand-picked subset. Example call:
+`run(args=["client", "risk", "<client-id>", "--json"])` returns the same 0-100 risk
+score, factor breakdown, and AI reasoning that `fpp client risk <client-id> --json`
+prints to a terminal.
 
 ---
 

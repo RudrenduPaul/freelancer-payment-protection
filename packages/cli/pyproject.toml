@@ -13,7 +13,7 @@ authors = [
   { name = "Rudrendu Paul" },
   { name = "Sourav Nandy" },
 ]
-keywords = ["invoicing", "freelance", "cli", "invoice-escalation", "risk-scoring", "agent-native", "supabase", "fastapi"]
+keywords = ["invoicing", "freelance", "cli", "invoice-escalation", "risk-scoring", "agent-native", "supabase", "fastapi", "mcp", "model-context-protocol"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Environment :: Console",
@@ -41,6 +41,9 @@ dev = [
   "build>=1.0,<2",
   "twine>=5.0,<7",
 ]
+mcp = [
+  "mcp[cli]>=2.0.0",
+]
 
 [project.urls]
 Homepage = "https://github.com/RudrenduPaul/freelancer-payment-protection"
@@ -50,6 +53,7 @@ Repository = "https://github.com/RudrenduPaul/freelancer-payment-protection"
 [project.scripts]
 fpp = "freelancer_payment_protection_cli.main:main"
 freelancer-payment-protection = "freelancer_payment_protection_cli.main:main"
+fpp-mcp = "freelancer_payment_protection_cli.mcp_server:main"
 
 [tool.hatch.version]
 # Single source of truth for the package version: __version__ in
@@ -67,6 +71,7 @@ path = "src/freelancer_payment_protection_cli/__init__.py"
 # monorepo whose .git directory is at the repo root, alongside Node/
 # Turborepo config that has nothing to do with this Python package.
 ignore-vcs = true
+exclude = [".venv*/"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/freelancer_payment_protection_cli"]

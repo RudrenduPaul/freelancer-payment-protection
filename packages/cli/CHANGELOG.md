@@ -4,6 +4,17 @@ All notable changes to `freelancer-payment-protection-cli` (the PyPI package
 in `packages/cli/`) are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.1.6] - 2026-08-10
+
+### Added
+
+- MCP (Model Context Protocol) server, `freelancer_payment_protection_cli.mcp_server`,
+  installed with the new `mcp` extra (`pip install "freelancer-payment-protection-cli[mcp]"`)
+  and started via the new `fpp-mcp` console script. Exposes a single `run` tool that
+  shells out to the installed `fpp` binary with the given argument list, so any MCP
+  client (Claude Desktop, Claude Code, etc.) can call every `fpp` subcommand as a tool
+  call. See the README's "MCP Server" section for the Claude Desktop config snippet.
+
 ## [0.1.5] - 2026-08-08
 
 ### Fixed

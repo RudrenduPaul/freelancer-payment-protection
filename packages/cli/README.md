@@ -1,3 +1,4 @@
+<!-- mcp-name: io.github.rudrendupaul/freelancer-payment-protection-cli -->
 # freelancer-payment-protection-cli
 
 Command-line client for [freelancer-payment-protection](https://github.com/RudrenduPaul/freelancer-payment-protection):
@@ -96,6 +97,37 @@ fpp client risk <client-id> [--json]        Compute/refresh the AI risk score
 Run `fpp --help` or `fpp <command> --help` for full flag references.
 
 ![Filtering invoices, scoring a client, and checking escalation status](https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/usage.gif)
+
+## MCP Server
+
+This package ships a Model Context Protocol (MCP) server, so an agent (Claude Desktop,
+Claude Code, or any other MCP client) can call `fpp` commands as tool calls instead of
+shelling out to the CLI directly.
+
+Install with the `mcp` extra:
+
+```bash
+pip install "freelancer-payment-protection-cli[mcp]"
+```
+
+Claude Desktop config (`claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "freelancer-payment-protection": {
+      "command": "fpp-mcp"
+    }
+  }
+}
+```
+
+The server (`freelancer_payment_protection_cli/mcp_server.py`) exposes one tool, `run`,
+that shells out to the installed `fpp` binary with the given argument list and returns
+its output as structured JSON when possible — every `fpp` subcommand is reachable
+through it. Example: `run(args=["client", "risk", "<client-id>", "--json"])` returns the
+same 0-100 risk score, factor breakdown, and AI reasoning that
+`fpp client risk <client-id> --json` prints to a terminal.
 
 ### A note on `escalation advance`
 
