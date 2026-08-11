@@ -1,4 +1,4 @@
-<!-- mcp-name: io.github.rudrendupaul/freelancer-payment-protection-cli -->
+<!-- mcp-name: io.github.RudrenduPaul/freelancer-payment-protection -->
 # freelancer-payment-protection-cli
 
 Command-line client for [freelancer-payment-protection](https://github.com/RudrenduPaul/freelancer-payment-protection):
@@ -209,12 +209,10 @@ is just re-exporting it.
 
 **What's the licensing situation? Can I use or modify this commercially?**
 This CLI ships from the same repository as, and under the same license
-as, freelancer-payment-protection itself: a proprietary license, copyright
-Rudrendu Paul and Sourav Nandy, all rights reserved. Personal, academic,
-commercial, or scheduled use requires explicit written permission from
-both owners. See the `LICENSE` file. This is not an MIT/Apache-style
-open-source license; publishing it to PyPI makes it installable, not
-freely reusable.
+as, freelancer-payment-protection itself: the MIT license, copyright
+Rudrendu Paul and Sourav Nandy. It's free and open source, and you can
+use, modify, and redistribute it, commercially or otherwise, subject to
+the terms in the `LICENSE` file.
 
 **Why isn't there a hosted/default API URL I can just start using?**
 freelancer-payment-protection is self-hosted software, not a hosted
@@ -240,6 +238,4 @@ the repository root for contribution guidelines.
 
 ## License
 
-Proprietary. See [`LICENSE`](./LICENSE). Contact the owners (see
-`LICENSE`) before any use beyond installing and running the package as
-published.
+MIT. See [`LICENSE`](./LICENSE).

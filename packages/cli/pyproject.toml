@@ -8,7 +8,7 @@ dynamic = ["version"]
 description = "Command-line client for freelancer-payment-protection: automated invoice escalation, legal document generation, and client risk scoring for freelancers."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "Proprietary" }
+license = { text = "MIT" }
 authors = [
   { name = "Rudrendu Paul" },
   { name = "Sourav Nandy" },
@@ -18,7 +18,7 @@ classifiers = [
   "Development Status :: 3 - Alpha",
   "Environment :: Console",
   "Intended Audience :: Developers",
-  "License :: Other/Proprietary License",
+  "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",

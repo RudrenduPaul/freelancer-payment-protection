@@ -1,4 +1,4 @@
-<!-- mcp-name: io.github.rudrendupaul/freelancer-payment-protection-cli -->
+<!-- mcp-name: io.github.RudrenduPaul/freelancer-payment-protection -->
 <div align="center">
 
 <br/>
@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/github/last-commit/RudrenduPaul/freelancer-payment-protection?style=flat&label=last+commit" alt="last commit" />
   <img src="https://img.shields.io/badge/Coverage-70%25%2B_enforced-22c55e?style=flat" alt="coverage 70%+ enforced" />
   <img src="https://img.shields.io/badge/CodeQL-Enabled-22c55e?style=flat" alt="CodeQL enabled" />
-  <img src="https://img.shields.io/badge/License-Proprietary-1a1a2e?style=flat" alt="license: proprietary" />
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
 </p>
 
 <details>
@@ -804,9 +804,7 @@ pnpm turbo test
 
 ## License
 
-This project is the exclusive intellectual property of **Rudrendu Paul** and **Sourav Nandy**.
-
-Any use (personal, academic, or commercial) requires prior written approval from both owners. See [LICENSE](./LICENSE) for full terms.
+MIT. See [LICENSE](./LICENSE) for full terms.
 
 **Contact:** [github.com/RudrenduPaul](https://github.com/RudrenduPaul)
 
