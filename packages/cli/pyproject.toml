@@ -4,21 +4,21 @@ build-backend = "hatchling.build"
 
 [project]
 name = "freelancer-payment-protection-cli"
-version = "0.1.4"
+dynamic = ["version"]
 description = "Command-line client for freelancer-payment-protection: AI-drafted invoice escalation emails, jurisdiction-referenced demand letters, and 0-100 client risk scoring for freelancers, with a --json flag on every command for agent and script use."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "Proprietary" }
+license = { text = "MIT" }
 authors = [
   { name = "Rudrendu Paul" },
   { name = "Sourav Nandy" },
 ]
-keywords = ["invoicing", "freelance", "cli", "invoice-escalation", "risk-scoring", "agent-native", "supabase", "fastapi", "demand-letter", "collections", "freelancer-tools", "claude-ai"]
+keywords = ["invoicing", "freelance", "cli", "invoice-escalation", "risk-scoring", "agent-native", "supabase", "fastapi", "demand-letter", "collections", "freelancer-tools", "claude-ai", "mcp", "model-context-protocol"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Environment :: Console",
   "Intended Audience :: Developers",
-  "License :: Other/Proprietary License",
+  "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
@@ -41,6 +41,9 @@ dev = [
   "build>=1.0,<2",
   "twine>=5.0,<7",
 ]
+mcp = [
+  "mcp[cli]>=2.0.0",
+]
 
 [project.urls]
 Homepage = "https://github.com/RudrenduPaul/freelancer-payment-protection"
@@ -50,12 +53,25 @@ Repository = "https://github.com/RudrenduPaul/freelancer-payment-protection"
 [project.scripts]
 fpp = "freelancer_payment_protection_cli.main:main"
 freelancer-payment-protection = "freelancer_payment_protection_cli.main:main"
+fpp-mcp = "freelancer_payment_protection_cli.mcp_server:main"
+
+[tool.hatch.version]
+# Single source of truth for the package version: __version__ in
+# __init__.py, which is also what `fpp --version` / click's
+# version_option prints at runtime. Previously this file's own
+# `version = "..."` field was bumped on every release but __init__.py's
+# __version__ was never updated past its initial "0.1.0", so every
+# published release (0.1.1 through 0.1.4 on PyPI) reported the wrong
+# version at runtime despite installing correctly. Deriving the build
+# version from this same file makes that drift structurally impossible.
+path = "src/freelancer_payment_protection_cli/__init__.py"
 
 [tool.hatch.build]
 # This package lives in a subdirectory (packages/cli/) of a larger
 # monorepo whose .git directory is at the repo root, alongside Node/
 # Turborepo config that has nothing to do with this Python package.
 ignore-vcs = true
+exclude = [".venv*/"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/freelancer_payment_protection_cli"]

@@ -1,3 +1,4 @@
+<!-- mcp-name: io.github.RudrenduPaul/freelancer-payment-protection -->
 # freelancer-payment-protection-cli
 
 Command-line client for [freelancer-payment-protection](https://github.com/RudrenduPaul/freelancer-payment-protection):
@@ -97,6 +98,37 @@ Run `fpp --help` or `fpp <command> --help` for full flag references.
 
 ![Filtering invoices, scoring a client, and checking escalation status](https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/usage.gif)
 
+## MCP Server
+
+This package ships a Model Context Protocol (MCP) server, so an agent (Claude Desktop,
+Claude Code, or any other MCP client) can call `fpp` commands as tool calls instead of
+shelling out to the CLI directly.
+
+Install with the `mcp` extra:
+
+```bash
+pip install "freelancer-payment-protection-cli[mcp]"
+```
+
+Claude Desktop config (`claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "freelancer-payment-protection": {
+      "command": "fpp-mcp"
+    }
+  }
+}
+```
+
+The server (`freelancer_payment_protection_cli/mcp_server.py`) exposes one tool, `run`,
+that shells out to the installed `fpp` binary with the given argument list and returns
+its output as structured JSON when possible — every `fpp` subcommand is reachable
+through it. Example: `run(args=["client", "risk", "<client-id>", "--json"])` returns the
+same 0-100 risk score, factor breakdown, and AI reasoning that
+`fpp client risk <client-id> --json` prints to a terminal.
+
 ### A note on `escalation advance`
 
 The backend's escalation router (`apps/api/app/routers/escalations.py`)
@@ -177,12 +209,10 @@ is just re-exporting it.
 
 **What's the licensing situation? Can I use or modify this commercially?**
 This CLI ships from the same repository as, and under the same license
-as, freelancer-payment-protection itself: a proprietary license, copyright
-Rudrendu Paul and Sourav Nandy, all rights reserved. Personal, academic,
-commercial, or scheduled use requires explicit written permission from
-both owners. See the `LICENSE` file. This is not an MIT/Apache-style
-open-source license; publishing it to PyPI makes it installable, not
-freely reusable.
+as, freelancer-payment-protection itself: the MIT license, copyright
+Rudrendu Paul and Sourav Nandy. It's free and open source, and you can
+use, modify, and redistribute it, commercially or otherwise, subject to
+the terms in the `LICENSE` file.
 
 **Why isn't there a hosted/default API URL I can just start using?**
 freelancer-payment-protection is self-hosted software, not a hosted
@@ -208,6 +238,4 @@ the repository root for contribution guidelines.
 
 ## License
 
-Proprietary. See [`LICENSE`](./LICENSE). Contact the owners (see
-`LICENSE`) before any use beyond installing and running the package as
-published.
+MIT. See [`LICENSE`](./LICENSE).

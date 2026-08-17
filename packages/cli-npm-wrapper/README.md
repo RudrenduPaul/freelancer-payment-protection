@@ -32,4 +32,4 @@ See the [main README](https://github.com/RudrenduPaul/freelancer-payment-protect
 
 ## License
 
-Proprietary. See [LICENSE](https://github.com/RudrenduPaul/freelancer-payment-protection/blob/main/LICENSE) in the parent repository for full terms.
+MIT. See [LICENSE](https://github.com/RudrenduPaul/freelancer-payment-protection/blob/main/LICENSE) in the parent repository for full terms.

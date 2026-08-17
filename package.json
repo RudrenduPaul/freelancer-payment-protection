@@ -1,6 +1,19 @@
 {
   "name": "freelancer-payment-protection",
   "private": true,
+  "description": "AI-native payment protection and invoice collection engine for freelancers: automated escalation sequences, jurisdiction-aware legal demand letters, and client risk scoring.",
+  "keywords": [
+    "freelancer",
+    "invoice-collection",
+    "late-payment",
+    "invoicing",
+    "debt-collection",
+    "legal-demand-letter",
+    "client-risk-scoring",
+    "ai-agent",
+    "fastapi",
+    "nextjs"
+  ],
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
@@ -10,7 +23,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\""
   },
   "devDependencies": {
-    "turbo": "^2.0.0",
+    "turbo": "^2.9.14",
     "prettier": "^3.2.0",
     "@types/node": "^20.0.0",
     "typescript": "^5.4.0"
@@ -19,5 +32,22 @@
     "node": ">=20.0.0",
     "pnpm": ">=9.0.0"
   },
-  "packageManager": "pnpm@9.0.0"
+  "packageManager": "pnpm@9.0.0",
+  "pnpm": {
+    "overrides": {
+      "nanoid": "^3.3.17",
+      "minimatch@3>brace-expansion": "^1.1.17",
+      "minimatch@9>brace-expansion": "^2.1.2",
+      "sharp": "^0.35.3",
+      "js-yaml": "^4.3.1",
+      "form-data": "^4.0.6",
+      "vite": "^6.4.3",
+      "ws": "^8.21.3",
+      "postcss": "^8.5.26",
+      "minimatch": "^9.0.7",
+      "flatted": "^3.4.2",
+      "picomatch": "^4.0.4",
+      "lodash": "^4.18.0"
+    }
+  }
 }

@@ -1,6 +1,38 @@
+<!-- mcp-name: io.github.RudrenduPaul/freelancer-payment-protection -->
 <div align="center">
 
 <h1>freelancer-payment-protection</h1>
+
+<!-- Badge cluster, capped at 6. Full stack badges live in the details block below. -->
+<p>
+  <img src="https://img.shields.io/npm/v/freelancer-payment-protection-cli?style=flat&logo=npm&label=npm" alt="npm version" />
+  <img src="https://img.shields.io/pypi/v/freelancer-payment-protection-cli?style=flat&logo=pypi&logoColor=white&label=PyPI" alt="PyPI version" />
+  <img src="https://img.shields.io/github/last-commit/RudrenduPaul/freelancer-payment-protection?style=flat&label=last+commit" alt="last commit" />
+  <img src="https://img.shields.io/badge/Coverage-70%25%2B_enforced-22c55e?style=flat" alt="coverage 70%+ enforced" />
+  <img src="https://img.shields.io/badge/CodeQL-Enabled-22c55e?style=flat" alt="CodeQL enabled" />
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
+</p>
+
+<details>
+<summary>Full tech stack badges</summary>
+<br/>
+
+<p>
+  <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white" alt="Python 3.12" />
+  <img src="https://img.shields.io/badge/FastAPI-0.111-009688?style=flat&logo=fastapi&logoColor=white" alt="FastAPI 0.111" />
+  <img src="https://img.shields.io/badge/Next.js-14_App_Router-000000?style=flat&logo=nextdotjs&logoColor=white" alt="Next.js 14 App Router" />
+  <img src="https://img.shields.io/badge/TypeScript-5.4-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript 5.4" />
+  <img src="https://img.shields.io/badge/Turborepo-Monorepo-EF4444?style=flat&logo=turborepo&logoColor=white" alt="Turborepo monorepo" />
+  <img src="https://img.shields.io/badge/Claude_Sonnet_4.6-AI_Core-D4A017?style=flat&logo=anthropic&logoColor=white" alt="Claude Sonnet 4.6 AI core" />
+  <img src="https://img.shields.io/badge/Supabase-PostgreSQL_%2B_RLS-3ECF8E?style=flat&logo=supabase&logoColor=white" alt="Supabase PostgreSQL + RLS" />
+  <img src="https://img.shields.io/badge/Celery_%2B_Redis-Workers-37814A?style=flat" alt="Celery + Redis workers" />
+  <img src="https://img.shields.io/badge/Framer_Motion-Animations-0055FF?style=flat" alt="Framer Motion animations" />
+  <img src="https://img.shields.io/badge/RLS-All_Tables-6366f1?style=flat" alt="Row Level Security on all tables" />
+</p>
+
+</details>
+
+<br/>
 
 <p>
 <strong>Claude drafts jurisdiction-referenced demand letters and 0–100 client risk scores with full reasoning, wired into a self-hosted FastAPI + Next.js dashboard and a scriptable CLI.</strong>
@@ -10,7 +42,7 @@
   <a href="https://github.com/RudrenduPaul/freelancer-payment-protection/actions/workflows/ci.yml"><img src="https://github.com/RudrenduPaul/freelancer-payment-protection/actions/workflows/ci.yml/badge.svg" alt="CI status" /></a>
   <a href="https://pypi.org/project/freelancer-payment-protection-cli/"><img src="https://img.shields.io/pypi/v/freelancer-payment-protection-cli?label=PyPI&color=3776AB" alt="PyPI version" /></a>
   <a href="https://www.npmjs.com/package/freelancer-payment-protection-cli"><img src="https://img.shields.io/npm/v/freelancer-payment-protection-cli?label=npm&color=CB3837" alt="npm version" /></a>
-  <img src="https://img.shields.io/badge/License-Proprietary-1a1a2e" alt="Proprietary license" />
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
   <img src="https://img.shields.io/badge/CodeQL-enabled-22c55e" alt="CodeQL enabled" />
 </p>
 
@@ -24,7 +56,7 @@
 
 ---
 
-**Note on the license:** this repository is source-available, not open source. Copyright is held by Rudrendu Paul and Sourav Nandy; use beyond installing and running the published CLI package requires written permission. See [License](#license) below before you fork, modify, or redistribute anything.
+**Note on the license:** this project is MIT licensed. Copyright is held by Rudrendu Paul and Sourav Nandy. See [License](#license) below for full terms.
 
 ## Install the CLI
 
@@ -45,6 +77,7 @@ That installs `fpp`, a typed command-line client for the FastAPI backend below (
 - [API Reference](#api-reference)
 - [Comparison](#comparison)
 - [Architecture](#architecture)
+- [MCP Server](#mcp-server)
 - [Security](#security)
 - [What's Not Implemented Yet](#whats-not-implemented-yet)
 - [FAQ](#faq)
@@ -77,6 +110,9 @@ It is not a set-and-forget automation system. There's no background scheduler en
 ## Run the full stack locally
 
 Verified against a fresh clone. **Prerequisites:** Node.js 20+, pnpm 9.x, Python 3.12.x (3.13/3.14 aren't supported by this checkout: 3.14 fails at `pip install` for one of the pinned backend dependencies).
+
+> [!WARNING]
+> Requires Python 3.12.x specifically. 3.13 and 3.14 are not yet supported.
 
 ```bash
 git clone https://github.com/RudrenduPaul/freelancer-payment-protection.git
@@ -260,6 +296,44 @@ Legal document drafting uses `python-docx`/`WeasyPrint` in the code paths that a
 
 `settings = Settings()` runs at import time. If `ANTHROPIC_API_KEY` is absent, the app raises before serving a request rather than degrading silently. The tradeoff: the settings model is strict about unrecognized fields too, which is the root cause of one of the two `.env.example` issues in the FAQ below.
 
+Every data-returning command also takes `--json` for structured output an agent or script can parse directly:
+
+<img src="https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/demo-3-json-structured-output.gif" width="100%" alt="freelancer-payment-protection-cli: running fpp commands with --json to get structured, machine-parseable output" />
+
+---
+
+## MCP Server
+
+`freelancer-payment-protection-cli` ships a Model Context Protocol (MCP) server, so an
+agent (Claude Desktop, Claude Code, or any other MCP client) can call the same commands
+above (`invoice list`, `client risk`, `escalation status`, ...) as tool calls instead of
+shelling out to the CLI directly.
+
+**Install:**
+
+```bash
+pip install "freelancer-payment-protection-cli[mcp]"
+```
+
+**Claude Desktop config** (`claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "freelancer-payment-protection": {
+      "command": "fpp-mcp"
+    }
+  }
+}
+```
+
+The server exposes one tool, `run`, that shells out to the installed `fpp` binary with
+the given argument list and returns its output as structured JSON when possible — every
+`fpp` subcommand is reachable through it, not just a hand-picked subset. Example call:
+`run(args=["client", "risk", "<client-id>", "--json"])` returns the same 0-100 risk
+score, factor breakdown, and AI reasoning that `fpp client risk <client-id> --json`
+prints to a terminal.
+
 ---
 
 ## Security
@@ -299,7 +373,7 @@ None of this is secret. It's what running the code shows. The parts that are rea
 Both of those handle sending an invoice and reminding a client on a fixed schedule. Neither drafts a jurisdiction-referenced legal demand letter or scores a client's payment risk with an AI-generated reasoning trail. This project does both, backed by a real Claude API call you can see in `packages/legal_ai/` and `apps/api/app/services/`, not a canned template swap.
 
 **Is this open source? Can I fork it or use the code in my own project?**
-No. It's source-visible, not open source. The `LICENSE` file is a proprietary license: copying, modifying, or redistributing any part of this repository requires prior written approval from both Rudrendu Paul and Sourav Nandy. The published `freelancer-payment-protection-cli` package on PyPI/npm is installable and runnable as-is; that's a separate permission from using or modifying the source.
+Yes. The repository is MIT licensed: fork it, modify it, or embed the code in your own project, subject only to the standard MIT terms in [`LICENSE`](./LICENSE) (keep the copyright/permission notice). The `freelancer-payment-protection-cli` package on PyPI/npm is installable and runnable as-is under the same license.
 
 **What platforms does the CLI support?**
 Python 3.10–3.13 on Linux, macOS, or Windows, installed via `pip`, `uvx`, or `pipx`. The npm package (`freelancer-payment-protection-cli` on npm) is a thin wrapper that shells out to `uvx` or `pipx` at runtime rather than bundling a platform binary; it needs one of those two on `PATH`. Running the full backend/frontend stack needs Python 3.12.x specifically; 3.13/3.14 aren't supported by the current dependency pins.
@@ -317,17 +391,17 @@ No. It calls `/api/v1/escalations/{id}/draft`, which returns an AI-drafted previ
 The app still starts once the two `.env` fixes above are applied, but the AI routes behave differently: `client risk` falls back to a deterministic heuristic score (documented in `risk_service.py`), while `escalation advance` and the demand-letter endpoints return a 503 with no fallback.
 
 **Can I use this for a real client engagement today?**
-For the CLI against your own self-hosted backend and Supabase project, yes, within the license terms above. For anything beyond installing and running the package as published, such as forking, redistributing, or embedding it in another product, you need written permission from the owners first.
+For the CLI against your own self-hosted backend and Supabase project, yes. The MIT license also permits using or embedding this in a real client engagement or your own product; see [License](#license) for the exact terms.
 
 ---
 
 ## Contributing
 
-This is proprietary software, not a community-governed open source project. GitHub Issues are open for bug reports. Code contributions (PRs) are possible on a case-by-case basis but require prior written permission per the license before any submitted code can be merged or reused. Reach out via [github.com/RudrenduPaul](https://github.com/RudrenduPaul) first.
+GitHub Issues are open for bug reports and feature requests. Pull requests are welcome; open an issue first for anything non-trivial so the approach can be agreed on before you put in the work. Reach out via [github.com/RudrenduPaul](https://github.com/RudrenduPaul) with questions.
 
 ## License
 
-Proprietary. Copyright (c) 2026 Rudrendu Paul and Sourav Nandy. All rights reserved. Personal, academic, commercial, or scheduled use requires explicit written permission from both owners. See [`LICENSE`](./LICENSE) for full terms. Installing and running the published `freelancer-payment-protection-cli` package from PyPI/npm as distributed does not require separate permission; modifying, forking, or redistributing the source does.
+MIT. See [LICENSE](./LICENSE) for full terms.
 
 **Contact:** [github.com/RudrenduPaul](https://github.com/RudrenduPaul)
 
