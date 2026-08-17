@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "freelancer-payment-protection-cli"
 dynamic = ["version"]
-description = "Command-line client for freelancer-payment-protection: automated invoice escalation, legal document generation, and client risk scoring for freelancers."
+description = "Command-line client for freelancer-payment-protection: AI-drafted invoice escalation emails, jurisdiction-referenced demand letters, and 0-100 client risk scoring for freelancers, with a --json flag on every command for agent and script use."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -13,7 +13,7 @@ authors = [
   { name = "Rudrendu Paul" },
   { name = "Sourav Nandy" },
 ]
-keywords = ["invoicing", "freelance", "cli", "invoice-escalation", "risk-scoring", "agent-native", "supabase", "fastapi", "mcp", "model-context-protocol"]
+keywords = ["invoicing", "freelance", "cli", "invoice-escalation", "risk-scoring", "agent-native", "supabase", "fastapi", "demand-letter", "collections", "freelancer-tools", "claude-ai", "mcp", "model-context-protocol"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Environment :: Console",

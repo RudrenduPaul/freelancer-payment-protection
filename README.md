@@ -1,11 +1,7 @@
 <!-- mcp-name: io.github.RudrenduPaul/freelancer-payment-protection -->
 <div align="center">
 
-<br/>
-
-<img src="https://img.shields.io/badge/-%F0%9F%9B%A1%EF%B8%8F%20BAD%20COP%20CRM-1a1a2e?style=for-the-badge&logoColor=white" height="40" alt="Bad Cop CRM" />
-
-<h2>Freelancer Payment Protection: AI-Native Collection Engine</h2>
+<h1>freelancer-payment-protection</h1>
 
 <!-- Badge cluster, capped at 6. Full stack badges live in the details block below. -->
 <p>
@@ -39,562 +35,81 @@
 <br/>
 
 <p>
-<strong>73 million freelancers. 71% report late payment. $50B+ in unpaid invoices every year.</strong><br/>
-The gap: every invoicing tool stops at "sent." None of them handle what comes next.<br/>
-We built the bad cop so freelancers don't have to be.
+<strong>Claude drafts jurisdiction-referenced demand letters and 0–100 client risk scores with full reasoning, wired into a self-hosted FastAPI + Next.js dashboard and a scriptable CLI.</strong>
 </p>
-
-<br/>
-
-<img src="https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/demo.gif" width="100%" alt="freelancer-payment-protection-cli: logging in and running the first command against a live workspace" />
-
-<br/>
 
 <p>
-  Built by&nbsp;<strong><a href="https://github.com/RudrenduPaul">Rudrendu Paul</a></strong>&nbsp;&amp;&nbsp;<strong><a href="https://github.com/essen-code">Sourav Nandy</strong>
-  &nbsp;&nbsp;·&nbsp;&nbsp;
-  Developed with <a href="https://claude.ai/code">Claude Code</a>
-  &nbsp;&nbsp;·&nbsp;&nbsp;
-  <strong>Full-stack product shipped in 15 days</strong> using 6 parallel AI sub-agents
+  <a href="https://github.com/RudrenduPaul/freelancer-payment-protection/actions/workflows/ci.yml"><img src="https://github.com/RudrenduPaul/freelancer-payment-protection/actions/workflows/ci.yml/badge.svg" alt="CI status" /></a>
+  <a href="https://pypi.org/project/freelancer-payment-protection-cli/"><img src="https://img.shields.io/pypi/v/freelancer-payment-protection-cli?label=PyPI&color=3776AB" alt="PyPI version" /></a>
+  <a href="https://www.npmjs.com/package/freelancer-payment-protection-cli"><img src="https://img.shields.io/npm/v/freelancer-payment-protection-cli?label=npm&color=CB3837" alt="npm version" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
+  <img src="https://img.shields.io/badge/CodeQL-enabled-22c55e" alt="CodeQL enabled" />
 </p>
 
-<br/>
+<p>
+  Built by&nbsp;<strong><a href="https://github.com/RudrenduPaul">Rudrendu Paul</a></strong>&nbsp;&amp;&nbsp;<strong><a href="https://github.com/essen-code">Sourav Nandy</a></strong>
+</p>
 
-<!-- Navigation -->
-<table>
-<tr>
-<td align="center"><a href="#install"><b>Install</b></a></td>
-<td align="center"><a href="#the-gap"><b>The Gap</b></a></td>
-<td align="center"><a href="#what-we-built"><b>What We Built</b></a></td>
-<td align="center"><a href="#why-its-sticky"><b>Why It's Sticky</b></a></td>
-<td align="center"><a href="#ai-under-the-hood"><b>AI Engine</b></a></td>
-<td align="center"><a href="#architecture"><b>Architecture</b></a></td>
-<td align="center"><a href="#quick-start"><b>Quick Start</b></a></td>
-</tr>
-</table>
-
-<br/>
-
-<!--
-  ═══════════════════════════════════════════════════════════
-  📸 SCREENSHOTS. Add these and this README goes to the top
-  ═══════════════════════════════════════════════════════════
-  Recommended: 1280×800, retina, light mode
-
-  1. /docs/screenshots/01-dashboard.png
-     → Welcome banner with urgency summary + 6 metric cards + Today's Focus + Activity Feed
-
-  2. /docs/screenshots/02-escalation-kanban.png
-     → 5-column kanban with amount-at-stake per column, flame icon on critical cards
-
-  3. /docs/screenshots/04-client-risk.png
-     → Client detail page: risk score counting 0→82, factor breakdown with progress bars, AI reasoning
-
-  Uncomment once screenshots are added:
--->
-<!-- <img src="./docs/screenshots/01-dashboard.png" width="100%" alt="Dashboard, urgency-first design" /> -->
+<img src="https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/demo.gif" width="100%" alt="fpp CLI: logging in and listing overdue invoices against a live workspace" />
 
 </div>
 
 ---
 
-## Install
+**Note on the license:** this project is MIT licensed. Copyright is held by Rudrendu Paul and Sourav Nandy. See [License](#license) below for full terms.
 
-The `fpp` CLI is the fastest way to try this against your own data:
+## Install the CLI
 
 ```bash
 pip install freelancer-payment-protection-cli
+# or: uvx freelancer-payment-protection-cli --help
+# or: npx freelancer-payment-protection-cli --help
 ```
 
-```bash
-fpp login
-fpp invoice list --status overdue
-```
+That installs `fpp`, a typed command-line client for the FastAPI backend below (invoices, escalations, client risk scoring, `--json` on every data command). It talks to a `freelancer-payment-protection` API instance you run yourself. See [Run the full stack locally](#run-the-full-stack-locally) to stand one up, or point `FPP_API_URL` at one that's already running.
 
-Full command reference: [Command-Line Interface](#command-line-interface). To self-host the whole
-product (Next.js dashboard + FastAPI backend), see [Quick Start](#quick-start).
+## Table of Contents
+
+- [What This Is](#what-this-is)
+- [Features](#features)
+- [Run the full stack locally](#run-the-full-stack-locally)
+- [Command-Line Interface](#command-line-interface)
+- [API Reference](#api-reference)
+- [Comparison](#comparison)
+- [Architecture](#architecture)
+- [MCP Server](#mcp-server)
+- [Security](#security)
+- [What's Not Implemented Yet](#whats-not-implemented-yet)
+- [FAQ](#faq)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
-## The Gap
+## What This Is
 
-FreshBooks handles invoicing. HoneyBook handles proposals. HubSpot handles CRM. **None of them handle collection.**
+FreshBooks and HoneyBook stop at "invoice sent." Neither drafts what to say when a client goes quiet, and neither scores a client's risk of non-payment before you start the work. This project is a FastAPI + Next.js app, backed by Claude, that does two specific things well: it drafts a stage-appropriate escalation email or a jurisdiction-referenced demand letter for an overdue invoice, and it scores a client's payment risk from 0–100 with a full factor breakdown, both with an AI-generated confidence/reasoning trail a human reviews before anything goes out.
 
-When a client goes silent after delivery, freelancers are left with a choice: be "difficult" and chase. Or be professional and absorb the loss. That double bind is the entire product.
-
-```
-What exists today:                    Freelancer Payment Protection Solution:
-──────────────────                    ───────────────────────────────────────
-Invoice sent ✓                        Invoice sent ✓
-Payment expected...                   Payment expected...
-[silence]                             → Day 7:  AI Polite Reminder (tone-calibrated)
-[more silence]                        → Day 14: AI Firm Notice (cites contract terms)
-"Hey, just following up..."           → Day 19: AI Final Warning (deadline set)
-[ignored]                             → Day 26: Jurisdiction-aware Demand Letter PDF
-[write it off]                        → Day 33: Small claims prep + evidence export
-```
-
-No tool on the market combines all five: AI-drafted legal documents + automated escalation sequences + evidence capture + client risk scoring + invoice integrations. That combination is what's new.
+It is not a set-and-forget automation system. There's no background scheduler enforcing wait times between stages and no live sync with FreshBooks/QuickBooks/Wave today. See [What's Not Implemented Yet](#whats-not-implemented-yet) for the honest gap between the architecture diagram and what's wired up. What's real: the AI drafting, the risk scoring, the evidence locker, and a CLI that scripts all three.
 
 ---
 
-## What We Built
+## Features
 
-An AI-native payment protection SaaS with a five-stage escalation engine, jurisdiction-aware legal document generation, real-time client risk scoring, and a court-ready evidence locker. The product acts as an automated third party. So the freelancer stays the professional.
-
-**Five capabilities no single competitor has:**
-
-| Capability | How It Works |
-|------------|--------------|
-| **AI Escalation Engine** | Five-stage pipeline. Stage-calibrated tone. Minimum wait times enforced at engine level. Not bypassable via direct API call. |
-| **Legal Demand Letters** | Our AI engine drafts jurisdiction-aware demand letters (CA, NY, TX, UK, Ontario). Streams to the UI in real time with a typewriter effect. |
-| **Client Risk Scoring** | 0–100 score across 7 weighted factors. Structured JSON output with full factor breakdown and AI reasoning. Not just a number. |
-| **Evidence Locker** | Drag-and-drop upload. Supabase Storage with signed URLs. One-click court-ready ZIP export. |
-| **Invoice Sync** | FreshBooks, QuickBooks, and Wave OAuth integrations. Background workers sync on webhook + schedule. |
+| Capability | What's actually implemented |
+|---|---|
+| **AI escalation drafting** | Five ordered stages (`polite_reminder` → `firm_notice` → `final_warning` → `legal_demand` → `legal_action`). `POST /api/v1/escalations/{id}/draft` asks Claude for the next stage's subject/body/tone/confidence score. It's a preview: the endpoint doesn't send the email or persist the stage change (`apps/api/app/services/escalation_service.py`). |
+| **Jurisdiction-referenced demand letters** | Claude drafts a letter for a jurisdiction string you supply. Four jurisdictions (California, New York, England & Wales, Ontario) have a dedicated template file under `legal-templates/`; any other jurisdiction still gets a draft, formatted from the model's general knowledge rather than a hard-coded template. Every letter carries a fixed AI-disclaimer paragraph. Streams to the UI over SSE via a `threading.Thread` → `queue.Queue` → `asyncio.run_in_executor` bridge (`apps/api/app/services/ai_service.py`), verified real and not just a UI-only typewriter effect. |
+| **Client risk scoring** | `POST /api/v1/risk/score` returns a 0–100 score, a level (low/medium/high/critical), and a `factors` array. The prompt asks Claude to weigh 7 named factors (industry payment culture, payment-terms length, historical delay, contract quality, invoice size, geography, outstanding-balance ratio) and return its reasoning. If the Claude call fails, `risk_service.py` falls back to a deterministic heuristic score rather than erroring. Rate-limited to 30 requests/minute. |
+| **Evidence locker** | Manual upload of PDF/PNG/JPEG/`.eml`/plain-text files (25MB cap), listed and deletable per invoice, backed by Supabase Storage in production. There's no drag-and-drop auto-capture and no ZIP export endpoint today. Uploads happen one file at a time via `POST /api/v1/evidence/{invoice_id}/upload`. |
+| **CLI (`fpp`)** | Every data-returning command supports `--json`. Persistent login against Supabase's own password-grant endpoint, cached to `~/.config/freelancer-payment-protection-cli/credentials.json` (mode 600), transparent refresh. Published on PyPI and npm as `freelancer-payment-protection-cli`. |
+| **Security controls** | Row Level Security on every Postgres table (`packages/db/migrations/versions/002_rls_policies.sql`), Supabase JWT auth with no local bypass, `slowapi` rate limiting (10/min on the AI-drafting routes, 30/min on risk scoring, 100/min global), CodeQL on every PR, `pip-audit` + `pnpm audit` dependency scanning, and TruffleHog secret scanning in CI. |
 
 ---
 
-## Why It's Sticky
+## Run the full stack locally
 
-This is not a tool people use once. It earns a place in the daily workflow:
-
-| Habit Loop | Mechanism |
-|------------|-----------|
-| **Daily pull** | Urgency banner: *"3 invoices need your attention today."* Personalized every morning. |
-| **Action before leaving** | "Today's Focus," the top 3 urgent actions with one-click CTAs. Leaves no reason to defer. |
-| **Payment celebration** | Confetti on payment received. Recovery rate updates live. Positive reinforcement loop. |
-| **AI confidence visible** | Every email draft shows its confidence score + visual bar. Builds trust, creates engagement. |
-| **Pipeline clarity** | Kanban board makes collection feel manageable. 5 columns. Total amount at stake per stage. |
-| **Activity feed** | *"Freelancer Payment Protection sent Final Warning to Acme Corp for $12,500."* Keeps users informed without checking manually. |
-| **Risk reveal** | Risk score counts from 0 → final number with color shift on client detail. Creates a moment. |
-| **Escalation learning** | Each stage sounds noticeably different. Users learn the system, trust it, rely on it. |
-
-**Retention prediction:** Any freelancer who recovers one invoice through Freelancer Payment Protection becomes a retained user. The first win is the conversion event.
-
----
-
-## Why This Exists
-
-Late payment is a widespread problem for freelancers, and most invoicing tools (FreshBooks, HoneyBook) stop at sending the invoice. They don't help once a client goes quiet. This project automates the escalation conversation that would otherwise fall on the freelancer.
-
-The AI generation quality needed for jurisdiction-aware legal documents (not just template filling) is a recent capability. Reliable structured output at this consistency level wasn't practical much before 2025.
-
----
-
-## The Escalation Pipeline
-
-Five stages. **Minimum wait times enforced at the service layer**. Not the UI, not suggestions. A direct API call cannot skip a stage window. The scheduler checks daily.
-
-```
-Invoice Overdue
-     │
-     ▼ Day 1
- ┌─────────────────┐
- │  Polite Reminder │  Warm. "Just checking in." Invoice summary. No pressure.
- │  (wait: 7 days)  │
- └────────┬────────┘
-          │ Day 8
-          ▼
- ┌─────────────────┐
- │   Firm Notice   │  Direct. References contract terms. 7-day deadline set.
- │  (wait: 7 days)  │
- └────────┬────────┘
-          │ Day 15
-          ▼
- ┌─────────────────┐
- │  Final Warning  │  Authoritative. Final notice before formal process begins.
- │  (wait: 5 days)  │
- └────────┬────────┘
-          │ Day 22
-          ▼
- ┌─────────────────┐
- │  Legal Demand   │  Jurisdiction-aware PDF. Streaming. Cites statute.
- │  (wait: 7 days)  │
- └────────┬────────┘
-          │ Day 30+
-          ▼
- ┌─────────────────┐
- │  Legal Action   │  Small claims prep. Full evidence export. Court-ready.
- └─────────────────┘
-```
-
-Every email is generated by our AI engine with a confidence score. The freelancer sees the score before approving. Nothing sends without human review.
-
----
-
-## AI Under the Hood
-
-Our AI engine isn't a feature here. The product doesn't function without it.
-
-### 1. Legal Demand Letter Generation
-
-Our AI engine drafts jurisdiction-specific demand letters for California, New York, Texas, England & Wales, and Ontario. Each letter:
-
-- References the exact invoice number, amount, and due date
-- Lists previous contact attempts chronologically
-- Sets a 7-business-day final payment deadline
-- Specifies consequences: credit reporting, small claims, collections referral
-- Cites relevant consumer protection statutes by jurisdiction
-
-**The streaming bridge:** The Anthropic Python SDK is synchronous. FastAPI is async. We bridge them with a `threading.Thread` pushing SSE chunks into a `queue.Queue`, then `asyncio.run_in_executor` pulls on the async side. The event loop never blocks. The typewriter effect is smooth.
-
-Every generated document displays this disclaimer, enforced in the system prompt, verified by the `legal-ai-agent`, non-negotiable:
-
-### 2. Client Risk Scoring
-
-Seven weighted factors → 0–100 score → structured JSON with full reasoning:
-
-```json
-{
-  "score": 82,
-  "level": "critical",
-  "factors": [
-    { "name": "Industry payment culture", "weight": 0.18, "impact": "negative", "description": "..." },
-    { "name": "Historical delay average", "weight": 0.22, "impact": "negative", "description": "..." },
-    ...
-  ],
-  "reasoning": "TechVentures Inc shows three compounding risk signals: ..."
-}
-```
-
-The UI renders the full factor breakdown with animated progress bars and the AI's reasoning verbatim. A score without reasoning is noise. The freelancer sees *why*.
-
-| Score | Level | Action |
-|:-----:|:-----:|--------|
-| 0–25 | 🟢 Low | Standard payment terms |
-| 26–50 | 🟡 Medium | Request 25–50% deposit |
-| 51–75 | 🟠 High | 50% upfront. Non-negotiable |
-| 76–100 | 🔴 Critical | Full payment before work begins |
-
-### 3. Escalation Email Generator
-
-Stage-calibrated structured output per escalation:
-
-```python
-{
-    "subject": str,
-    "body": str,
-    "tone": Literal["warm", "direct", "authoritative", "formal"],
-    "confidence_score": float,  # 0.0–1.0, shown in UI with progress bar
-    "key_phrases": list[str],   # phrases that signal the stage escalation
-}
-```
-
-The confidence score and a visual bar appear in the email preview dialog. Freelancers see how certain the model is about the tone calibration before they hit send. If confidence is low, they regenerate.
-
----
-
-## MCP-Powered Development
-
-MCP servers were used throughout development, not as a demo but as the actual development infrastructure.
-
-| MCP Server | What It Did |
-|------------|-------------|
-| **Supabase MCP** | Our development environment queried the live schema before writing a single query. Migrations were validated against real data. RLS policies were checked in plain English. |
-| **GitHub MCP** | PR creation, diff review, CI status, all without leaving the terminal. Every merge went through our AI security checklist first. |
-| **Gmail MCP** | Escalation email flows tested against real threads. The evidence scraper validated against actual email structures, not fabricated fixtures. |
-| **DocuSign MCP** | Digital signature integration for demand letters wired with live API validation. |
-| **QuickBooks MCP** | Real invoice data during integration development. No mocked responses that diverge from production behavior. |
-| **Sequential Thinking MCP** | Used specifically for risk scoring. Forces step-by-step reasoning through all 7 risk factors before a score is produced. Prevents hallucinated shortcuts. |
-
-The principle: every external API was validated against the live service before it shipped. This is what separates "code that looks correct" from "code that behaves correctly in production."
-
----
-
-## Sub-Agent Architecture
-
-Six specialized agents ran in parallel during development. Strict file-system boundaries meant zero merge conflicts when the legal AI layer and the frontend evolved simultaneously.
-
-```
-.claude/agents/
-├── legal-ai-agent.md       # Claude prompts, demand letter gen, disclaimer enforcement
-│                           # Boundary: packages/legal_ai/ only
-│
-├── escalation-agent.md     # Timing engine, tone calibration, stage progression
-│                           # Boundary: apps/api/app/services/escalation_service.py
-│
-├── integration-agent.md    # FreshBooks / QuickBooks / Wave OAuth, token refresh, retry
-│                           # Boundary: packages/integrations/ only
-│
-├── risk-scoring-agent.md   # Risk model design, 7 factors, thresholds, synthetic test data
-│                           # Boundary: apps/api/app/services/risk_service.py
-│
-├── evidence-locker-agent.md # Evidence capture, Supabase Storage, signed URLs, court ZIP
-│                           # Boundary: apps/api/app/routers/evidence.py
-│
-└── test-agent.md           # pytest unit/integration, Playwright E2E, adversarial legal tests
-                            # Boundary: **/tests/ only
-```
-
-**Custom commands** that encode team process as executable slash commands:
-
-```bash
-/new-escalation-template <stage>   # Scaffold email template + pytest test in one shot
-/generate-demand-letter <id>       # Generate demand letter for a specific invoice
-/review-pr                         # Security + performance + MLP lovability checklist
-```
-
----
-
-## Architecture
-
-### System Diagram
-
-```mermaid
-graph TB
-    subgraph "Frontend: Next.js 14"
-        A[App Router Pages]
-        B[TanStack Query Cache]
-        C[Framer Motion UI]
-        D[Supabase Auth Client]
-    end
-
-    subgraph "Backend: FastAPI Python 3.12"
-        E[FastAPI App Factory]
-        F[JWT Middleware]
-        G[slowapi Rate Limiter]
-        H[Routers: 8 domains]
-        I[Services: business logic only]
-    end
-
-    subgraph "AI: Claude Sonnet 4.6"
-        J[packages/legal_ai/client.py]
-        K[Demand Letter: streaming SSE]
-        L[Escalation Email: structured]
-        M[Risk Scorer: JSON output]
-        N[Dispute Summary]
-    end
-
-    subgraph "Document Pipeline"
-        O[python-docx]
-        P[WeasyPrint PDF]
-    end
-
-    subgraph "Workers: Celery + Redis"
-        Q[Invoice Sync]
-        R[Escalation Scheduler]
-        S[Evidence Scraper]
-    end
-
-    subgraph "Data Layer"
-        T[(Supabase PostgreSQL + RLS)]
-        U[Supabase Storage]
-        V[(Redis Queue)]
-        W[(SQLite Dev DB)]
-    end
-
-    subgraph "External Integrations"
-        X[FreshBooks]
-        Y[QuickBooks]
-        Z[Wave]
-        AA[Resend Email]
-    end
-
-    A --> E
-    D --> T
-    B --> E
-    E --> F --> G --> H --> I
-    I --> J
-    J --> K --> O --> P
-    J --> L --> AA
-    J --> M
-    J --> N
-    I --> T & U
-    Q --> X & Y & Z --> T
-    R --> AA & T
-    S --> U & T
-    Q & R & S --> V
-```
-
-### Request Flow: Overdue Invoice to Sent Escalation
-
-```mermaid
-sequenceDiagram
-    participant FB as FreshBooks
-    participant W as Celery Worker
-    participant DB as Supabase
-    participant AI as Claude API
-    participant Email as Resend
-    participant FE as Dashboard
-
-    FB->>W: Webhook: invoice.overdue
-    W->>DB: Upsert invoice + compute days_past_due
-    W->>AI: Generate escalation (stage: polite_reminder)
-    Note over AI: Structured output: subject, body,<br/>tone, confidence_score, key_phrases
-    AI-->>W: EscalationEvent JSON
-    W->>DB: Store EscalationEvent (sentAt = null)
-    W->>Email: Send via Resend
-    Email-->>W: 200 OK + messageId
-    W->>DB: Update sentAt + nextEscalationDate
-    FE->>DB: Poll via TanStack Query
-    DB-->>FE: Updated invoice + escalation status
-    Note over FE: Activity feed: "Reminder sent ✓<br/>Next action in 7 days"
-```
-
----
-
-## Engineering Decisions
-
-Every architectural choice has a reason. Here are the non-obvious ones:
-
-**Why Python for the backend, not Node?**
-Legal document generation requires `python-docx` and `WeasyPrint`. The only libraries that produce court-quality PDFs with real typographic control. The Anthropic Python SDK is the reference implementation. The Python ecosystem is also significantly stronger for anything legally adjacent (NLTK, spaCy for contract analysis in V3).
-
-**Why enforce escalation wait times at the service layer?**
-A UI-only constraint can be bypassed with a direct API call. The minimum wait window check lives in `escalation_service.py`. So the rule applies regardless of how escalation is triggered: dashboard button, direct API call, or background worker. Trust the service contract, not the interface.
-
-**Why centralize all Claude calls in one file?**
-`packages/legal_ai/client.py` is the only place the Anthropic SDK is imported. A rule checked in every PR. Logging, retries, timeout handling, model version pinning, and the async/sync bridge all live there. When we upgrade from Sonnet 4.6, we change one file.
-
-**Why Pydantic Settings with fail-fast validation?**
-`settings = Settings()` executes at module import time. If `ANTHROPIC_API_KEY` is absent, the application raises `ValidationError` before serving a single request. No silent degradation. No "AI features just stopped working." Fail loud, fail early.
-
-**Why SQLite for dev?**
-No Docker, no install, no credentials. Anyone evaluating this repo is running it in five minutes. SQLAlchemy's dialect abstraction means the ORM layer is identical across SQLite and Postgres. Only the connection string changes.
-
-**Why Turborepo?**
-TypeScript (frontend) and Python (backend) build pipelines run in parallel with a shared cache. `pnpm turbo test` runs everything. Clear package boundaries (`packages/legal_ai`, `packages/types`, `packages/integrations`), each with one owner and one job.
-
----
-
-## Tech Stack Reference
-
-### Frontend
-
-| Library | Version | Role |
-|---------|---------|------|
-| Next.js | 14 | App Router, Server Components, BFF routes |
-| TypeScript | 5.4 | Strict mode, no `any`. Enforced by CI |
-| Tailwind CSS | 3.4 | Utility-first styling, custom design tokens |
-| shadcn/ui | latest | Accessible component primitives |
-| Framer Motion | 11 | All animations: stagger, spring, typewriter, confetti |
-| TanStack Query | 5 | Server state, optimistic updates, cache invalidation |
-| Zod | 3 | Runtime validation at API boundaries |
-| Sonner | 1 | Toast notifications with personality copy |
-
-### Backend
-
-| Library | Version | Role |
-|---------|---------|------|
-| Python | 3.12 | Type annotations throughout |
-| FastAPI | 0.111 | Async API, OpenAPI auto-generation |
-| SQLAlchemy | 2 | ORM, dialect-agnostic (SQLite ↔ Postgres) |
-| Alembic | 1.13 | Schema migrations. Never direct edits |
-| Pydantic | 2 | Request/response validation, Settings |
-| python-docx | 1.1 | Word document generation |
-| WeasyPrint | 62 | PDF rendering with CSS |
-| slowapi | 0.1 | Rate limiting (100/min global, 10/min AI routes) |
-| Celery | 5 | Background workers |
-
-### Infrastructure
-
-| Layer | Choice | Why |
-|-------|--------|-----|
-| Auth | Supabase JWT + httpOnly cookies + PKCE | PKCE blocks auth code interception; httpOnly blocks XSS token theft |
-| Database | Supabase PostgreSQL | Row Level Security enforces workspace isolation at DB layer, not app layer |
-| Storage | Supabase Storage | Signed URLs (1hr expiry), no public access for evidence files |
-| Queue | Redis + Celery | Reliable job delivery; escalation scheduler is time-sensitive |
-| Email | Resend + React Email | Templates are React components. Testable, version-controlled |
-| Monorepo | Turborepo + pnpm | Parallel builds, shared cache, cross-language workspace |
-| CI | GitHub Actions | lint → typecheck → test → security audit → PR gates |
-| SAST | CodeQL | Python + TypeScript, every PR |
-
----
-
-## Security
-
-Production-grade from day one. Not added at the end.
-
-| Control | Implementation |
-|---------|---------------|
-| Authentication | Supabase JWT + httpOnly cookies + PKCE flow |
-| Authorization | RLS on every table. Workspace isolation at DB, not app layer |
-| Secrets | Pydantic `SecretStr`. App refuses to start if any required var is missing |
-| Input validation | Pydantic v2 on every endpoint. Rejection before business logic |
-| Rate limiting | 100 req/min global; 10/min on legal routes (AI is expensive) |
-| CORS | Allowlist-based. No wildcard in production |
-| SQL injection | SQLAlchemy ORM only. Zero raw SQL |
-| XSS | React escaping + strict Content Security Policy |
-| Evidence access | Signed URLs; 1-hour expiry, no public buckets |
-| Dependency audit | `safety` + `pip-audit`. PRs blocked on findings |
-| SAST | CodeQL (Python + TypeScript) on every PR |
-
----
-
-## Repository Structure
-
-```
-freelancer-payment-protection/
-│
-├── apps/
-│   ├── web/                          # Next.js 14 App Router (TypeScript, strict)
-│   │   └── src/
-│   │       ├── app/
-│   │       │   ├── dashboard/        # Urgency banner · 6 metric cards · Today's Focus · Activity Feed
-│   │       │   ├── clients/          # Risk-sorted table · [id] detail with animated risk reveal
-│   │       │   ├── invoices/         # Filter bar · [id] timeline · drag-and-drop evidence locker
-│   │       │   ├── escalations/      # 5-column kanban · amount-at-stake per stage
-│   │       │   └── legal/            # Streaming demand letter generator (SSE typewriter)
-│   │       │
-│   │       └── components/
-│   │           ├── layout/           # SidebarLayout. Nav badges, recovery widget, keyboard hints
-│   │           ├── dashboard/        # MetricCard · ActivityFeed · TodaysFocus · RiskDistributionChart
-│   │           ├── escalations/      # EscalationCard (urgency ring, flame) · StageColumn (amount)
-│   │           ├── shared/           # EmptyState · LoadingSkeleton (shimmer) · RiskBadge · StatusBadge
-│   │           └── ui/               # shadcn/ui primitives
-│   │
-│   ├── api/                          # FastAPI backend. Python 3.12
-│   │   └── app/
-│   │       ├── main.py               # App factory + lifespan hooks
-│   │       ├── config.py             # Pydantic Settings. Fail-fast validation
-│   │       ├── database.py           # SQLAlchemy engine + session factory
-│   │       ├── routers/              # clients · invoices · escalations · legal_docs
-│   │       │                         # evidence · risk_scoring · analytics · health
-│   │       ├── services/             # ai_service · escalation_service (timing engine)
-│   │       │                         # doc_gen_service · risk_service
-│   │       ├── middleware/           # JWT auth · rate_limit · CORS
-│   │       ├── models/               # SQLAlchemy ORM (client, invoice, escalation, evidence, workspace)
-│   │       └── schemas/              # Pydantic request/response schemas
-│   │
-│   └── workers/                      # Celery background workers
-│       └── tasks/                    # invoice_sync · escalation_scheduler · evidence_scraper
-│
-├── packages/
-│   ├── legal_ai/                     # The AI layer. Centralized, auditable
-│   │   ├── client.py                 # ONLY place Anthropic SDK is called. Enforced in CI
-│   │   └── prompts/
-│   │       ├── demand_letter.py      # Jurisdiction-aware prompts (CA, NY, TX, UK, Ontario)
-│   │       ├── escalation_sequence.py # Stage-calibrated tone prompts
-│   │       ├── risk_scoring.py       # 7-factor structured JSON output
-│   │       └── dispute_summary.py    # Evidence synthesis
-│   │
-│   ├── db/
-│   │   ├── migrations/versions/      # Alembic. All schema changes live here
-│   │   │   ├── 001_initial_schema.py
-│   │   │   └── 002_rls_policies.sql  # RLS on every table
-│   │   ├── models/                   # SQLAlchemy models (source of truth)
-│   │   └── seeds/                    # 50 clients, 50 invoices, 20 escalations. No creds needed
-│   │
-│   ├── integrations/                 # FreshBooks, QuickBooks, Wave OAuth connectors
-│   └── types/                        # Shared TypeScript types. Strict, no `any`
-│
-├── .claude/
-│   ├── agents/                       # 6 domain-bounded sub-agents with file-system boundaries
-│   └── commands/                     # Executable slash commands encoding team process
-│
-├── legal-templates/                  # Jurisdiction base templates (CA-Ontario, UK, US-CA, US-NY)
-├── turbo.json                        # Parallel pipeline: build, test, lint
-└── .github/workflows/                # CI: lint → typecheck → pytest → CodeQL → security audit
-```
-
----
-
-## Quick Start
-
-No external services needed to seed and query data through the API/CLI. **Viewing the web
-dashboard itself requires a (free-tier) Supabase project** for login — see the note below.
-
-**Prerequisites:** Node.js 20+ · pnpm 9.0.0 (see corepack note below) · Python 3.12.x (3.13/3.14 not yet supported — see note below)
+Verified against a fresh clone. **Prerequisites:** Node.js 20+, pnpm 9.x, Python 3.12.x (3.13/3.14 aren't supported by this checkout: 3.14 fails at `pip install` for one of the pinned backend dependencies).
 
 > [!WARNING]
 > Requires Python 3.12.x specifically. 3.13 and 3.14 are not yet supported.
@@ -602,66 +117,78 @@ dashboard itself requires a (free-tier) Supabase project** for login — see the
 ```bash
 git clone https://github.com/RudrenduPaul/freelancer-payment-protection.git
 cd freelancer-payment-protection
-
-# If your global pnpm doesn't already resolve to 9.0.0 under corepack, pin it first:
-# corepack prepare pnpm@9.0.0 --activate
-
-# Monorepo dependencies
 pnpm install
 
-# Env files (placeholder values work for the API/CLI seed-data path;
-# apps/web needs a REAL Supabase URL + anon key to log in, see note below)
+# Backend env
 cp apps/api/.env.example apps/api/.env
+# apps/api/.env.example ships two values that don't parse as written. See the
+# Troubleshooting question in the FAQ before you skip this:
+#   ALLOWED_ORIGINS=["http://localhost:3000"]   (needs the JSON-array brackets)
+#   delete the DATABASE_URL= line entirely (Settings doesn't accept it; the
+#   app already defaults to sqlite:///./dev.db without it)
+
 cp apps/web/.env.example apps/web/.env.local
 
-# Python setup — run from the repo root, not apps/api
 pip install -r apps/api/requirements.txt
 python -m alembic -c packages/db/migrations/alembic.ini upgrade head
 python scripts/seed_dev.py
 
-# Start frontend + API in parallel
 pnpm dev
 ```
 
+The seed script needs no external services and produces 8 clients, 16 invoices, and pre-generated escalation events, all queryable through the API or the CLI once seeded. Verified end to end in a fresh venv: `alembic upgrade head` runs clean, `seed_dev.py` populates SQLite, and `uvicorn app.main:app` boots and serves `/health` and `/health/ready` once the two `.env` fixes above are applied.
+
 | Service | URL |
-|---------|-----|
+|---|---|
 | Dashboard | `http://localhost:3000` |
 | API + OpenAPI docs | `http://localhost:8000/docs` |
 
-8 mock clients · 16 invoices · pre-generated escalation events · evidence items, all queryable
-via the API/CLI without any external service once seeded.
+Logging into the **web dashboard** needs a real (free tier is fine) [Supabase](https://supabase.com) project. `apps/api/app/middleware/auth.py` validates a Supabase-issued JWT with no local bypass. The seeded data is fully reachable through the API/CLI without one. AI features (demand letters, risk scoring, escalation drafts) need a real `ANTHROPIC_API_KEY` in `apps/api/.env`; without one, risk scoring falls back to the heuristic score and the other two AI routes return a 503.
 
-> [!WARNING]
-> **Web dashboard login** requires a real (free-tier is fine) [Supabase](https://supabase.com)
-> project: `apps/api/app/middleware/auth.py` validates a Supabase-issued JWT on every protected
-> route with no local bypass, and `apps/web/.env.example`'s placeholder values will not let you
-> log in. Put your project's URL/anon key in `apps/web/.env.local` and `apps/api/.env` to use
-> the dashboard; the seeded data is otherwise fully reachable through the API/CLI with the
-> placeholder env files as-is.
+---
 
-> [!NOTE]
-> **AI features** (demand letters, risk scoring, escalation drafts) require `ANTHROPIC_API_KEY` in `apps/api/.env`. Variable name is in `.env.example`. Never commit real keys.
+## Command-Line Interface
+
+Verified against the installed package's actual `--help` output.
+
+```
+fpp login                                   Log in (prompts for email/password)
+fpp logout                                  Delete cached credentials
+fpp whoami [--json]                         Show cached workspace/session info
+
+fpp invoice list [--status] [--client-id] [--page] [--page-size] [--json]
+fpp invoice create --client-id --invoice-number --amount --due-date [--currency] [--source-system] [--external-id] [--json]
+fpp invoice show <invoice-id> [--json]
+fpp invoice set-status <invoice-id> <status> [--json]
+
+fpp escalation list [--json]                Active escalations, grouped by stage
+fpp escalation status <invoice-id> [--json] Current stage + full history
+fpp escalation advance <invoice-id> [--json] Preview the next stage's AI-drafted email (does not send or persist)
+
+fpp client list [--risk-level] [--search] [--page] [--page-size] [--json]
+fpp client show <client-id> [--json]
+fpp client risk <client-id> [--json]        Compute/refresh the AI risk score
+```
+
+```bash
+fpp login
+fpp invoice list --status overdue --json | jq '.[] | {id, invoiceNumber, daysPastDue}'
+fpp client risk <client-id> --json | jq '.level'
+```
+
+`--status` on `invoice list` accepts `disputed`, `overdue`, `paid`, `pending`, `written_off`. Full flag reference for any command: `fpp <command> --help`. Full install, config, and auth walkthrough: [`packages/cli/README.md`](https://github.com/RudrenduPaul/freelancer-payment-protection/blob/main/packages/cli/README.md).
+
+<img src="https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/usage.gif" width="100%" alt="fpp CLI: filtering overdue invoices and scoring a client" />
 
 ---
 
 ## API Reference
 
-Interactive OpenAPI at `http://localhost:8000/docs`. Key endpoints:
-
-```bash
-GET  /api/v1/analytics/overview          # Dashboard totals
-GET  /api/v1/clients                     # List clients
-POST /api/v1/escalations/{id}/draft      # AI-draft next escalation email (preview)
-POST /api/v1/legal/demand-letter/stream  # Generate + stream demand letter (SSE)
-POST /api/v1/risk/score                  # AI risk score for a client
-```
-
-<details>
-<summary>Full endpoint surface (verified against the router source directly)</summary>
+Interactive OpenAPI at `http://localhost:8000/docs`. Verified against the router source directly:
 
 ```
 GET    /health                                Liveness probe
-GET    /health/ready                          Readiness (DB + Redis)
+GET    /health/ready                          Readiness (DB)
 
 GET    /api/v1/clients                        List
 POST   /api/v1/clients                        Create
@@ -675,7 +202,7 @@ GET    /api/v1/invoices/{invoice_id}          Detail
 PATCH  /api/v1/invoices/{invoice_id}/status   Update status
 
 GET    /api/v1/escalations                    Active escalations
-POST   /api/v1/escalations/{invoice_id}/draft    AI-draft next escalation email
+POST   /api/v1/escalations/{invoice_id}/draft    AI-draft next escalation email (preview only)
 GET    /api/v1/escalations/{invoice_id}/history  Full history
 
 POST   /api/v1/legal/demand-letter            Generate demand letter
@@ -690,26 +217,84 @@ POST   /api/v1/risk/score                     AI risk score, structured JSON
 GET    /api/v1/analytics/overview             Dashboard totals
 ```
 
-</details>
+---
+
+## Comparison
+
+Every non-`freelancer-payment-protection` row below is sourced from each vendor's own docs/help center, checked in August 2026.
+
+| Capability | Spreadsheets | FreshBooks | HoneyBook | HubSpot | freelancer-payment-protection |
+|---|:---:|:---:|:---:|:---:|:---:|
+| Overdue-payment reminders | ✗ | Automatic, up to 3 per invoice, configurable timing, template-based | Automatic, 4 fixed timings (7 days before, due day, 2 days after, recurring), template-based | Automated "Payment Reminder" workflow (rule-based) | AI-drafted per stage, tone-calibrated, confidence-scored (preview only, not auto-sent) |
+| Jurisdiction-referenced legal demand letters | ✗ | ✗ (not documented) | ✗ (not documented) | ✗ (not documented) | AI-drafted; 4 jurisdictions have a dedicated template (CA, NY, UK, Ontario) |
+| Client/invoice risk scoring | ✗ | ✗ (not documented) | ✗ (not documented) | **Breeze Invoice Prioritization**, an AI ranking of overdue invoices by risk/age/customer value, Revenue Hub public beta as of June 2026; no published 0–100 score or per-factor reasoning | 0–100 score, 7 named factors, full AI reasoning returned per client, heuristic fallback if AI is down |
+| Evidence/document storage per invoice | ✗ | ✗ (not documented) | ✗ (not documented) | ✗ (not documented) | Manual upload, Supabase Storage-backed, no ZIP export yet |
+| Streaming AI generation in the UI | ✗ | ✗ | ✗ | ✗ | Real SSE streaming (verified in source, not just a UI animation) |
+| Native invoicing | ✗ | Yes (core product) | Yes (core product) | Yes (Commerce/Payments) | No. Invoices are created via API/CLI, not synced from an accounting tool today |
+| Background job automation (sync, scheduled escalation) | N/A | Native | Native | Native | Not implemented. See [What's Not Implemented Yet](#whats-not-implemented-yet) |
+
+The honest read: FreshBooks and HoneyBook are stronger at the mechanical, rule-based reminder they already do well. HubSpot's June 2026 Breeze beta is the closest thing to a competing risk-scoring feature on this list and is worth watching. Nobody here drafts a jurisdiction-referenced demand letter or streams AI generation into the UI; that's the actual gap this project fills, not "full collection automation," which none of these, including this project, deliver end to end yet.
 
 ---
 
-## Command-Line Interface
+## Architecture
 
-A standalone `freelancer-payment-protection-cli` package (`packages/cli/`) wraps
-the clients, invoices, escalations, and risk-scoring endpoints above for
-terminal and agent/scripting use, with a `--json` flag on every data-returning
-command. See `packages/cli/README.md` for installation, the full command
-reference, and a login/auth walkthrough.
+### System diagram (what's actually implemented)
 
-```bash
-pip install freelancer-payment-protection-cli
-fpp login
-fpp invoice list --status overdue
-fpp client risk <client-id>
+```mermaid
+graph TB
+    subgraph "Frontend: Next.js 14"
+        A[App Router Pages]
+        B[TanStack Query Cache]
+        C[Framer Motion UI]
+        D[Supabase Auth Client]
+    end
+
+    subgraph "Backend: FastAPI, Python 3.12"
+        E[FastAPI App Factory]
+        F[JWT Middleware]
+        G[slowapi Rate Limiter]
+        H["Routers: 8 domains"]
+        I[Services: business logic only]
+    end
+
+    subgraph "AI: Claude Sonnet 4.6"
+        J[packages/legal_ai/client.py]
+        K[Demand Letter: streaming SSE]
+        L[Escalation Email: structured draft]
+        M[Risk Scorer: JSON output]
+    end
+
+    subgraph "Data Layer"
+        T[(Supabase PostgreSQL + RLS)]
+        U[Supabase Storage]
+        W[(SQLite Dev DB)]
+    end
+
+    A --> E
+    D --> T
+    B --> E
+    E --> F --> G --> H --> I
+    I --> J
+    J --> K
+    J --> L
+    J --> M
+    I --> T & U
 ```
 
-<img src="https://raw.githubusercontent.com/RudrenduPaul/freelancer-payment-protection/main/docs/usage.gif" width="100%" alt="freelancer-payment-protection-cli: filtering overdue invoices, scoring a client, and checking escalation status" />
+Celery and Redis are declared dependencies (`requirements.txt`) with no worker code in the repository today: no `apps/workers/` directory exists, and there is no scheduled job that advances an invoice's stage automatically. See [What's Not Implemented Yet](#whats-not-implemented-yet).
+
+### Why Python for the backend, not Node
+
+Legal document drafting uses `python-docx`/`WeasyPrint` in the code paths that are wired up for it, and the Anthropic Python SDK is the reference implementation. The Python ecosystem is also where contract-analysis tooling (NLTK, spaCy) would live for a future dispute-analysis feature.
+
+### Why centralize all Claude calls in one file
+
+`packages/legal_ai/client.py` (called from `apps/api/app/services/ai_service.py`) is the only place the Anthropic SDK is imported. Model version, retries, and the sync-SDK/async-FastAPI bridge live there, so upgrading the model is a one-file change.
+
+### Why Pydantic Settings with fail-fast validation
+
+`settings = Settings()` runs at import time. If `ANTHROPIC_API_KEY` is absent, the app raises before serving a request rather than degrading silently. The tradeoff: the settings model is strict about unrecognized fields too, which is the root cause of one of the two `.env.example` issues in the FAQ below.
 
 Every data-returning command also takes `--json` for structured output an agent or script can parse directly:
 
@@ -751,56 +336,68 @@ prints to a terminal.
 
 ---
 
-## Running Tests
+## Security
 
-```bash
-# Backend. Pytest + coverage
-cd apps/api && pytest --cov=app --cov-report=term-missing
-
-# Frontend. Vitest
-pnpm --filter web test
-
-# E2E. Playwright
-pnpm --filter web test:e2e
-
-# Full pipeline
-pnpm turbo test
-```
-
-**Coverage gates (enforced in CI, PRs blocked on failure):**
-- 70% minimum line coverage on all new code
-- 90%+ on risk scoring, escalation service, and document generation
-- Every new route: happy path + auth failure + validation error
-- Zero live external API calls in test suite. All mocked
+| Control | Implementation |
+|---|---|
+| Authentication | Supabase JWT validated on every protected route, no local bypass |
+| Authorization | Row Level Security on every table, with workspace isolation enforced at the database, not the app layer |
+| Secrets | Pydantic `SecretStr`; app fails to start if a required var is missing |
+| Input validation | Pydantic v2 on every endpoint |
+| Rate limiting | 100 req/min global default; 10/min on the AI-drafting routes; 30/min on risk scoring |
+| SQL injection | SQLAlchemy ORM only, no raw SQL in the routers/services reviewed |
+| Evidence access | Uploaded files validated by MIME type and size (25MB cap) before storage |
+| Dependency audit | `pip-audit` (backend) + `pnpm audit` (frontend), both run in CI |
+| Secret scanning | TruffleHog on every push/PR |
+| SAST | CodeQL (Python + TypeScript) on every PR |
 
 ---
 
-## Pricing
+## What's Not Implemented Yet
 
-| Plan | Monthly | Clients | What's Included |
-|------|:-------:|:-------:|----------------|
-| **Solo** | $29 | 10 | Escalation sequence · 3 AI demand letters/mo · Manual evidence upload |
-| **Pro** | $59 | Unlimited | Unlimited AI documents · Evidence locker + court export · Full risk scoring · All integrations |
-| **Agency** | $99 | Unlimited | Multi-user workspace · White-label client portal · API access · Priority support |
+Being direct about this because the architecture diagrams and dependency list overstate it otherwise:
 
-20% discount on annual billing.
+- **No background worker or scheduler.** `celery` and `redis` are pinned in `requirements.txt`, but no `apps/workers/` code exists in the repository. Nothing advances an invoice's escalation stage automatically or on a timer.
+- **No minimum-wait-time enforcement.** `escalation_service.py`'s `get_next_stage()` is a plain ordered lookup with no date/timedelta check anywhere in the call path. Any authenticated caller can request a draft for the next stage regardless of how long the invoice has been overdue; the endpoint also never writes the new stage back to the invoice.
+- **No FreshBooks/QuickBooks/Wave sync.** `packages/integrations/__init__.py` is an empty file. Invoices are created through the API/CLI, not synced from an accounting tool.
+- **No production PDF/DOCX export yet.** `doc_gen_service.py`'s docstring says it plainly: dev builds save the drafted letter as a `.txt` file; the `python-docx`/WeasyPrint production path is not wired up.
+- **No evidence ZIP export.** The evidence router supports list/upload/delete only.
+
+None of this is secret. It's what running the code shows. The parts that are real (AI drafting, risk scoring with reasoning, streaming, the CLI) are described above with specifics, not adjectives.
+
+---
+
+## FAQ
+
+**What is this, and what's the actual differentiator versus FreshBooks or HoneyBook?**
+Both of those handle sending an invoice and reminding a client on a fixed schedule. Neither drafts a jurisdiction-referenced legal demand letter or scores a client's payment risk with an AI-generated reasoning trail. This project does both, backed by a real Claude API call you can see in `packages/legal_ai/` and `apps/api/app/services/`, not a canned template swap.
+
+**Is this open source? Can I fork it or use the code in my own project?**
+Yes. The repository is MIT licensed: fork it, modify it, or embed the code in your own project, subject only to the standard MIT terms in [`LICENSE`](./LICENSE) (keep the copyright/permission notice). The `freelancer-payment-protection-cli` package on PyPI/npm is installable and runnable as-is under the same license.
+
+**What platforms does the CLI support?**
+Python 3.10–3.13 on Linux, macOS, or Windows, installed via `pip`, `uvx`, or `pipx`. The npm package (`freelancer-payment-protection-cli` on npm) is a thin wrapper that shells out to `uvx` or `pipx` at runtime rather than bundling a platform binary; it needs one of those two on `PATH`. Running the full backend/frontend stack needs Python 3.12.x specifically; 3.13/3.14 aren't supported by the current dependency pins.
+
+**How is this different from HubSpot's new Breeze Invoice Prioritization feature?**
+Breeze (Revenue Hub, public beta as of June 2026) ranks a HubSpot user's overdue invoices by risk, age, and customer value, closer to a sort order than a score. `fpp client risk` returns a 0–100 score with a named-factor breakdown and a written reasoning paragraph per client, works standalone without adopting the rest of HubSpot's CRM, and pairs with jurisdiction-referenced demand-letter drafting that HubSpot doesn't offer. Worth revisiting as Breeze comes out of beta.
+
+**I followed the Quick Start exactly and `uvicorn app.main:app --reload` crashed on startup. Is that a bug?**
+Yes, a real one in the shipped `apps/api/.env.example`. Two of its default values don't survive `Settings()`'s validation: `ALLOWED_ORIGINS=http://localhost:3000` needs to be a JSON array (`["http://localhost:3000"]`) because the field is typed `list[str]`, and `DATABASE_URL=sqlite:///./dev.db` isn't a field the `Settings` model declares at all, so it fails with `Extra inputs are not permitted`. Fix both lines in your `.env` (or just delete the `DATABASE_URL` line; `apps/api/app/database.py` already defaults to that same SQLite path independently) and the server boots. Confirmed by running the documented steps in a clean clone.
+
+**Does `fpp escalation advance` actually send the email or move the invoice forward?**
+No. It calls `/api/v1/escalations/{id}/draft`, which returns an AI-drafted preview only. The backend has no endpoint today that persists a stage change or sends the email. See [What's Not Implemented Yet](#whats-not-implemented-yet).
+
+**What happens if I don't have an `ANTHROPIC_API_KEY` set?**
+The app still starts once the two `.env` fixes above are applied, but the AI routes behave differently: `client risk` falls back to a deterministic heuristic score (documented in `risk_service.py`), while `escalation advance` and the demand-letter endpoints return a 503 with no fallback.
+
+**Can I use this for a real client engagement today?**
+For the CLI against your own self-hosted backend and Supabase project, yes. The MIT license also permits using or embedding this in a real client engagement or your own product; see [License](#license) for the exact terms.
 
 ---
 
+## Contributing
 
-## What No Competitor Does
-
-| Capability | Spreadsheets | FreshBooks | HoneyBook | HubSpot | **Freelancer Payment Protection** |
-|------------|:-----------:|:----------:|:---------:|:-------:|:-----------:|
-| AI escalation (tone-calibrated) | ✗ | Reminders only | Basic | Manual | Stage-aware + confidence-scored |
-| Jurisdiction-aware demand letters | ✗ | ✗ | ✗ | ✗ | CA / NY / TX / UK / Ontario (PDF) |
-| Client risk scoring (0–100) | ✗ | ✗ | ✗ | ✗ | 7 factors + AI reasoning |
-| Evidence locker + court export | ✗ | ✗ | ✗ | ✗ | Auto-captured + ZIP download |
-| Streaming AI generation | ✗ | ✗ | ✗ | ✗ | SSE typewriter, real-time |
-| Invoice sync integrations | ✗ | Native | Native | ✗ | FreshBooks / QuickBooks / Wave |
-| Min wait times at engine level | N/A | N/A | N/A | N/A | Service layer. API-call-proof |
-
----
+GitHub Issues are open for bug reports and feature requests. Pull requests are welcome; open an issue first for anything non-trivial so the approach can be agreed on before you put in the work. Reach out via [github.com/RudrenduPaul](https://github.com/RudrenduPaul) with questions.
 
 ## License
 
@@ -813,10 +410,5 @@ MIT. See [LICENSE](./LICENSE) for full terms.
 <div align="center">
 
 *Built by Rudrendu Paul and Sourav Nandy · Developed with [Claude Code](https://claude.ai/code)*
-
-<br/>
-
-**If this approach to AI-native development is useful to you, star the repo.**<br/>
-It helps other developers and founders find the methodology.
 
 </div>
