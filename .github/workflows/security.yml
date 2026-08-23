@@ -40,7 +40,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Scan for leaked secrets
-        uses: trufflesecurity/trufflehog@main
+        uses: trufflesecurity/trufflehog@bcfcf73aaf4759d4dadc2783177c245a02792318 # v3.97.0
         with:
           path: ./
           extra_args: --only-verified
