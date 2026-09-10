@@ -20,7 +20,7 @@ python-multipart==0.0.31
 slowapi==0.1.9
 PyJWT==2.13.0
 python-docx==1.1.0
-weasyprint==69.0
+weasyprint==70.0
 celery==5.3.6
 redis==5.0.4
 email-validator==2.1.1
