@@ -1,8 +1,11 @@
+import logging
+
 from fastapi import APIRouter
 from sqlalchemy import text
 from apps.api.app.database import engine
 
 router = APIRouter()
+logger = logging.getLogger(__name__)
 
 
 @router.get("/health")
@@ -18,5 +21,6 @@ async def readiness():
         with engine.connect() as conn:
             conn.execute(text("SELECT 1"))
         return {"status": "ready", "db": "connected"}
-    except Exception as e:
-        return {"status": "not_ready", "db": "disconnected", "error": str(e)}
+    except Exception:
+        logger.exception("Readiness check failed: database unreachable")
+        return {"status": "not_ready", "db": "disconnected", "error": "database unavailable"}
