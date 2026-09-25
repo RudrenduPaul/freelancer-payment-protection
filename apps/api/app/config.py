@@ -3,9 +3,16 @@ Settings loaded from environment variables.
 App refuses to start if required vars are missing — fail-fast pattern.
 All secrets come from env vars only. Never hardcode credentials.
 """
+from pathlib import Path
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import AnyHttpUrl, SecretStr
 from typing import Optional
+
+
+# Resolved from this file's location, never from the working directory, so a
+# process started in another project's root can never pick up that project's .env.
+ENV_FILE = Path(__file__).resolve().parents[1] / ".env"
 
 
 class Settings(BaseSettings):
@@ -32,7 +39,7 @@ class Settings(BaseSettings):
     max_evidence_file_size_mb: int = 25
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=ENV_FILE,
         case_sensitive=False,
     )
 
