@@ -135,7 +135,7 @@ export function RiskDistributionChart({ data }: RiskDistributionChartProps) {
               ))}
             </Pie>
             <Tooltip content={<CustomTooltip />} />
-            <Legend content={<CustomLegend />} />
+            <Legend content={<CustomLegend />} itemSorter={null} />
           </PieChart>
         </ResponsiveContainer>
       )}

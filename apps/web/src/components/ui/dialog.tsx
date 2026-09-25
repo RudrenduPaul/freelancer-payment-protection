@@ -44,7 +44,7 @@ const DialogContent = React.forwardRef<
         exit={{ opacity: 0, y: 8, scale: 0.98 }}
         transition={{ duration: 0.22, ease: 'easeOut' }}
         className={cn(
-          'fixed left-[50%] top-[50%] z-50 w-full max-w-lg translate-x-[-50%] translate-y-[-50%]',
+          'fixed inset-0 z-50 m-auto h-fit w-full max-w-lg',
           'rounded-xl border border-slate-200 bg-white shadow-xl',
           'focus:outline-none',
           className,
