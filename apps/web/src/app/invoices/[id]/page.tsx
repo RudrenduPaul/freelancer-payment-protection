@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, type Variants } from 'framer-motion'
 import { useDropzone } from 'react-dropzone'
 import {
   ArrowLeft,
@@ -65,7 +65,7 @@ function formatBytes(bytes: number): string {
 
 // ─── Section fade animation ───────────────────────────────────────────────────
 
-const sectionVariants = {
+const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 14 },
   visible: (delay: number) => ({
     opacity: 1,
@@ -74,7 +74,7 @@ const sectionVariants = {
   }),
 }
 
-const evidenceItemVariants = {
+const evidenceItemVariants: Variants = {
   hidden: { opacity: 0, x: -10 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.22, ease: 'easeOut' } },
 }

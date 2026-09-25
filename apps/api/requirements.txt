@@ -4,23 +4,19 @@ fastapi==0.141.1
 # starlette>=1.3.1 needed to close every advisory pip-audit flagged, so it's pinned explicitly
 # below. fastapi puts no upper bound on starlette, so this pin is safe to resolve.
 starlette>=1.3.1
-uvicorn[standard]==0.29.0
-pydantic==2.13.4
+uvicorn[standard]==0.53.0
+pydantic==2.13.5
 # bumped alongside fastapi/starlette above: fastapi==0.141.1 requires pydantic>=2.9.0
 pydantic-settings==2.15.0
-sqlalchemy==2.0.29
-alembic==1.13.1
-anthropic==0.25.0
-httpx<0.28  # anthropic==0.25.0's internal client construction passes a `proxies`
-            # kwarg that httpx removed in 0.28; without this pin, resolvers that
-            # pick the newest httpx satisfying anthropic's unpinned range install
-            # 0.28.x and every Claude call raises TypeError: unexpected keyword
-            # argument 'proxies' at request time.
-python-multipart==0.0.31
-slowapi==0.1.9
-PyJWT==2.13.0
-python-docx==1.1.0
+sqlalchemy==2.1.0
+alembic==1.20.0
+anthropic==1.8.0
+httpx==0.28.1
+python-multipart==0.0.32
+slowapi==0.1.10
+PyJWT==2.15.0
+python-docx==1.2.0
 weasyprint==70.0
-celery==5.3.6
-redis==5.0.4
-email-validator==2.1.1
+celery==5.6.3
+redis==8.1.0
+email-validator==2.3.0

@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 import {
   Send,
   DollarSign,
@@ -105,7 +105,7 @@ const containerVariants = {
   visible: { transition: { staggerChildren: 0.06 } },
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, x: -8 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.25, ease: 'easeOut' } },
 }

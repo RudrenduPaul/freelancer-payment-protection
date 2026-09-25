@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useMemo } from 'react'
 import { useRouter } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, type Variants } from 'framer-motion'
 import { FileText, Plus, CheckCircle, Eye } from 'lucide-react'
 import { toast } from 'sonner'
 import { invoicesApi } from '@/lib/api'
@@ -30,7 +30,7 @@ const tableVariants = {
   visible: { transition: { staggerChildren: 0.04 } },
 }
 
-const rowVariants = {
+const rowVariants: Variants = {
   hidden: { opacity: 0, y: 6 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.22, ease: 'easeOut' } },
 }
