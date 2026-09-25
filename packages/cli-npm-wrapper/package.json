@@ -28,7 +28,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RudrenduPaul/freelancer-payment-protection.git"
+    "url": "git+https://github.com/RudrenduPaul/freelancer-payment-protection.git",
+    "directory": "packages/cli-npm-wrapper"
   },
   "homepage": "https://github.com/RudrenduPaul/freelancer-payment-protection",
   "bugs": {
